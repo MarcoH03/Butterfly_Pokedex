@@ -1,201 +1,165 @@
 /* ═══════════════════════════════════════════════════════════════
-   MARIPOSAS DE CUBA — Global Styles
-   Design system: GBA Pokédex pixel art aesthetic
+   MARIPOSAS DE CUBA — DS Pokédex Design System
+   Reference: Pokémon Platinum / HeartGold Pokédex UI
    ═══════════════════════════════════════════════════════════════ */
 
-/* ── Google Font import (fallback if not preloaded) ── */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-/* ── Design tokens ───────────────────────────────────────────── */
 :root {
-  /* Core palette — pulled from GBA Pokédex screen colors */
-  --color-bg:         #1a1c2c;   /* Deep navy — main background */
-  --color-bg-card:    #2d2f45;   /* Slightly lighter navy — card surfaces */
-  --color-bg-panel:   #16213e;   /* Darker panel — filter drawer, headers */
-  --color-accent:     #4ec94e;   /* GBA green — primary accent, highlights */
-  --color-accent-dim: #2a6b2a;   /* Muted green — secondary/disabled state */
-  --color-red:        #e84040;   /* Pokédex red — endemic badges, alerts */
-  --color-yellow:     #f0c030;   /* GBA yellow — warnings, flight season */
-  --color-blue:       #5a6fa8;   /* Slate blue — family tags, info elements */
-  --color-text:       #f0e8c0;   /* Warm parchment — all primary text */
-  --color-text-dim:   #8a8fa8;   /* Muted blue-gray — secondary text */
-  --color-border:     #4a4f6a;   /* Mid-navy — borders and dividers */
+  /* ── Palette from the DS Pokédex screenshots ── */
+  --navy:        #1a1c2c;   /* Left panel background */
+  --navy-mid:    #252840;   /* Card/surface background */
+  --navy-light:  #353860;   /* Borders, secondary surfaces */
+  --cream:       #e8dfa0;   /* Right list panel — the tan/parchment */
+  --cream-dark:  #c8b870;   /* Cream borders */
+  --white-panel: #f0f0f0;   /* Info card background (image 2) */
+  --grey-sprite: #707090;   /* Sprite box background (image 1) */
+  --green-tab:   #48b840;   /* Green tabs at top (image 2) */
+  --green-hi:    #78d858;   /* Highlighted/selected state */
+  --green-dark:  #287020;   /* Dark green for borders */
+  --red-btn:     #d03030;   /* Red buttons left side (image 1) */
+  --red-dark:    #901818;   /* Red button border */
+  --yellow:      #e8c020;   /* Accent yellow */
+  --text-dark:   #181828;   /* Dark text on light backgrounds */
+  --text-light:  #f0ecd8;   /* Light text on dark backgrounds */
+  --text-dim:    #9090b8;   /* Secondary text */
+  --blue-accent: #5878d0;   /* Blue type badges (image 2) */
+  --scrollbar:   #303858;
 
-  /* Typography — single font for the whole app */
-  --font-pixel: 'Press Start 2P', monospace;
+  --font: 'Press Start 2P', monospace;
 
-  /* Type scale — Press Start 2P reads small, so sizes are larger than normal */
-  --text-xs:   8px;
-  --text-sm:   9px;
-  --text-base: 11px;
-  --text-md:   13px;
-  --text-lg:   16px;
-  --text-xl:   20px;
-
-  /* Spacing — multiples of 4px keeps everything on a pixel grid */
-  --space-1:  4px;
-  --space-2:  8px;
-  --space-3:  12px;
-  --space-4:  16px;
-  --space-5:  20px;
-  --space-6:  24px;
-  --space-8:  32px;
-
-  /* The signature pixel border — classic GBA/DS inset shadow border.
-     Apply with class .pixel-border */
-  --pixel-border-color: #4a4f6a;
+  /* Type scale */
+  --t-xxs:  7px;
+  --t-xs:   8px;
+  --t-sm:   9px;
+  --t-base: 10px;
+  --t-md:   12px;
+  --t-lg:   14px;
+  --t-xl:   18px;
 }
 
-/* ── Reset ───────────────────────────────────────────────────── */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ── Base ────────────────────────────────────────────────────── */
 html, body, #root {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;          /* The app itself handles scrolling internally */
+  height: 100%; width: 100%; overflow: hidden;
+  background: var(--navy);
 }
 
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-pixel);
-  font-size: var(--text-base);
-  line-height: 1.8;
-  -webkit-font-smoothing: none;      /* Keep pixel font crisp — no anti-aliasing */
-  -moz-osx-font-smoothing: unset;
-  image-rendering: pixelated;        /* Pixel images stay sharp when scaled */
-
-  /* Safe area insets — handles iPhone notch and home bar */
+  font-family: var(--font);
+  color: var(--text-light);
+  -webkit-font-smoothing: none;
+  image-rendering: pixelated;
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
 }
 
-/* ── Signature element: pixel border ────────────────────────── */
-/*
-  This recreates the classic GBA/DS window border using only CSS box-shadow.
-  It draws four offset shadows that form an inset rectangular frame —
-  no images needed. Every card and panel in the app uses this.
-*/
-.pixel-border {
-  box-shadow:
-    /* Outer dark frame */
-    0 0 0 2px var(--color-bg),
-    0 0 0 4px var(--pixel-border-color),
-    /* Inner highlight (top-left light edge) */
-    inset 2px 2px 0 0 rgba(255,255,255,0.08),
-    /* Inner shadow (bottom-right dark edge) */
-    inset -2px -2px 0 0 rgba(0,0,0,0.3);
-}
-
-.pixel-border-accent {
-  box-shadow:
-    0 0 0 2px var(--color-bg),
-    0 0 0 4px var(--color-accent),
-    inset 2px 2px 0 0 rgba(255,255,255,0.08),
-    inset -2px -2px 0 0 rgba(0,0,0,0.3);
-}
-
-/* ── Scanline overlay ────────────────────────────────────────── */
-/*
-  Applies a subtle horizontal scanline pattern over any element —
-  mimics the LCD screen of a GBA. Used on the app header.
-  Add class .scanlines to any element.
-*/
-.scanlines {
-  position: relative;
+/* ── App shell ── */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 430px;
+  margin: 0 auto;
   overflow: hidden;
 }
+
+.app-content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── DS-style pixel border (inset frame like the game panels) ── */
+.ds-panel {
+  box-shadow:
+    inset 2px 2px 0 rgba(255,255,255,0.15),
+    inset -2px -2px 0 rgba(0,0,0,0.4),
+    0 0 0 2px #0a0c18;
+}
+
+.ds-panel-cream {
+  box-shadow:
+    inset 2px 2px 0 rgba(255,255,255,0.6),
+    inset -2px -2px 0 rgba(0,0,0,0.2),
+    0 0 0 2px var(--cream-dark);
+}
+
+/* ── Green DS tab buttons (top of image 2) ── */
+.ds-tab {
+  font-family: var(--font);
+  font-size: var(--t-xxs);
+  background: var(--green-tab);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 6px 4px 5px;
+  line-height: 1;
+  letter-spacing: 0;
+  box-shadow:
+    inset 1px 1px 0 rgba(255,255,255,0.4),
+    inset -1px -1px 0 var(--green-dark),
+    0 2px 0 var(--green-dark);
+  position: relative;
+  top: 0;
+  transition: top 0.05s, box-shadow 0.05s;
+}
+.ds-tab:active { top: 2px; box-shadow: inset 1px 1px 0 rgba(0,0,0,0.2); }
+.ds-tab.active {
+  background: var(--green-hi);
+  box-shadow:
+    inset 1px 1px 0 rgba(255,255,255,0.5),
+    inset -1px -1px 0 var(--green-dark),
+    0 2px 0 var(--green-dark);
+}
+
+/* ── Red button (left panel of image 1) ── */
+.ds-btn-red {
+  font-family: var(--font);
+  font-size: var(--t-xxs);
+  background: var(--red-btn);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 5px 8px;
+  box-shadow:
+    inset 1px 1px 0 rgba(255,255,255,0.3),
+    inset -1px -2px 0 var(--red-dark),
+    0 2px 0 var(--red-dark);
+}
+
+/* ── Cream list panel (right side image 1) ── */
+.cream-panel {
+  background: var(--cream);
+  color: var(--text-dark);
+}
+
+/* ── Scanlines — LCD effect over sprite boxes ── */
+.scanlines { position: relative; overflow: hidden; }
 .scanlines::after {
   content: '';
   position: absolute;
   inset: 0;
   background: repeating-linear-gradient(
     to bottom,
-    transparent 0px,
-    transparent 3px,
-    rgba(0, 0, 0, 0.15) 3px,
-    rgba(0, 0, 0, 0.15) 4px
+    transparent 0px, transparent 2px,
+    rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 3px
   );
-  pointer-events: none;    /* Clicks pass through the overlay */
-  z-index: 10;
+  pointer-events: none;
+  z-index: 5;
 }
 
-/* ── App layout shell ────────────────────────────────────────── */
-/*
-  The app is a fixed full-height column:
-  [ HEADER  ] — fixed top bar
-  [ CONTENT ] — scrollable main area
-  Keeps the header always visible, like a native app.
-*/
-.app-shell {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  max-width: 430px;          /* iPhone 14 Pro width — centers on desktop */
-  margin: 0 auto;
-  overflow: hidden;
+/* ── White info panel (image 2 lower half) ── */
+.white-panel {
+  background: var(--white-panel);
+  color: var(--text-dark);
+  box-shadow:
+    inset 2px 2px 0 rgba(255,255,255,0.9),
+    inset -2px -2px 0 rgba(0,0,0,0.15);
 }
 
-.app-header {
-  flex-shrink: 0;            /* Header never shrinks */
-  background-color: var(--color-bg-panel);
-  border-bottom: 2px solid var(--color-accent);
-  padding: var(--space-3) var(--space-4);
-  z-index: 100;
-}
-
-.app-content {
-  flex: 1;                   /* Content fills remaining height */
-  overflow-y: auto;          /* This is the scrollable region */
-  -webkit-overflow-scrolling: touch;   /* Smooth momentum scrolling on iPhone */
-}
-
-/* ── Utility classes ─────────────────────────────────────────── */
-.text-accent  { color: var(--color-accent); }
-.text-dim     { color: var(--color-text-dim); }
-.text-red     { color: var(--color-red); }
-.text-yellow  { color: var(--color-yellow); }
-.text-xs      { font-size: var(--text-xs); }
-.text-sm      { font-size: var(--text-sm); }
-.text-base    { font-size: var(--text-base); }
-.text-md      { font-size: var(--text-md); }
-.text-lg      { font-size: var(--text-lg); }
-
-/* Pixel-art button — used for filter chips and action buttons */
-.btn-pixel {
-  font-family: var(--font-pixel);
-  font-size: var(--text-xs);
-  color: var(--color-text);
-  background: var(--color-bg-card);
-  border: none;
-  cursor: pointer;
-  padding: var(--space-2) var(--space-3);
-  line-height: 1;
-  transition: background 0.1s, color 0.1s;
-}
-.btn-pixel:active {
-  /* Pushes down 2px on tap — mimics a physical button press */
-  transform: translateY(2px);
-}
-.btn-pixel.active {
-  background: var(--color-accent);
-  color: var(--color-bg);
-}
-
-/* Italic for scientific names — standard in entomology */
-.sci-name {
-  font-style: italic;
-  font-size: var(--text-xs);
-  color: var(--color-text-dim);
-}
-
-/* Scrollbar styling for desktop preview */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--color-bg); }
-::-webkit-scrollbar-thumb { background: var(--color-border); }
+/* Scrollbars */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar); }

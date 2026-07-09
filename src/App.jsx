@@ -4,70 +4,49 @@ import ListPage from './pages/ListPage'
 import DetailPage from './pages/DetailPage'
 
 /*
-  App
-  ───
-  The root component. It renders the persistent app shell
-  (the header with the scanline effect) and then delegates
-  to the correct page based on the current URL.
-
-  Routes work like a switch statement:
-    /            → ListPage   (the butterfly list)
-    /butterfly/42 → DetailPage (detail for butterfly #42)
+  App — root shell
+  The header mimics the "POKÉDEX" title banner from image 1:
+  dark background, pixel font title, green accent line underneath.
 */
-
 export default function App() {
   return (
     <div className="app-shell">
 
-      {/* ── App header — always visible ── */}
-      <header className="app-header scanlines">
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}>
-          {/* Left: pixel butterfly logo mark */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 'var(--space-2)',
-          }}>
-            {/*
-              The three-dot cluster mimics the GBA/DS power LED indicators.
-              Pure CSS — no images.
-            */}
-            <div style={{ display: 'flex', gap: 3 }}>
-              <span style={{ display: 'block', width: 6, height: 6, background: 'var(--color-red)' }} />
-              <span style={{ display: 'block', width: 6, height: 6, background: 'var(--color-yellow)' }} />
-              <span style={{ display: 'block', width: 6, height: 6, background: 'var(--color-accent)' }} />
-            </div>
-            <span style={{
-              fontSize: 'var(--text-md)',
-              color: 'var(--color-accent)',
-              letterSpacing: '0.02em',
-            }}>
-              MARIPOSAS
-            </span>
-          </div>
-
-          {/* Right: subtitle */}
+      {/* ── Header — replicates the POKÉDEX banner ── */}
+      <header style={{
+        flexShrink: 0,
+        background: 'var(--navy)',
+        borderBottom: '3px solid var(--green-tab)',
+        padding: '10px 14px 8px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        boxShadow: '0 2px 0 var(--green-dark)',
+      }}>
+        {/* Three LED dots — GBA/DS hardware detail */}
+        <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
+          <span style={{ width: 7, height: 7, background: 'var(--red-btn)', display: 'block',
+            boxShadow: 'inset 1px 1px 0 rgba(255,255,255,0.4)' }} />
+          <span style={{ width: 7, height: 7, background: 'var(--yellow)', display: 'block',
+            boxShadow: 'inset 1px 1px 0 rgba(255,255,255,0.4)' }} />
+          <span style={{ width: 7, height: 7, background: 'var(--green-tab)', display: 'block',
+            boxShadow: 'inset 1px 1px 0 rgba(255,255,255,0.4)' }} />
           <span style={{
-            fontSize: 'var(--text-xs)',
-            color: 'var(--color-text-dim)',
-          }}>
-            DE CUBA
-          </span>
+            fontSize: 'var(--t-lg)',
+            color: 'var(--text-light)',
+            marginLeft: 8,
+            letterSpacing: '0.05em',
+          }}>MARIPOSADEX</span>
         </div>
+        <span style={{ fontSize: 'var(--t-xxs)', color: 'var(--text-dim)' }}>CUBA</span>
       </header>
 
-      {/* ── Page content ── */}
       <main className="app-content">
         <Routes>
           <Route path="/" element={<ListPage />} />
           <Route path="/butterfly/:id" element={<DetailPage />} />
         </Routes>
       </main>
-
     </div>
   )
 }

@@ -1,195 +1,204 @@
 import React, { useState } from 'react'
-import ButterflyRow from '../components/ButterflyRow'
+import { useNavigate } from 'react-router-dom'
+import PixelSprite from '../components/PixelSprite'
 import FilterDrawer from '../components/FilterDrawer'
 import { useButterflies } from '../hooks/useButterflies'
 
 /*
-  ListPage
-  ────────
-  The home screen of the app. Contains:
-    1. A search bar
-    2. A filter button that opens FilterDrawer
-    3. A result count line
-    4. The scrollable butterfly list
+  ListPage — replicates DS Pokédex list screen (image 1):
 
-  All data/filter logic lives in useButterflies() — this page
-  just calls that hook and connects its values to the UI.
+  ┌─────────────────────────────────────────┐
+  │  [LEFT PANEL — navy]  [RIGHT — cream]   │
+  │                                         │
+  │  OBSERVADOS         Nº001 Battus...     │
+  │  [207]              Nº002 Heraclides... │
+  │                   ► Nº003 Selected  ◄   │
+  │  REGISTRADOS        Nº004 ...           │
+  │  [207]              ...                 │
+  │                                         │
+  │  [🔍 BUSCAR]                            │
+  │  [▼ FILTROS]    [FAMILY TAG]            │
+  └─────────────────────────────────────────┘
+
+  Tapping a row previews the sprite in the left panel.
+  Tapping again (or pressing the arrow) navigates to detail.
 */
+
+const FAMILY_COLORS = {
+  Papilionidae: '#9040b0',
+  Hesperiidae:  '#b06010',
+  Pieridae:     '#909010',
+  Riodinidae:   '#10a0a0',
+  Lycaenidae:   '#3060c0',
+  Nymphalidae:  '#c03030',
+}
+
 export default function ListPage() {
   const {
-    butterflies,
-    searchQuery, setSearchQuery,
+    butterflies, searchQuery, setSearchQuery,
     filters, setFilters, toggleFilter, clearAllFilters,
-    filterOptions,
-    totalCount,
-    activeFilterCount,
+    filterOptions, totalCount, activeFilterCount,
   } = useButterflies()
 
+  const navigate = useNavigate()
+  const [selectedId, setSelectedId] = useState(butterflies[0]?.id ?? 1)
   const [filterOpen, setFilterOpen] = useState(false)
 
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+  const selected = butterflies.find(b => b.id === selectedId) ?? butterflies[0]
 
-      {/* ── Search + Filter bar ── */}
+  const handleRowTap = (butterfly) => {
+    if (selectedId === butterfly.id) {
+      // Second tap → go to detail
+      navigate(`/butterfly/${butterfly.id}`)
+    } else {
+      // First tap → preview in left panel
+      setSelectedId(butterfly.id)
+    }
+  }
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, overflow: 'hidden' }}>
+
+      {/* ── Search bar ── */}
       <div style={{
         flexShrink: 0,
-        padding: 'var(--space-3) var(--space-4)',
-        background: 'var(--color-bg-panel)',
-        borderBottom: '2px solid var(--color-border)',
+        background: 'var(--navy-mid)',
+        borderBottom: '2px solid var(--navy-light)',
+        padding: '6px 10px',
         display: 'flex',
-        gap: 'var(--space-2)',
+        gap: 6,
         alignItems: 'center',
       }}>
-
-        {/*
-          Search input — controlled component.
-          "Controlled" means React owns the value: every keystroke calls
-          setSearchQuery, which updates state, which re-renders the input
-          with the new value. The filter in useButterflies re-runs instantly.
-        */}
-        <div style={{ position: 'relative', flex: 1 }}>
-          <span style={{
-            position: 'absolute',
-            left: 'var(--space-2)',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            color: 'var(--color-text-dim)',
-            fontSize: 'var(--text-sm)',
-            pointerEvents: 'none',
-          }}>
-            🔍
-          </span>
-          <input
-            type="search"
-            value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
-            placeholder="Search..."
-            style={{
-              width: '100%',
-              background: 'var(--color-bg)',
-              border: '2px solid var(--color-border)',
-              color: 'var(--color-text)',
-              fontFamily: 'var(--font-pixel)',
-              fontSize: 'var(--text-xs)',
-              padding: 'var(--space-2) var(--space-2) var(--space-2) var(--space-6)',
-              outline: 'none',
-            }}
-          />
-        </div>
-
-        {/* Filter button — badge shows active filter count */}
-        <button
-          className="btn-pixel pixel-border"
-          onClick={() => setFilterOpen(true)}
+        <span style={{ fontSize: 'var(--t-sm)', color: 'var(--green-hi)' }}>🔍</span>
+        <input
+          type="search"
+          value={searchQuery}
+          onChange={e => setSearchQuery(e.target.value)}
+          placeholder="BUSCAR..."
           style={{
-            position: 'relative',
-            fontSize: '7px',
-            flexShrink: 0,
-            background: activeFilterCount > 0
-              ? 'var(--color-accent-dim)'
-              : 'var(--color-bg-card)',
+            flex: 1,
+            background: 'var(--navy)',
+            border: '2px solid var(--navy-light)',
+            color: 'var(--text-light)',
+            fontFamily: 'var(--font)',
+            fontSize: 'var(--t-xxs)',
+            padding: '5px 8px',
+            outline: 'none',
+            boxShadow: 'inset 1px 1px 0 rgba(0,0,0,0.5)',
           }}
+        />
+        <button
+          className="ds-btn-red"
+          onClick={() => setFilterOpen(true)}
+          style={{ position: 'relative', whiteSpace: 'nowrap' }}
         >
-          {/* Filter icon (using text symbol — no image needed) */}
-          ▼ FILTER
-          {/* Red dot badge appears when filters are active */}
-          {activeFilterCount > 0 && (
-            <span style={{
-              position: 'absolute',
-              top: -6,
-              right: -6,
-              background: 'var(--color-red)',
-              color: 'var(--color-text)',
-              fontSize: '6px',
-              width: 14,
-              height: 14,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: 0,  /* Square, not round — stays pixel art */
-            }}>
-              {activeFilterCount}
-            </span>
-          )}
+          FILTROS{activeFilterCount > 0 ? ` (${activeFilterCount})` : ''}
         </button>
       </div>
 
-      {/* ── Result count ── */}
-      <div style={{
-        flexShrink: 0,
-        padding: 'var(--space-2) var(--space-4)',
-        background: 'var(--color-bg)',
-        borderBottom: '1px solid var(--color-border)',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-      }}>
-        <span style={{ fontSize: 'var(--text-xs)', color: 'var(--color-text-dim)' }}>
-          {butterflies.length === totalCount
-            ? `${totalCount} SPECIES`
-            : `${butterflies.length} / ${totalCount} SPECIES`
-          }
-        </span>
-        {activeFilterCount > 0 && (
-          <button
-            onClick={clearAllFilters}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: 'var(--color-accent)',
-              fontFamily: 'var(--font-pixel)',
-              fontSize: '7px',
-              cursor: 'pointer',
-            }}
-          >
-            ✕ CLEAR
-          </button>
-        )}
-      </div>
+      {/* ── Main two-column body ── */}
+      <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
 
-      {/* ── Butterfly list ── */}
-      {/*
-        This div is the actual scrollable region.
-        flex: 1 makes it fill all remaining vertical space.
-        overflow-y: auto enables scrolling within this box only —
-        the header and search bar stay fixed above it.
-      */}
-      <div style={{ flex: 1, overflowY: 'auto', WebkitOverflowScrolling: 'touch' }}>
-        {butterflies.length === 0 ? (
-          /* Empty state — shown when search/filters match nothing */
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: 'var(--space-8)',
-            gap: 'var(--space-4)',
-            color: 'var(--color-text-dim)',
-            textAlign: 'center',
-          }}>
-            <div style={{ fontSize: 'var(--text-xl)' }}>?</div>
-            <p style={{ fontSize: 'var(--text-xs)', lineHeight: 2 }}>
-              NO SPECIES FOUND<br />
-              <span style={{ fontSize: '7px' }}>Try different filters</span>
-            </p>
-            <button className="btn-pixel pixel-border" onClick={clearAllFilters}>
-              RESET
-            </button>
+        {/* ══ LEFT PANEL (navy) — sprite preview + counters ══ */}
+        <div style={{
+          width: 130,
+          flexShrink: 0,
+          background: 'var(--navy)',
+          borderRight: '3px solid var(--navy-light)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          padding: '10px 8px',
+          gap: 8,
+        }}>
+
+          {/* Stat boxes — replicates AVISTADOS / CAPTURADOS from image 1 */}
+          <StatBox label="OBSERVADOS" value={totalCount} />
+          <StatBox label="REGISTRADOS"
+            value={butterflies.filter(b => b.data_quality !== 'placeholder').length} />
+
+          {/* Sprite preview of selected butterfly */}
+          <div style={{ marginTop: 4 }}>
+            <PixelSprite
+              src={selected?.images?.thumbnail}
+              alt={selected?.scientific_name ?? ''}
+              size={96}
+              showScanlines={true}
+            />
           </div>
-        ) : (
-          /*
-            The list itself. We use a plain mapped array rather than a
-            virtualised list for now — 207 rows is fast enough for React
-            to handle without virtualisation.
-            (If you add thousands of entries later, consider react-window.)
-          */
-          butterflies.map(butterfly => (
-            <ButterflyRow key={butterfly.id} butterfly={butterfly} />
-          ))
-        )}
+
+          {/* Family tag — the coloured type badge at bottom of image 1 */}
+          {selected && (
+            <div style={{
+              fontSize: 'var(--t-xxs)',
+              color: '#fff',
+              background: FAMILY_COLORS[selected.family] ?? 'var(--blue-accent)',
+              padding: '3px 6px',
+              textAlign: 'center',
+              boxShadow: 'inset 1px 1px 0 rgba(255,255,255,0.3), inset -1px -1px 0 rgba(0,0,0,0.3)',
+              width: '100%',
+            }}>
+              {selected.family.toUpperCase().slice(0, 11)}
+            </div>
+          )}
+
+          {/* VER button — navigates to detail, like the Z●VER in image 1 */}
+          {selected && (
+            <button
+              className="ds-btn-red"
+              onClick={() => navigate(`/butterfly/${selected.id}`)}
+              style={{ width: '100%', marginTop: 4, fontSize: 'var(--t-xxs)' }}
+            >
+              ► VER
+            </button>
+          )}
+
+          {/* Result count */}
+          <div style={{
+            fontSize: 'var(--t-xxs)',
+            color: 'var(--text-dim)',
+            textAlign: 'center',
+            lineHeight: 1.8,
+          }}>
+            {butterflies.length < totalCount
+              ? `${butterflies.length}/${totalCount}`
+              : `${totalCount} spp.`
+            }
+          </div>
+        </div>
+
+        {/* ══ RIGHT PANEL (cream) — species list ══ */}
+        <div className="cream-panel ds-panel-cream"
+          style={{ flex: 1, overflowY: 'auto', WebkitOverflowScrolling: 'touch' }}>
+
+          {butterflies.length === 0 ? (
+            <div style={{
+              display: 'flex', flexDirection: 'column', alignItems: 'center',
+              justifyContent: 'center', height: '100%', gap: 12,
+              color: 'var(--text-dark)', fontSize: 'var(--t-xs)',
+            }}>
+              <div style={{ fontSize: 24 }}>?</div>
+              <p style={{ fontSize: 'var(--t-xxs)', textAlign: 'center', lineHeight: 2 }}>
+                NO SE ENCONTRARON<br />ESPECIES
+              </p>
+              <button className="ds-btn-red" onClick={clearAllFilters}
+                style={{ fontSize: 'var(--t-xxs)' }}>
+                LIMPIAR
+              </button>
+            </div>
+          ) : (
+            butterflies.map(b => (
+              <ListRow
+                key={b.id}
+                butterfly={b}
+                isSelected={b.id === selectedId}
+                onTap={() => handleRowTap(b)}
+              />
+            ))
+          )}
+        </div>
       </div>
 
-      {/* Filter drawer — rendered here so it sits above the list */}
       <FilterDrawer
         isOpen={filterOpen}
         onClose={() => setFilterOpen(false)}
@@ -201,5 +210,91 @@ export default function ListPage() {
         activeCount={activeFilterCount}
       />
     </div>
+  )
+}
+
+/* ── StatBox — replicates AVISTADOS [526] boxes from image 1 ── */
+function StatBox({ label, value }) {
+  return (
+    <div style={{ width: '100%' }}>
+      <div style={{
+        fontSize: 'var(--t-xxs)',
+        color: 'var(--text-light)',
+        background: 'var(--navy-light)',
+        padding: '2px 5px',
+        boxShadow: 'inset 1px 1px 0 rgba(255,255,255,0.1)',
+        letterSpacing: '0.02em',
+      }}>
+        {label}
+      </div>
+      <div style={{
+        fontSize: 'var(--t-md)',
+        color: 'var(--green-hi)',
+        background: 'var(--navy)',
+        border: '2px solid var(--navy-light)',
+        padding: '3px 6px',
+        textAlign: 'right',
+        boxShadow: 'inset 2px 2px 0 rgba(0,0,0,0.5)',
+        letterSpacing: '0.05em',
+      }}>
+        {String(value).padStart(3, '0')}
+      </div>
+    </div>
+  )
+}
+
+/* ── ListRow — one entry in the cream panel, matches image 1 list ── */
+function ListRow({ butterfly, isSelected, onTap }) {
+  return (
+    <button
+      onClick={onTap}
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        width: '100%',
+        background: isSelected ? 'var(--green-hi)' : 'transparent',
+        border: 'none',
+        borderBottom: '1px solid var(--cream-dark)',
+        padding: '7px 8px 7px 10px',
+        cursor: 'pointer',
+        textAlign: 'left',
+        fontFamily: 'var(--font)',
+        color: isSelected ? '#fff' : 'var(--text-dark)',
+        gap: 0,
+      }}
+    >
+      {/* Selected indicator triangle — like the ► in image 1 */}
+      <span style={{
+        width: 10,
+        fontSize: 'var(--t-xxs)',
+        color: isSelected ? '#fff' : 'transparent',
+        flexShrink: 0,
+      }}>►</span>
+
+      {/* Nº number */}
+      <span style={{
+        fontSize: 'var(--t-xs)',
+        color: isSelected ? '#fff' : '#606060',
+        marginRight: 6,
+        flexShrink: 0,
+        fontStyle: 'normal',
+        minWidth: 38,
+      }}>
+        Nº{String(butterfly.id).padStart(3, '0')}
+      </span>
+
+      {/* Name */}
+      <span style={{
+        fontSize: 'var(--t-xs)',
+        flex: 1,
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
+        textOverflow: 'ellipsis',
+        lineHeight: 1,
+      }}>
+        {/* Show shortened scientific name — genus + first epithet */}
+        {butterfly.scientific_name.split(' ').slice(0, 2).join(' ')}
+      </span>
+    </button>
   )
 }

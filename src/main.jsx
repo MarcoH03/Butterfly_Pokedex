@@ -10,11 +10,15 @@ import './index.css'
 
   BrowserRouter gives the app URL-based navigation — so tapping a
   butterfly goes to /butterfly/42, and the back button works naturally.
-  This is how React apps handle multiple "pages" without reloading.
+
+  basename tells React Router that the app lives at /mariposas-cuba/
+  on GitHub Pages. In local dev, basename is '/' so nothing changes.
 */
+const basename = import.meta.env.PROD ? '/mariposas-cuba' : '/'
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <App />
     </BrowserRouter>
   </React.StrictMode>
