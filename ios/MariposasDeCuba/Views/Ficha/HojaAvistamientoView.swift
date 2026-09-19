@@ -79,7 +79,7 @@ struct HojaAvistamientoView: View {
                             .clipped()
                             .clipShape(RoundedRectangle(cornerRadius: Forma.panel, style: .continuous))
                             .listRowInsets(EdgeInsets())
-                        Button("Quitar foto", role: .destructive) { fotoData = nil }
+                        Button("Quitar foto", role: .destructive) { self.fotoData = nil }
                     } else {
                         Button("Cámara") { mostrarCamara = true }
                         PhotosPicker("Galería", selection: $seleccionGaleria, matching: .images)

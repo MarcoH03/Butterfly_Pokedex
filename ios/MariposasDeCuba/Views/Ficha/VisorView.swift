@@ -20,7 +20,7 @@ struct VisorView: View {
 
     var body: some View {
         ZStack {
-            Color.black.opacity(1 - min(abs(arrastreCierre) / 400, 0.5)).ignoresSafeArea()
+            Color.black.opacity(1 - min(Double(abs(arrastreCierre)) / 400.0, 0.5)).ignoresSafeArea()
 
             TabView(selection: $indice) {
                 ForEach(Array(imagenes.enumerated()), id: \.offset) { i, imagen in
