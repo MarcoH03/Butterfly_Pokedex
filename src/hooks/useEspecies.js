@@ -28,6 +28,10 @@ function zonaPorId(id) {
   return todasLasZonas().find(z => z.id === id) || null
 }
 
+function zonaPorNombre(nombre) {
+  return todasLasZonas().find(z => z.nombre === nombre) || null
+}
+
 /** Provincias que toca una especie, derivadas de sus zonas. */
 export function provinciasDe(especie) {
   const set = new Set()
@@ -66,11 +70,15 @@ export function useEspecies() {
   // La selección persiste entre sesiones
   useEffect(() => { guardarSeleccion(seleccion) }, [seleccion])
 
-  /* ── Opciones disponibles para cada filtro ── */
+  /* ── Opciones disponibles para cada filtro ──
+     Las zonas se leen en el momento (ver zonaPorId): el catálogo
+     crece con el trabajo de campo. Aquí se ofrecen por nombre,
+     igual que familias o colores; abajo se traduce a id. */
   const opciones = useMemo(() => ({
     familias: meta.familias,
     subfamilias: meta.subfamilias,
     provincias: meta.provincias,
+    zonas: todasLasZonas().map(z => z.nombre),
     colores: meta.colores,
     tamanos: meta.tamanos
   }), [meta])
@@ -94,9 +102,12 @@ export function useEspecies() {
       lista = lista.filter(e => filtros.subfamilias.includes(e.subfamilia))
 
     // Zonas alcanzadas por el trazo: basta con compartir una.
-    if (filtros.zonas.length)
+    // El filtro se elige por nombre; la especie guarda ids.
+    if (filtros.zonas.length) {
+      const idsElegidos = filtros.zonas.map(nombre => zonaPorNombre(nombre)?.id).filter(Boolean)
       lista = lista.filter(e =>
-        filtros.zonas.some(id => e.distribucion.zonas.includes(id)))
+        idsElegidos.some(id => e.distribucion.zonas.includes(id)))
+    }
 
     // Provincias tocadas: entra la especie con alguna zona en esa provincia.
     if (filtros.provincias.length)
@@ -156,8 +167,7 @@ export function useEspecies() {
     const salida = []
     for (const [clave, valores] of Object.entries(filtros)) {
       for (const valor of valores) {
-        // Las zonas se guardan por id; el chip debe mostrar el nombre.
-        const etiqueta = clave === 'zonas' ? (zonaPorId(valor)?.nombre ?? valor) : valor
+        const etiqueta = valor
         salida.push({ clave, valor, etiqueta })
       }
     }

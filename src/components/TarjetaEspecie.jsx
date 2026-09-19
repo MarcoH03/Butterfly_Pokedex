@@ -77,7 +77,7 @@ export default function TarjetaEspecie({
             minWidth: 20, padding: '1px 6px',
             fontSize: 'var(--t-11)', fontWeight: 600,
             fontVariantNumeric: 'tabular-nums',
-            color: 'var(--sombra)', background: 'var(--polen)',
+            color: 'var(--on-accento)', background: 'var(--polen)',
             borderRadius: 'var(--r-control)', textAlign: 'center'
           }}
         >
@@ -94,7 +94,7 @@ export default function TarjetaEspecie({
             width: 22, height: 22, borderRadius: '50%',
             display: 'grid', placeItems: 'center',
             fontSize: 13, lineHeight: 1,
-            color: marcada ? 'var(--sombra)' : 'var(--papel)',
+            color: marcada ? 'var(--on-accento)' : 'var(--papel)',
             background: marcada ? 'var(--atala)' : 'rgba(18,25,23,.72)',
             boxShadow: marcada ? 'none' : 'inset 0 0 0 1px var(--papel-tenue)'
           }}

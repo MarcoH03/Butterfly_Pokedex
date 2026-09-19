@@ -136,8 +136,9 @@ export default function MapaZonas({
                 flex: 1, padding: '7px 13px', fontSize: 'var(--t-12)',
                 fontWeight: modo === valor ? 600 : 400,
                 borderRadius: 'var(--r-control)',
-                color: modo === valor ? 'var(--sombra)' : 'var(--papel-medio)',
-                background: modo === valor ? 'var(--papel)' : 'transparent'
+                color: modo === valor ? 'var(--papel)' : 'var(--papel-medio)',
+                background: modo === valor ? 'var(--segmento-activo)' : 'transparent',
+                boxShadow: modo === valor ? 'var(--sombra-segmento)' : 'none'
               }}
             >
               {texto}

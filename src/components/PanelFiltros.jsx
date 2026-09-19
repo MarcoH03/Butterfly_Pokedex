@@ -44,7 +44,7 @@ export default function PanelFiltros({
     <>
       <div
         onClick={onCerrar}
-        style={{ position: 'fixed', inset: 0, background: 'rgba(6,10,9,.7)', zIndex: 60 }}
+        style={{ position: 'fixed', inset: 0, background: 'var(--velo)', zIndex: 60 }}
       />
 
       <div
@@ -56,18 +56,20 @@ export default function PanelFiltros({
           width: '100%', maxWidth: 480, maxHeight: '82vh',
           display: 'flex', flexDirection: 'column',
           background: 'var(--sombra)',
-          borderTop: '1px solid var(--linea)',
-          borderRadius: '14px 14px 0 0',
+          borderRadius: 'var(--r-hoja) var(--r-hoja) 0 0',
+          boxShadow: '0 -1px 24px rgba(0,0,0,.2)',
           paddingBottom: 'var(--safe-bot)',
           zIndex: 61
         }}
       >
+        <div className="asa" aria-hidden="true" />
+
         {/* Cabecera */}
         <div
           className="fila"
           style={{
             gap: 'var(--e-3)',
-            padding: 'var(--e-4)',
+            padding: 'var(--e-3) var(--e-4) var(--e-4)',
             borderBottom: '1px solid var(--linea)'
           }}
         >
@@ -86,7 +88,7 @@ export default function PanelFiltros({
             onClick={onCerrar}
             style={{
               fontSize: 'var(--t-13)', fontWeight: 600,
-              color: 'var(--sombra)', background: 'var(--atala)',
+              color: 'var(--on-accento)', background: 'var(--atala)',
               padding: '7px 16px', borderRadius: 'var(--r-control)'
             }}
           >
@@ -137,7 +139,7 @@ export default function PanelFiltros({
                       padding: '7px 13px 7px 9px',
                       borderRadius: 'var(--r-control)',
                       fontSize: 'var(--t-13)',
-                      color: activa ? 'var(--sombra)' : 'var(--papel)',
+                      color: activa ? 'var(--on-accento)' : 'var(--papel)',
                       background: activa ? 'var(--atala)' : 'var(--sombra-alt)',
                       boxShadow: activa ? 'none' : 'inset 0 0 0 1px var(--linea)'
                     }}
@@ -172,7 +174,7 @@ export default function PanelFiltros({
                       borderRadius: 'var(--r-control)',
                       fontSize: 'var(--t-13)',
                       textAlign: 'left',
-                      color: activa ? 'var(--sombra)' : 'var(--papel)',
+                      color: activa ? 'var(--on-accento)' : 'var(--papel)',
                       background: activa ? 'var(--atala)' : 'var(--sombra-alt)',
                       boxShadow: activa ? 'none' : 'inset 0 0 0 1px var(--linea)'
                     }}
@@ -182,7 +184,7 @@ export default function PanelFiltros({
                       style={{
                         display: 'block',
                         fontSize: 'var(--t-11)',
-                        color: activa ? 'rgba(18,25,23,.7)' : 'var(--papel-tenue)'
+                        color: activa ? 'rgba(0,0,0,.62)' : 'var(--papel-tenue)'
                       }}
                     >
                       {AYUDA_TAMANO[t]}
@@ -231,7 +233,7 @@ function Fichas({ opciones, activas, onTocar, cursiva }) {
               padding: '7px 14px',
               borderRadius: 'var(--r-control)',
               fontSize: 'var(--t-13)',
-              color: activa ? 'var(--sombra)' : 'var(--papel)',
+              color: activa ? 'var(--on-accento)' : 'var(--papel)',
               background: activa ? 'var(--atala)' : 'var(--sombra-alt)',
               boxShadow: activa ? 'none' : 'inset 0 0 0 1px var(--linea)'
             }}

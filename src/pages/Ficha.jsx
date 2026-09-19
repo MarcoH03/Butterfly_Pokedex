@@ -61,7 +61,7 @@ export default function Ficha() {
             onClick={() => navegar('/')}
             style={{
               padding: '10px 20px', fontSize: 'var(--t-13)', fontWeight: 600,
-              color: 'var(--sombra)', background: 'var(--atala)',
+              color: 'var(--on-accento)', background: 'var(--atala)',
               borderRadius: 'var(--r-control)'
             }}
           >
@@ -116,7 +116,11 @@ export default function Ficha() {
           paddingTop: 'calc(var(--safe-top) + var(--e-3))',
           paddingLeft: 'var(--e-4)', paddingRight: 'var(--e-4)',
           paddingBottom: 'var(--e-3)',
-          borderBottom: '1px solid var(--linea)'
+          background: 'var(--barra-fondo)',
+          backdropFilter: 'blur(20px) saturate(1.8)',
+          WebkitBackdropFilter: 'blur(20px) saturate(1.8)',
+          borderBottom: '.5px solid var(--linea)',
+          position: 'sticky', top: 0, zIndex: 10
         }}
       >
         <button onClick={() => navegar(-1)} className="fila"
@@ -334,7 +338,7 @@ export default function Ficha() {
                         <span style={{
                           fontSize: 'var(--t-12)', fontWeight: 600,
                           fontVariantNumeric: 'tabular-nums',
-                          color: 'var(--sombra)', background: 'var(--polen)',
+                          color: 'var(--on-accento)', background: 'var(--polen)',
                           padding: '1px 8px', borderRadius: 'var(--r-control)'
                         }}>
                           {l.veces}
@@ -386,7 +390,7 @@ export default function Ficha() {
           style={{
             position: 'absolute', bottom: 86, left: 'var(--e-4)', right: 'var(--e-4)',
             padding: '10px 14px', fontSize: 'var(--t-13)',
-            color: 'var(--sombra)', background: 'var(--polen)',
+            color: 'var(--on-accento)', background: 'var(--polen)',
             borderRadius: 'var(--r-panel)', textAlign: 'center'
           }}
         >
@@ -397,14 +401,14 @@ export default function Ficha() {
       <div style={{
         position: 'absolute', bottom: 0, left: 0, right: 0,
         padding: `var(--e-3) var(--e-4) calc(var(--e-3) + var(--safe-bot))`,
-        background: 'rgba(18,25,23,.94)', backdropFilter: 'blur(12px)',
+        background: 'var(--barra-fondo)', backdropFilter: 'blur(20px) saturate(1.8)', WebkitBackdropFilter: 'blur(20px) saturate(1.8)',
         borderTop: '1px solid var(--linea)'
       }}>
         <button
           onClick={() => setHojaAbierta(true)}
           style={{
             width: '100%', padding: 14, fontSize: 'var(--t-15)', fontWeight: 600,
-            color: 'var(--sombra)', background: 'var(--atala)',
+            color: 'var(--on-accento)', background: 'var(--atala)',
             borderRadius: 'var(--r-control)'
           }}
         >
@@ -673,7 +677,7 @@ function Insignia({ color, children }) {
     <span className="binomio" style={{
       fontSize: 'var(--t-12)', padding: '3px 10px',
       borderRadius: 'var(--r-control)',
-      color: esColor ? 'var(--sombra)' : 'var(--papel)',
+      color: esColor ? 'var(--on-accento)' : 'var(--papel)',
       background: esColor ? color : 'var(--sombra-alt)',
       boxShadow: esColor ? 'none' : 'inset 0 0 0 1px var(--linea)'
     }}>
@@ -691,8 +695,9 @@ function MiniPestana({ activa, onTocar, children }) {
         padding: '6px 13px', fontSize: 'var(--t-12)',
         fontWeight: activa ? 600 : 400,
         borderRadius: 'var(--r-control)',
-        color: activa ? 'var(--sombra)' : 'var(--papel-medio)',
-        background: activa ? 'var(--papel)' : 'transparent'
+        color: activa ? 'var(--papel)' : 'var(--papel-medio)',
+        background: activa ? 'var(--segmento-activo)' : 'transparent',
+        boxShadow: activa ? 'var(--sombra-segmento)' : 'none'
       }}
     >
       {children}

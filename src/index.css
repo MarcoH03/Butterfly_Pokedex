@@ -1,31 +1,61 @@
 /* ══════════════════════════════════════════════════════════════
-   Mariposas de Cuba — sistema visual
-   Paleta tomada de Eumaeus atala (endémica del Caribe):
-   alas verde-azul iridiscente, abdomen rojo grana, sobre la
-   sombra del bosque semideciduo. El papel crema viene de las
-   etiquetas mecanografiadas de las cajas entomológicas.
+   Mariposas de Cuba — sistema visual iOS
+
+   Los mismos nombres de variable que antes (--sombra, --papel,
+   --atala…) para no tocar los componentes, pero los VALORES son
+   ahora los colores dinámicos del sistema de iOS: cambian solos
+   entre modo claro y modo oscuro, como en cualquier app nativa,
+   siguiendo @media (prefers-color-scheme).
+
+   El acento sigue siendo el turquesa de Eumaeus atala — resulta
+   que coincide casi exactamente con el "systemTeal" de Apple, así
+   que la identidad de la app y la paleta del sistema conviven sin
+   fricción. El grana (rojo) y el polen (amarillo) se alinean con
+   "systemRed" y "systemYellow".
    ══════════════════════════════════════════════════════════════ */
 
 :root {
-  /* ── Base ── */
-  --sombra:     #121917;   /* fondo: sombra de bosque, verde-negro */
-  --sombra-alt: #1A2321;   /* superficie elevada */
-  --linea:      #2A3734;   /* bordes, divisiones */
+  color-scheme: light dark;
 
-  /* ── Tinta ── */
-  --papel:      #ECE8DC;   /* texto principal / paneles claros (etiqueta) */
-  --papel-medio:#9AA5A0;   /* texto secundario */
-  --papel-tenue:#66716D;   /* texto terciario, deshabilitado */
+  /* ── Modo claro (valores por defecto) ──
+     Colores dinámicos de iOS, modo claro. */
+  --sombra:      #FFFFFF;                 /* systemBackground */
+  --sombra-alt:  #F2F2F7;                 /* secondarySystemBackground */
+  --linea:       rgba(60,60,67,.29);      /* separator */
 
-  /* ── Acentos ── */
-  --atala:      #3FA89B;   /* iridiscencia: acento principal */
-  --atala-hondo:#1F4F4A;   /* acento en fondos, estados activos */
-  --grana:      #C34733;   /* abdomen: capturada, alertas */
-  --polen:      #D9A227;   /* amarillo cálido: avistamientos, conteos */
+  --papel:       #000000;                 /* label */
+  --papel-medio: rgba(60,60,67,.6);       /* secondaryLabel */
+  --papel-tenue: rgba(60,60,67,.3);       /* tertiaryLabel */
 
-  /* ── Tipografía ── */
-  --serif: 'Spectral', Georgia, serif;
-  --sans:  'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --atala:       #2E99A6;                 /* systemTeal, algo más hondo para leerse sobre blanco */
+  --atala-hondo: #DCF0F2;                 /* relleno tenue del acento, texto oscuro encima */
+  --grana:       #FF3B30;                 /* systemRed */
+  --polen:       #FFCC00;                 /* systemYellow */
+
+  /* Texto legible SIEMPRE sobre un relleno de acento saturado
+     (botones llenos de --atala/--grana/--polen), sin importar
+     el modo: igual que iOS usa una etiqueta fija sobre un tinte. */
+  --on-accento:  rgba(0,0,0,.82);
+
+  /* Segmento activo de un control segmentado (Láminas/Montados,
+     Trazo/Provincias…): superficie elevada + sombra sutil, como
+     el UISegmentedControl nativo. */
+  --segmento-activo:  #FFFFFF;
+  --sombra-segmento:  0 1px 3px rgba(0,0,0,.16), 0 1px 1px rgba(0,0,0,.06);
+
+  /* Velo de las hojas modales y fondo translúcido de barras
+     (con backdrop-filter: blur) */
+  --velo:          rgba(0,0,0,.4);
+  --barra-fondo:   rgba(255,255,255,.82);
+
+  /* ── Tipografía del sistema ──
+     San Francisco por defecto (-apple-system); los nombres
+     científicos usan New York, la serif nativa de Apple, con
+     Georgia como respaldo fuera de iOS/macOS. Sin tipos externos:
+     nada que descargar, nada que se vea "distinto" a una app
+     nativa. */
+  --serif: ui-serif, 'New York', Georgia, serif;
+  --sans:  -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, 'Segoe UI', Roboto, sans-serif;
 
   /* Escala tipográfica */
   --t-11: 0.6875rem;
@@ -40,13 +70,41 @@
   --e-1: 4px;  --e-2: 8px;  --e-3: 12px; --e-4: 16px;
   --e-5: 20px; --e-6: 24px; --e-8: 32px; --e-10: 40px;
 
-  /* Radios: poco redondeo en paneles, más en controles táctiles */
-  --r-panel: 4px;
+  /* Radios: el radio "continuo" de iOS no existe en CSS puro,
+     pero un radio generoso en paneles y control en píldora se le
+     acerca bastante. */
+  --r-panel:   14px;
   --r-control: 999px;
+  --r-hoja:    20px;   /* esquinas superiores de una hoja modal */
 
   /* Áreas seguras del iPhone */
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bot: env(safe-area-inset-bottom, 0px);
+}
+
+/* ── Modo oscuro ──
+   Mismos nombres, los valores oscuros del sistema de iOS. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sombra:      #000000;                 /* systemBackground */
+    --sombra-alt:  #1C1C1E;                 /* secondarySystemBackground */
+    --linea:       rgba(84,84,88,.65);      /* separator */
+
+    --papel:       #FFFFFF;                 /* label */
+    --papel-medio: rgba(235,235,245,.6);    /* secondaryLabel */
+    --papel-tenue: rgba(235,235,245,.3);    /* tertiaryLabel */
+
+    --atala:       #40C8E0;                 /* systemTeal (oscuro) */
+    --atala-hondo: #163C40;                 /* relleno hondo del acento, texto claro encima */
+    --grana:       #FF453A;                 /* systemRed (oscuro) */
+    --polen:       #FFD60A;                 /* systemYellow (oscuro) */
+
+    --segmento-activo:  #636366;            /* systemGray, superficie elevada en negro */
+    --sombra-segmento:  0 0 0 .5px rgba(255,255,255,.08), 0 1px 3px rgba(0,0,0,.5);
+
+    --velo:        rgba(0,0,0,.55);
+    --barra-fondo: rgba(0,0,0,.72);
+  }
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -61,9 +119,11 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   overscroll-behavior-y: none;   /* evita el rebote de Safari al arrastrar */
+  transition: background-color .2s ease, color .2s ease;
 }
 
-/* Nombres científicos: siempre en cursiva serif, como en publicación */
+/* Nombres científicos: siempre en cursiva serif (New York), como
+   en una publicación — y como los títulos de Apple Books/Journal. */
 .binomio {
   font-family: var(--serif);
   font-style: italic;
@@ -83,11 +143,24 @@ button, input, textarea, select {
   background: none;
   border: none;
 }
-button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity .12s ease, transform .12s ease;
+}
+/* Realimentación táctil a la iOS: los controles se atenúan al
+   tocarlos en vez de cambiar de color o mostrar un halo. */
+button:active {
+  opacity: .55;
+}
+@media (hover: hover) {
+  button:active { transform: scale(.97); }
+}
 
-/* Foco visible para teclado, invisible al tocar con el dedo */
+/* Foco visible para teclado (systemBlue), invisible al tocar con
+   el dedo — igual que Full Keyboard Access en iOS/iPadOS. */
 :focus-visible {
-  outline: 2px solid var(--atala);
+  outline: 2px solid #0A84FF;
   outline-offset: 2px;
 }
 
@@ -104,6 +177,7 @@ img { display: block; max-width: 100%; }
   margin: 0 auto;
   overflow: hidden;
   position: relative;
+  background: var(--sombra);
 }
 .zona-scroll {
   flex: 1;
@@ -113,28 +187,41 @@ img { display: block; max-width: 100%; }
 
 /* ── Etiqueta de ejemplar ──
    Recurso estructural recurrente: reproduce la etiqueta de alfiler
-   de una caja entomológica (localidad · fecha · colector).
-   Se usa para los avistamientos. */
+   de una caja entomológica (localidad · fecha · colector). Es
+   papel de verdad — se queda del mismo color crema pase lo que
+   pase con el modo del sistema, como una foto o un widget con
+   fondo propio. Se usa para los avistamientos. */
 .etiqueta {
-  background: var(--papel);
+  background: #ECE8DC;
   color: #1A1A16;
   font-size: var(--t-11);
   line-height: 1.45;
   padding: var(--e-2) var(--e-3);
-  border-radius: 2px;
-  box-shadow: 0 1px 0 rgba(0,0,0,.35);
+  border-radius: 8px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.18);
 }
 .etiqueta-loc { font-weight: 600; }
 .etiqueta-meta { color: #5C5C52; }
 
-/* Divisor fino */
-.divisor { height: 1px; background: var(--linea); border: 0; }
+/* Divisor fino, como los separadores de UITableView */
+.divisor { height: .5px; background: var(--linea); border: 0; }
 
 /* Utilidades mínimas */
 .pila { display: flex; flex-direction: column; }
 .fila { display: flex; align-items: center; }
 .crece { flex: 1; min-width: 0; }
 .truncar { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Asa de una hoja modal: el gesto de "puedo arrastrar esto"
+   que usan las hojas de iOS (Compartir, Filtros, formularios). */
+.asa {
+  width: 36px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--linea);
+  margin: 8px auto 0;
+  flex-shrink: 0;
+}
 
 ::-webkit-scrollbar { width: 0; height: 0; }
 

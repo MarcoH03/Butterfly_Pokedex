@@ -87,7 +87,7 @@ export default function RanuraFoto({
             width: 24, height: 24, borderRadius: '50%',
             display: 'grid', placeItems: 'center',
             fontSize: 14, lineHeight: 1,
-            color: 'var(--sombra)', background: 'var(--atala)',
+            color: 'var(--on-accento)', background: 'var(--atala)',
             boxShadow: '0 1px 4px rgba(0,0,0,.4)'
           }}
         >

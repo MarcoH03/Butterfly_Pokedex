@@ -152,7 +152,7 @@ export default function HojaAvistamiento({ especie, abierto, onCerrar, onGuardad
         onChange={recibirFoto} style={{ display: 'none' }} />
 
       <div onClick={onCerrar}
-        style={{ position: 'fixed', inset: 0, background: 'rgba(6,10,9,.72)', zIndex: 70 }} />
+        style={{ position: 'fixed', inset: 0, background: 'var(--velo)', zIndex: 70 }} />
 
       <div
         role="dialog"
@@ -162,13 +162,15 @@ export default function HojaAvistamiento({ especie, abierto, onCerrar, onGuardad
           width: '100%', maxWidth: 480, maxHeight: '92vh',
           display: 'flex', flexDirection: 'column',
           background: 'var(--sombra)',
-          borderTop: '1px solid var(--linea)',
-          borderRadius: '14px 14px 0 0',
+          borderRadius: 'var(--r-hoja) var(--r-hoja) 0 0',
+          boxShadow: '0 -1px 24px rgba(0,0,0,.2)',
           paddingBottom: 'var(--safe-bot)',
           zIndex: 71
         }}
       >
-        <div style={{ padding: 'var(--e-4)', borderBottom: '1px solid var(--linea)' }}>
+        <div className="asa" aria-hidden="true" />
+
+        <div style={{ padding: 'var(--e-3) var(--e-4) var(--e-4)', borderBottom: '1px solid var(--linea)' }}>
           <div className="fila" style={{ gap: 'var(--e-3)' }}>
             <div className="crece">
               <div style={{ fontSize: 'var(--t-17)', fontWeight: 600 }}>Nuevo avistamiento</div>
@@ -345,7 +347,7 @@ export default function HojaAvistamiento({ especie, abierto, onCerrar, onGuardad
             onClick={guardar}
             style={{
               width: '100%', padding: 14, fontSize: 'var(--t-15)', fontWeight: 600,
-              color: 'var(--sombra)', background: 'var(--atala)',
+              color: 'var(--on-accento)', background: 'var(--atala)',
               borderRadius: 'var(--r-control)'
             }}
           >
@@ -411,7 +413,7 @@ function BotonFuente({ activo, onClick, inhabilitado, children }) {
         flex: 1, padding: '9px 10px', fontSize: 'var(--t-12)',
         fontWeight: activo ? 600 : 400,
         borderRadius: 'var(--r-control)',
-        color: activo ? 'var(--sombra)' : 'var(--papel)',
+        color: activo ? 'var(--on-accento)' : 'var(--papel)',
         background: activo ? 'var(--atala)' : 'var(--sombra-alt)',
         boxShadow: activo ? 'none' : 'inset 0 0 0 1px var(--linea)',
         opacity: inhabilitado ? 0.4 : 1
@@ -430,7 +432,7 @@ function Alternador({ activo, onTocar, children, colorActivo = 'var(--atala)' })
       style={{
         flex: 1, padding: 12, fontSize: 'var(--t-13)',
         fontWeight: activo ? 600 : 400,
-        color: activo ? 'var(--sombra)' : 'var(--papel)',
+        color: activo ? 'var(--on-accento)' : 'var(--papel)',
         background: activo ? colorActivo : 'var(--sombra-alt)',
         borderRadius: 'var(--r-panel)',
         boxShadow: activo ? 'none' : 'inset 0 0 0 1px var(--linea)'

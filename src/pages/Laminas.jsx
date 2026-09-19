@@ -33,8 +33,11 @@ export default function Laminas() {
       <header
         style={{
           paddingTop: 'calc(var(--safe-top) + var(--e-3))',
-          background: 'var(--sombra)',
-          borderBottom: '1px solid var(--linea)'
+          background: 'var(--barra-fondo)',
+          backdropFilter: 'blur(20px) saturate(1.8)',
+          WebkitBackdropFilter: 'blur(20px) saturate(1.8)',
+          borderBottom: '.5px solid var(--linea)',
+          position: 'sticky', top: 0, zIndex: 10
         }}
       >
         {/* Título y vista */}
@@ -143,7 +146,7 @@ export default function Laminas() {
               padding: '7px 14px',
               fontSize: 'var(--t-13)',
               borderRadius: 'var(--r-control)',
-              color: e.activos.length ? 'var(--sombra)' : 'var(--papel)',
+              color: e.activos.length ? 'var(--on-accento)' : 'var(--papel)',
               background: e.activos.length ? 'var(--atala)' : 'var(--sombra-alt)',
               boxShadow: e.activos.length ? 'none' : 'inset 0 0 0 1px var(--linea)',
               fontWeight: e.activos.length ? 600 : 400
@@ -222,8 +225,9 @@ export default function Laminas() {
             position: 'absolute',
             bottom: 0, left: 0, right: 0,
             padding: `var(--e-3) var(--e-4) calc(var(--e-3) + var(--safe-bot))`,
-            background: 'rgba(18,25,23,.94)',
-            backdropFilter: 'blur(12px)',
+            background: 'var(--barra-fondo)',
+            backdropFilter: 'blur(20px) saturate(1.8)',
+            WebkitBackdropFilter: 'blur(20px) saturate(1.8)',
             borderTop: '1px solid var(--linea)'
           }}
         >
@@ -248,7 +252,7 @@ export default function Laminas() {
                     padding: '9px 16px',
                     fontSize: 'var(--t-13)', fontWeight: 600,
                     borderRadius: 'var(--r-control)',
-                    color: e.soloSeleccion ? 'var(--papel)' : 'var(--sombra)',
+                    color: e.soloSeleccion ? 'var(--papel)' : 'var(--on-accento)',
                     background: e.soloSeleccion ? 'var(--atala-hondo)' : 'var(--atala)'
                   }}
                 >
@@ -286,8 +290,9 @@ function Pestana({ activa, onTocar, children }) {
         fontSize: 'var(--t-12)',
         fontWeight: activa ? 600 : 400,
         borderRadius: 'var(--r-control)',
-        color: activa ? 'var(--sombra)' : 'var(--papel-medio)',
-        background: activa ? 'var(--papel)' : 'transparent'
+        color: activa ? 'var(--papel)' : 'var(--papel-medio)',
+        background: activa ? 'var(--segmento-activo)' : 'transparent',
+        boxShadow: activa ? 'var(--sombra-segmento)' : 'none'
       }}
     >
       {children}
@@ -331,7 +336,7 @@ function Vacio({ consulta, onLimpiar }) {
         style={{
           padding: '10px 20px',
           fontSize: 'var(--t-13)', fontWeight: 600,
-          color: 'var(--sombra)', background: 'var(--atala)',
+          color: 'var(--on-accento)', background: 'var(--atala)',
           borderRadius: 'var(--r-control)'
         }}
       >

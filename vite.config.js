@@ -23,14 +23,15 @@ export default defineConfig({
         short_name: 'Mariposas',
         description: 'Guía y libreta de campo de las mariposas de Cuba',
         lang: 'es',
-        theme_color: '#121917',
-        background_color: '#121917',
+        theme_color: '#000000',
+        background_color: '#000000',
         display: 'standalone',
         orientation: 'portrait',
         start_url: `/${REPO}/`,
         icons: [
           { src: 'icon-192.png', sizes: '192x192', type: 'image/png' },
-          { src: 'icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' }
+          { src: 'icon-512.png', sizes: '512x512', type: 'image/png' },
+          { src: 'icon-512-maskable.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }
         ]
       }
     })
