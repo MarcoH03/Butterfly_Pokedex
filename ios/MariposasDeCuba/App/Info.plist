@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDisplayName</key>
+	<string>Mariposas</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Para fotografiar mariposas y estadios de su ciclo de vida en el campo.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Para añadir fotos de tu galería a la ficha de una especie o a un avistamiento.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Para guardar en tu galería las fotos que tomes desde la app.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Para anotar dónde viste una mariposa al registrar un avistamiento.</string>
+	<key>UILaunchScreen</key>
+	<dict/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Automatic</string>
+</dict>
+</plist>

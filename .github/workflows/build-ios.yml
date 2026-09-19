@@ -1,0 +1,102 @@
+name: Compilar app nativa de iOS
+
+# Se dispara a mano desde la pestaña Actions ("Run workflow"). No en
+# cada push, para no gastar minutos de macOS sin querer mientras se
+# sigue retocando el proyecto.
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Versión de Xcode disponible
+        run: |
+          xcodebuild -version
+          xcrun simctl list runtimes
+
+      - name: Compilar sin firmar (para producir el .ipa)
+        run: |
+          set -euo pipefail
+          cd ios
+          xcodebuild \
+            -project MariposasDeCuba.xcodeproj \
+            -scheme MariposasDeCuba \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath build \
+            -destination 'generic/platform=iOS' \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            AD_HOC_CODE_SIGNING_ALLOWED=YES \
+            DEVELOPMENT_TEAM="" \
+            clean build
+
+      - name: Empaquetar el .ipa (sin firmar — Sideloadly/AltStore lo firman al instalar)
+        run: |
+          set -euo pipefail
+          cd ios/build/Build/Products/Release-iphoneos
+          ls -la
+          mkdir -p Payload
+          cp -R MariposasDeCuba.app Payload/
+          zip -r -y MariposasDeCuba-sin-firmar.ipa Payload
+          mkdir -p "$GITHUB_WORKSPACE/artefactos"
+          cp MariposasDeCuba-sin-firmar.ipa "$GITHUB_WORKSPACE/artefactos/"
+
+      - name: Subir el .ipa como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: MariposasDeCuba-ipa
+          path: artefactos/MariposasDeCuba-sin-firmar.ipa
+          retention-days: 60
+
+      - name: Elegir un simulador de iPhone disponible
+        run: |
+          set -euo pipefail
+          DEVICE_ID=$(python3 ios/ci/elegir_simulador.py)
+          echo "DEVICE_ID=$DEVICE_ID" >> "$GITHUB_ENV"
+          echo "Usando simulador: $DEVICE_ID"
+
+      - name: Compilar para el simulador
+        run: |
+          set -euo pipefail
+          cd ios
+          xcodebuild \
+            -project MariposasDeCuba.xcodeproj \
+            -scheme MariposasDeCuba \
+            -configuration Debug \
+            -sdk iphonesimulator \
+            -derivedDataPath build-sim \
+            -destination "id=$DEVICE_ID" \
+            build
+
+      - name: Arrancar el simulador, instalar y capturar pantallas
+        run: |
+          set -euo pipefail
+          mkdir -p capturas
+          xcrun simctl boot "$DEVICE_ID" || true
+          xcrun simctl bootstatus "$DEVICE_ID" -b
+          APP_PATH=$(find ios/build-sim/Build/Products/Debug-iphonesimulator -maxdepth 1 -name "*.app" | head -1)
+          xcrun simctl install "$DEVICE_ID" "$APP_PATH"
+          BUNDLE_ID="com.marcoh03.mariposasdecuba"
+
+          xcrun simctl ui "$DEVICE_ID" appearance light
+          xcrun simctl launch "$DEVICE_ID" "$BUNDLE_ID"
+          sleep 4
+          xcrun simctl io "$DEVICE_ID" screenshot capturas/catalogo-light.png
+          xcrun simctl terminate "$DEVICE_ID" "$BUNDLE_ID" || true
+
+          xcrun simctl ui "$DEVICE_ID" appearance dark
+          xcrun simctl launch "$DEVICE_ID" "$BUNDLE_ID"
+          sleep 4
+          xcrun simctl io "$DEVICE_ID" screenshot capturas/catalogo-dark.png
+
+      - name: Subir las capturas
+        uses: actions/upload-artifact@v4
+        with:
+          name: capturas-simulador
+          path: capturas/*.png
+          retention-days: 60

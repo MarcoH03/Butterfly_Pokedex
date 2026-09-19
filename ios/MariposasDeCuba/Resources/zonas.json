@@ -1,0 +1,95 @@
+{
+ "aviso": "Catálogo de zonas de distribución. Los polígonos de abajo son APROXIMADOS y sirven de punto de partida: redibújalos con el editor de la app o sustitúyelos por trazados reales. Cada zona puede cruzar límites provinciales o cubrir solo una parte de una provincia; el campo 'provincias' es informativo y se usa para el filtro por toque.",
+ "contorno": {
+  "cuba": [
+   [-84.95,21.87],[-84.50,22.05],[-84.00,22.35],[-83.50,22.65],[-83.00,22.85],
+   [-82.55,23.05],[-82.20,23.18],[-81.60,23.18],[-81.00,23.08],[-80.50,23.02],
+   [-80.00,22.96],[-79.50,22.86],[-79.00,22.66],[-78.50,22.42],[-78.00,22.26],
+   [-77.50,22.00],[-77.00,21.76],[-76.50,21.50],[-76.00,21.26],[-75.50,21.10],
+   [-75.00,20.90],[-74.50,20.60],[-74.13,20.35],[-74.60,20.20],[-75.10,19.96],
+   [-75.70,19.90],[-76.30,19.92],[-76.90,19.92],[-77.45,19.88],[-77.72,19.90],
+   [-77.55,20.32],[-77.25,20.62],[-77.60,20.80],[-78.10,20.82],[-78.60,21.05],
+   [-79.10,21.24],[-79.60,21.44],[-80.10,21.68],[-80.55,21.88],[-81.10,21.92],
+   [-81.60,22.14],[-82.10,22.24],[-82.60,22.42],[-83.10,22.42],[-83.60,22.30],
+   [-84.10,22.06],[-84.60,21.95]
+  ],
+  "isla_juventud": [
+   [-83.12,21.74],[-82.92,21.92],[-82.60,21.86],[-82.48,21.60],[-82.70,21.44],[-83.02,21.50]
+  ]
+ },
+ "provincias": [
+  { "nombre": "Pinar del Río",       "sigla": "PRí", "lon0": -85.05, "lon1": -83.35 },
+  { "nombre": "Artemisa",            "sigla": "Art", "lon0": -83.35, "lon1": -82.72 },
+  { "nombre": "La Habana",           "sigla": "Hab", "lon0": -82.72, "lon1": -82.28 },
+  { "nombre": "Mayabeque",           "sigla": "May", "lon0": -82.28, "lon1": -81.75 },
+  { "nombre": "Matanzas",            "sigla": "Mtz", "lon0": -81.75, "lon1": -80.65 },
+  { "nombre": "Villa Clara",         "sigla": "VCl", "lon0": -80.65, "lon1": -79.75, "mitad": "norte" },
+  { "nombre": "Cienfuegos",          "sigla": "Cfg", "lon0": -80.65, "lon1": -79.75, "mitad": "sur" },
+  { "nombre": "Sancti Spíritus",     "sigla": "SSp", "lon0": -79.75, "lon1": -78.85 },
+  { "nombre": "Ciego de Ávila",      "sigla": "CAv", "lon0": -78.85, "lon1": -78.15 },
+  { "nombre": "Camagüey",            "sigla": "Cmg", "lon0": -78.15, "lon1": -76.90 },
+  { "nombre": "Las Tunas",           "sigla": "LTu", "lon0": -76.90, "lon1": -76.25, "mitad": "norte" },
+  { "nombre": "Granma",              "sigla": "Gra", "lon0": -77.90, "lon1": -76.25, "mitad": "sur" },
+  { "nombre": "Holguín",             "sigla": "Hol", "lon0": -76.25, "lon1": -75.10, "mitad": "norte" },
+  { "nombre": "Santiago de Cuba",    "sigla": "SCu", "lon0": -76.25, "lon1": -75.10, "mitad": "sur" },
+  { "nombre": "Guantánamo",          "sigla": "Gtm", "lon0": -75.10, "lon1": -74.05 },
+  { "nombre": "Isla de la Juventud", "sigla": "IJu", "contorno": "isla_juventud" }
+ ],
+ "latitud_division": 21.9,
+ "zonas": [
+  {
+   "id": "guanahacabibes",
+   "nombre": "Península de Guanahacabibes",
+   "provincias": ["Pinar del Río"],
+   "poligono": [[-84.95,21.88],[-84.30,22.02],[-84.20,22.18],[-84.60,22.12],[-84.92,22.00]]
+  },
+  {
+   "id": "organos",
+   "nombre": "Sierra de los Órganos",
+   "provincias": ["Pinar del Río"],
+   "poligono": [[-84.05,22.38],[-83.30,22.62],[-83.25,22.80],[-84.00,22.56]]
+  },
+  {
+   "id": "rosario",
+   "nombre": "Sierra del Rosario",
+   "provincias": ["Pinar del Río","Artemisa"],
+   "poligono": [[-83.30,22.62],[-82.80,22.78],[-82.78,22.94],[-83.26,22.80]]
+  },
+  {
+   "id": "zapata",
+   "nombre": "Ciénaga de Zapata",
+   "provincias": ["Matanzas"],
+   "poligono": [[-81.90,22.10],[-81.05,22.18],[-81.00,22.48],[-81.85,22.40]]
+  },
+  {
+   "id": "escambray",
+   "nombre": "Macizo de Guamuhaya (Escambray)",
+   "provincias": ["Villa Clara","Cienfuegos","Sancti Spíritus"],
+   "poligono": [[-80.35,21.78],[-79.75,21.90],[-79.72,22.22],[-80.30,22.10]]
+  },
+  {
+   "id": "llanuras",
+   "nombre": "Llanuras centrales",
+   "provincias": ["Ciego de Ávila","Camagüey","Las Tunas"],
+   "poligono": [[-79.20,21.40],[-77.20,21.70],[-77.15,22.10],[-79.15,21.85]]
+  },
+  {
+   "id": "maestra",
+   "nombre": "Sierra Maestra",
+   "provincias": ["Granma","Santiago de Cuba"],
+   "poligono": [[-77.35,19.95],[-76.05,20.10],[-76.00,20.42],[-77.30,20.25]]
+  },
+  {
+   "id": "nipe",
+   "nombre": "Nipe–Sagua–Baracoa",
+   "provincias": ["Holguín","Guantánamo"],
+   "poligono": [[-75.60,20.34],[-74.45,20.42],[-74.40,20.72],[-75.55,20.64]]
+  },
+  {
+   "id": "iju",
+   "nombre": "Isla de la Juventud",
+   "provincias": ["Isla de la Juventud"],
+   "poligono": [[-83.12,21.74],[-82.92,21.92],[-82.60,21.86],[-82.48,21.60],[-82.70,21.44],[-83.02,21.50]]
+  }
+ ]
+}
