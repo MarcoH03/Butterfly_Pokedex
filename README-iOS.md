@@ -200,13 +200,16 @@ son Sideloadly/AltStore.
 
 ## 6. Capturas del simulador
 
-Las siguientes capturas son reales, tomadas por el propio CI en un
-Simulador de iPhone (no un mockup): `docs/screenshots-nativo/`.
+Reales, tomadas por el propio CI en un Simulador de iPhone 16 Pro con
+iOS 17 — no un mockup. `docs/screenshots-nativo/`.
 
-*(Se añaden en cuanto termina la ejecución de
-`.github/workflows/build-ios.yml` — el `.ipa` y las capturas quedan
-como artefactos descargables de esa misma ejecución en la pestaña
-Actions, con validez de 60 días.)*
+| Claro | Oscuro |
+|---|---|
+| `docs/screenshots-nativo/catalogo-light.png` | `docs/screenshots-nativo/catalogo-dark.png` |
+
+El `.ipa` y estas mismas capturas también quedan como artefactos
+descargables en la pestaña **Actions** de cada ejecución del workflow
+(`MariposasDeCuba-ipa` y `capturas-simulador`), con validez de 60 días.
 
 ## 7. Si quieres seguir desarrollando
 
