@@ -50,7 +50,7 @@ target.add_resources([assets_ref])
 target.build_configurations.each do |config|
   settings = config.build_settings
   settings['PRODUCT_BUNDLE_IDENTIFIER'] = BUNDLE_ID
-  settings['PRODUCT_NAME'] = 'Mariposas de Cuba'
+  settings['PRODUCT_NAME'] = 'MariposasDeCuba'
   settings['INFOPLIST_FILE'] = 'MariposasDeCuba/App/Info.plist'
   settings['SWIFT_VERSION'] = '5.0'
   settings['IPHONEOS_DEPLOYMENT_TARGET'] = '17.0'

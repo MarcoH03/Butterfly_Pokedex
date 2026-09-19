@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0082AFE9DD932527D4322976"
+               BlueprintIdentifier = "F8649C935B7C44E387646641"
                BuildableName = "MariposasDeCuba.app"
                BlueprintName = "MariposasDeCuba"
                ReferencedContainer = "container:MariposasDeCuba.xcodeproj">
@@ -30,7 +30,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0082AFE9DD932527D4322976"
+            BlueprintIdentifier = "F8649C935B7C44E387646641"
             BuildableName = "MariposasDeCuba.app"
             BlueprintName = "MariposasDeCuba"
             ReferencedContainer = "container:MariposasDeCuba.xcodeproj">
@@ -53,7 +53,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0082AFE9DD932527D4322976"
+            BlueprintIdentifier = "F8649C935B7C44E387646641"
             BuildableName = "MariposasDeCuba.app"
             BlueprintName = "MariposasDeCuba"
             ReferencedContainer = "container:MariposasDeCuba.xcodeproj">
@@ -70,7 +70,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0082AFE9DD932527D4322976"
+            BlueprintIdentifier = "F8649C935B7C44E387646641"
             BuildableName = "MariposasDeCuba.app"
             BlueprintName = "MariposasDeCuba"
             ReferencedContainer = "container:MariposasDeCuba.xcodeproj">

@@ -47,8 +47,14 @@ jobs:
           set -euo pipefail
           cd ios/build/Build/Products/Release-iphoneos
           ls -la
+          APP_DIR=$(find . -maxdepth 1 -name "*.app" | head -1)
+          if [ -z "$APP_DIR" ]; then
+            echo "No se encontró ningún .app en Release-iphoneos" >&2
+            exit 1
+          fi
+          echo "Empaquetando $APP_DIR"
           mkdir -p Payload
-          cp -R MariposasDeCuba.app Payload/
+          cp -R "$APP_DIR" Payload/
           zip -r -y MariposasDeCuba-sin-firmar.ipa Payload
           mkdir -p "$GITHUB_WORKSPACE/artefactos"
           cp MariposasDeCuba-sin-firmar.ipa "$GITHUB_WORKSPACE/artefactos/"

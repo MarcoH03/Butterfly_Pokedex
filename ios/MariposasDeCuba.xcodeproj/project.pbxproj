@@ -7,192 +7,139 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09D7279E54D24199448FFECC /* Zona.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2245C0EF4837EAF3456CCD16 /* Zona.swift */; };
-		17C95CF223FB412A8D8AC22E /* CatalogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E849BAF91342E4CD0A855E8 /* CatalogoView.swift */; };
-		1A1DA31B53AF3EE75A3791EB /* Paleta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C7660DEDA16F8B22A63F65 /* Paleta.swift */; };
-		1C11051301CC43E9BB40C6B1 /* MapaCubaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086EE25957589E5D4A63DA43 /* MapaCubaView.swift */; };
-		445775B8A9032E549C055E31 /* VisorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6883300C4AE165339DBC96B /* VisorView.swift */; };
-		503633723629C52F8A637AB5 /* Especie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62AB08649957F1AD0172537 /* Especie.swift */; };
-		5C3427ADC516676AAAA3BE03 /* Ubicacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90281E850829E9E466E7945A /* Ubicacion.swift */; };
-		5E44CAE7EFC7D11E7441D51C /* SeccionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709408CB897E18F102419C4F /* SeccionViews.swift */; };
-		607E0EE0823006385BDB3376 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0BC8FFBB2E8D358DFAAE2CC /* Assets.xcassets */; };
-		6177D13CEBC35AAF3B138697 /* TarjetaEspecieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0890623120189A9CEF0DD515 /* TarjetaEspecieView.swift */; };
-		64D17C9988230C0A65E5D7AE /* Catalogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE24DD66E121CA9FECD4AF2 /* Catalogo.swift */; };
-		68A1BC9E49A5660D18CCC91B /* Almacen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA391276E5739997DD9F3A /* Almacen.swift */; };
-		6C812939457F42248AD9554A /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16232EE98C46126AB5F7B574 /* ViewModifiers.swift */; };
-		7264692EE2C460EE930FF63D /* especies.json in Resources */ = {isa = PBXBuildFile; fileRef = 1BFF26480A0652969B011388 /* especies.json */; };
-		76A6D993CA748728DC0B1265 /* HojaAvistamientoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4F68BF52E1EF8EA7B26CF /* HojaAvistamientoView.swift */; };
-		77DE583AA2014BA999209B11 /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259811ABAAAF441C6D37B956 /* CameraPicker.swift */; };
-		7D034BBB53793BCA809EF037 /* GaleriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD93ACAA778A3B1DEEA1BD4 /* GaleriaView.swift */; };
-		7D28A6E11670CA5176A7D112 /* PanelFiltrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F29687C2F2A062AF039BD /* PanelFiltrosView.swift */; };
-		8193723BD14F8E0524ECC890 /* NotasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C44476ED5653D02427BA75 /* NotasView.swift */; };
-		AC9679511DD69065E945650A /* Lamina.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FE5769E8653CA5D8410BFA /* Lamina.swift */; };
-		B0774E3DD17FE7403136DDD8 /* MariposasDeCubaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B07440D8845F17C0646E1D /* MariposasDeCubaApp.swift */; };
-		BD0188115DD4688B5ED86D4F /* FichaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE41A00C041375BFA31945 /* FichaView.swift */; };
-		CBD58AB9B576EE310B0AD5E5 /* zonas.json in Resources */ = {isa = PBXBuildFile; fileRef = 8943229B5E4673CC2032AC10 /* zonas.json */; };
-		DEA996CFF7CF1FD4DBB361CF /* EspeciesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD019969CF184669D93526D1 /* EspeciesViewModel.swift */; };
-		EC4FE5CF23BB8E92ABEC5093 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFB1F5FD2C958902F6205C9 /* Foundation.framework */; };
-		ECE5134BF9C4F8292C932D59 /* RanuraFotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901ECFC651370A9966E5E106 /* RanuraFotoView.swift */; };
-		F1D257E62209899672888F6F /* Avistamiento.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89A8038FFFBB3323A974922 /* Avistamiento.swift */; };
+		06871DBAE8765533A8AF3F6C /* TarjetaEspecieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEC83E587B539F4F42AADA9 /* TarjetaEspecieView.swift */; };
+		0E802A90FF5A468E3730B495 /* Paleta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB07E4B75C00C9BC7EAB747 /* Paleta.swift */; };
+		0FA6407C7A97ADF2224BDC8A /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6F2CEFF16B7A940A09FD67 /* CameraPicker.swift */; };
+		18F365B2E5F1006674A1E640 /* Lamina.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DA4B0CACEC8235064D2340 /* Lamina.swift */; };
+		1C926DEF5B5A8B4697A395A5 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939CC9595BDD72ACA16CA861 /* ViewModifiers.swift */; };
+		1D2E8608CED9253B6B6D5850 /* zonas.json in Resources */ = {isa = PBXBuildFile; fileRef = ABFA5E86CF8373A50EAFD201 /* zonas.json */; };
+		1F20C20E44A9C68966C061FA /* RanuraFotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE1FCC24936F004D2C5E86 /* RanuraFotoView.swift */; };
+		26DFC47D3AEE6CBA0E637384 /* SeccionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B94D265325BDC9BFD4292C /* SeccionViews.swift */; };
+		355BAD3A7334BC5147055F7C /* HojaAvistamientoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95291EBB7F1A5332BAD0B623 /* HojaAvistamientoView.swift */; };
+		4FD7EE356F2CB5E572A183A5 /* EspeciesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7645DC7285EB91B9E0865BE0 /* EspeciesViewModel.swift */; };
+		64D20B48B7B6A4023581753C /* Zona.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87553B1756497073C4B7C54B /* Zona.swift */; };
+		6F249832BDAEB31CB1544AB3 /* Avistamiento.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00C1E7BFF5D9AD3087D3C4F /* Avistamiento.swift */; };
+		8A892D4EF2D0EEA6950B4FDB /* Especie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AB75EEF1499B524CAE38C8 /* Especie.swift */; };
+		8D4CC4DE2BEBC299335CC21A /* Catalogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9659842C51935B8FD9D006 /* Catalogo.swift */; };
+		9A4B60E2DBCC552F3E000ACC /* Almacen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208369578C2E8A89C3CE0928 /* Almacen.swift */; };
+		9C6304ACB75E56AB8F761A52 /* MariposasDeCubaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF7F79FD48B47FCBA7F6D69 /* MariposasDeCubaApp.swift */; };
+		A7F03DCBDC0236B6E67CC157 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91CDD4D71AFB26AB69E60E6A /* Assets.xcassets */; };
+		AB268A2A20665188C391533E /* GaleriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3959167EE9ECAB54BD41247 /* GaleriaView.swift */; };
+		AC1696DF6CFA7F7B01989177 /* MapaCubaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0473821CDE93C816F51AE5 /* MapaCubaView.swift */; };
+		B30949269C586F6A329964B8 /* CatalogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A9E0743C2857F90312A793 /* CatalogoView.swift */; };
+		BAA6D40AFFD7C2D4698F889B /* especies.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A515FFCF15E66362E9BCA86 /* especies.json */; };
+		C459DFEFD10162592ACB04C0 /* Ubicacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B042E9993F75FD5AB33D4289 /* Ubicacion.swift */; };
+		C4BC2CA78E05F62827663506 /* FichaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5271270FA965EDDB11C84 /* FichaView.swift */; };
+		E6D3CB2E22EAAF1AAEFE78AD /* VisorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96708B50F6F437806CA28701 /* VisorView.swift */; };
+		EA7FB74237A046333C383354 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54660A9FF8CE1DF79E5FC438 /* Foundation.framework */; };
+		FA61D900E830D42517CE4185 /* PanelFiltrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE45825ADB25C71D014DEBC0 /* PanelFiltrosView.swift */; };
+		FE8079987C1353C11387D8BC /* NotasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF329D852143FB3D0112AC59 /* NotasView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		035F29687C2F2A062AF039BD /* PanelFiltrosView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PanelFiltrosView.swift; sourceTree = "<group>"; };
-		086EE25957589E5D4A63DA43 /* MapaCubaView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MapaCubaView.swift; sourceTree = "<group>"; };
-		0890623120189A9CEF0DD515 /* TarjetaEspecieView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TarjetaEspecieView.swift; sourceTree = "<group>"; };
-		0BFA391276E5739997DD9F3A /* Almacen.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Almacen.swift; sourceTree = "<group>"; };
-		16232EE98C46126AB5F7B574 /* ViewModifiers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
-		1BFF26480A0652969B011388 /* especies.json */ = {isa = PBXFileReference; includeInIndex = 1; path = especies.json; sourceTree = "<group>"; };
-		2245C0EF4837EAF3456CCD16 /* Zona.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Zona.swift; sourceTree = "<group>"; };
-		259811ABAAAF441C6D37B956 /* CameraPicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
-		2AD93ACAA778A3B1DEEA1BD4 /* GaleriaView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GaleriaView.swift; sourceTree = "<group>"; };
-		39A4F68BF52E1EF8EA7B26CF /* HojaAvistamientoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HojaAvistamientoView.swift; sourceTree = "<group>"; };
-		45FE5769E8653CA5D8410BFA /* Lamina.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Lamina.swift; sourceTree = "<group>"; };
-		4AEE41A00C041375BFA31945 /* FichaView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FichaView.swift; sourceTree = "<group>"; };
-		5031ABBDE4725CD0E721C6B9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		58C7660DEDA16F8B22A63F65 /* Paleta.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Paleta.swift; sourceTree = "<group>"; };
-		5E849BAF91342E4CD0A855E8 /* CatalogoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CatalogoView.swift; sourceTree = "<group>"; };
-		709408CB897E18F102419C4F /* SeccionViews.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SeccionViews.swift; sourceTree = "<group>"; };
-		8943229B5E4673CC2032AC10 /* zonas.json */ = {isa = PBXFileReference; includeInIndex = 1; path = zonas.json; sourceTree = "<group>"; };
-		901ECFC651370A9966E5E106 /* RanuraFotoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RanuraFotoView.swift; sourceTree = "<group>"; };
-		90281E850829E9E466E7945A /* Ubicacion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Ubicacion.swift; sourceTree = "<group>"; };
-		9EFB1F5FD2C958902F6205C9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D3C44476ED5653D02427BA75 /* NotasView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NotasView.swift; sourceTree = "<group>"; };
-		E62AB08649957F1AD0172537 /* Especie.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Especie.swift; sourceTree = "<group>"; };
-		F0BC8FFBB2E8D358DFAAE2CC /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F6883300C4AE165339DBC96B /* VisorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VisorView.swift; sourceTree = "<group>"; };
-		F6B07440D8845F17C0646E1D /* MariposasDeCubaApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MariposasDeCubaApp.swift; sourceTree = "<group>"; };
-		F89A8038FFFBB3323A974922 /* Avistamiento.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Avistamiento.swift; sourceTree = "<group>"; };
-		FCEEE291853962C30AFABBA9 /* MariposasDeCuba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MariposasDeCuba.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD019969CF184669D93526D1 /* EspeciesViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EspeciesViewModel.swift; sourceTree = "<group>"; };
-		FEE24DD66E121CA9FECD4AF2 /* Catalogo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Catalogo.swift; sourceTree = "<group>"; };
+		07A9E0743C2857F90312A793 /* CatalogoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CatalogoView.swift; sourceTree = "<group>"; };
+		0DC5EF8AF70B2076E9AE8469 /* MariposasDeCuba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MariposasDeCuba.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		208369578C2E8A89C3CE0928 /* Almacen.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Almacen.swift; sourceTree = "<group>"; };
+		4E0473821CDE93C816F51AE5 /* MapaCubaView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MapaCubaView.swift; sourceTree = "<group>"; };
+		54660A9FF8CE1DF79E5FC438 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5C6F2CEFF16B7A940A09FD67 /* CameraPicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
+		64B94D265325BDC9BFD4292C /* SeccionViews.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SeccionViews.swift; sourceTree = "<group>"; };
+		6F9659842C51935B8FD9D006 /* Catalogo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Catalogo.swift; sourceTree = "<group>"; };
+		7645DC7285EB91B9E0865BE0 /* EspeciesViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EspeciesViewModel.swift; sourceTree = "<group>"; };
+		86CE1FCC24936F004D2C5E86 /* RanuraFotoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RanuraFotoView.swift; sourceTree = "<group>"; };
+		87553B1756497073C4B7C54B /* Zona.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Zona.swift; sourceTree = "<group>"; };
+		8FB07E4B75C00C9BC7EAB747 /* Paleta.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Paleta.swift; sourceTree = "<group>"; };
+		91CDD4D71AFB26AB69E60E6A /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		939CC9595BDD72ACA16CA861 /* ViewModifiers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		95291EBB7F1A5332BAD0B623 /* HojaAvistamientoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HojaAvistamientoView.swift; sourceTree = "<group>"; };
+		96708B50F6F437806CA28701 /* VisorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VisorView.swift; sourceTree = "<group>"; };
+		9A515FFCF15E66362E9BCA86 /* especies.json */ = {isa = PBXFileReference; includeInIndex = 1; path = especies.json; sourceTree = "<group>"; };
+		AAEC83E587B539F4F42AADA9 /* TarjetaEspecieView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TarjetaEspecieView.swift; sourceTree = "<group>"; };
+		ABFA5E86CF8373A50EAFD201 /* zonas.json */ = {isa = PBXFileReference; includeInIndex = 1; path = zonas.json; sourceTree = "<group>"; };
+		B00C1E7BFF5D9AD3087D3C4F /* Avistamiento.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Avistamiento.swift; sourceTree = "<group>"; };
+		B042E9993F75FD5AB33D4289 /* Ubicacion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Ubicacion.swift; sourceTree = "<group>"; };
+		B3959167EE9ECAB54BD41247 /* GaleriaView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GaleriaView.swift; sourceTree = "<group>"; };
+		B7DA4B0CACEC8235064D2340 /* Lamina.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Lamina.swift; sourceTree = "<group>"; };
+		BD1FCC48A0DD21352DE51F6C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE45825ADB25C71D014DEBC0 /* PanelFiltrosView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PanelFiltrosView.swift; sourceTree = "<group>"; };
+		CCF7F79FD48B47FCBA7F6D69 /* MariposasDeCubaApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MariposasDeCubaApp.swift; sourceTree = "<group>"; };
+		D8E5271270FA965EDDB11C84 /* FichaView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FichaView.swift; sourceTree = "<group>"; };
+		EF329D852143FB3D0112AC59 /* NotasView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NotasView.swift; sourceTree = "<group>"; };
+		F2AB75EEF1499B524CAE38C8 /* Especie.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Especie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8BFFF0E792AF8FF8B7127A51 /* Frameworks */ = {
+		BD7582352F8FA98179649FCF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC4FE5CF23BB8E92ABEC5093 /* Foundation.framework in Frameworks */,
+				EA7FB74237A046333C383354 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E1C334FDC2D41715C298370 /* Design */ = {
+		0F2698ABA103EDD976CCA45C /* Catalogo */ = {
 			isa = PBXGroup;
 			children = (
-				58C7660DEDA16F8B22A63F65 /* Paleta.swift */,
-				16232EE98C46126AB5F7B574 /* ViewModifiers.swift */,
-			);
-			name = Design;
-			path = Design;
-			sourceTree = "<group>";
-		};
-		418A6D812F6C68B9BA3491B0 = {
-			isa = PBXGroup;
-			children = (
-				6DBDF460FB15C3E6BEDAB895 /* Products */,
-				C8B0FE2DE625BD0728E60033 /* Frameworks */,
-				96EB77C32F2D9A9AE5D1DDF8 /* MariposasDeCuba */,
-			);
-			sourceTree = "<group>";
-		};
-		42068D85EB81661682860E20 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				B0723C8F48AF4951061AC5B5 /* Catalogo */,
-				77EED0BD0758D4F2DA3B25BC /* Ficha */,
-			);
-			name = Views;
-			path = Views;
-			sourceTree = "<group>";
-		};
-		6399AB1C0DEE963073348809 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				9EFB1F5FD2C958902F6205C9 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		67507F09587C7EAC71375A7A /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				1BFF26480A0652969B011388 /* especies.json */,
-				8943229B5E4673CC2032AC10 /* zonas.json */,
-			);
-			name = Resources;
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		6C440EB45454CB322A1DCF40 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				F89A8038FFFBB3323A974922 /* Avistamiento.swift */,
-				FEE24DD66E121CA9FECD4AF2 /* Catalogo.swift */,
-				E62AB08649957F1AD0172537 /* Especie.swift */,
-				2245C0EF4837EAF3456CCD16 /* Zona.swift */,
-			);
-			name = Models;
-			path = Models;
-			sourceTree = "<group>";
-		};
-		6DBDF460FB15C3E6BEDAB895 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FCEEE291853962C30AFABBA9 /* MariposasDeCuba.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		77EED0BD0758D4F2DA3B25BC /* Ficha */ = {
-			isa = PBXGroup;
-			children = (
-				259811ABAAAF441C6D37B956 /* CameraPicker.swift */,
-				4AEE41A00C041375BFA31945 /* FichaView.swift */,
-				2AD93ACAA778A3B1DEEA1BD4 /* GaleriaView.swift */,
-				39A4F68BF52E1EF8EA7B26CF /* HojaAvistamientoView.swift */,
-				086EE25957589E5D4A63DA43 /* MapaCubaView.swift */,
-				D3C44476ED5653D02427BA75 /* NotasView.swift */,
-				901ECFC651370A9966E5E106 /* RanuraFotoView.swift */,
-				709408CB897E18F102419C4F /* SeccionViews.swift */,
-				F6883300C4AE165339DBC96B /* VisorView.swift */,
-			);
-			name = Ficha;
-			path = Ficha;
-			sourceTree = "<group>";
-		};
-		96EB77C32F2D9A9AE5D1DDF8 /* MariposasDeCuba */ = {
-			isa = PBXGroup;
-			children = (
-				CBFAC7E6A7AD3BDC57006B6B /* App */,
-				2E1C334FDC2D41715C298370 /* Design */,
-				6C440EB45454CB322A1DCF40 /* Models */,
-				BCC423E886DC68CA9D04A5FB /* Resources */,
-				FF0CF77AD55201D199208D04 /* Store */,
-				42068D85EB81661682860E20 /* Views */,
-				67507F09587C7EAC71375A7A /* Resources */,
-				F0BC8FFBB2E8D358DFAAE2CC /* Assets.xcassets */,
-			);
-			name = MariposasDeCuba;
-			path = MariposasDeCuba;
-			sourceTree = "<group>";
-		};
-		B0723C8F48AF4951061AC5B5 /* Catalogo */ = {
-			isa = PBXGroup;
-			children = (
-				5E849BAF91342E4CD0A855E8 /* CatalogoView.swift */,
-				45FE5769E8653CA5D8410BFA /* Lamina.swift */,
-				035F29687C2F2A062AF039BD /* PanelFiltrosView.swift */,
-				0890623120189A9CEF0DD515 /* TarjetaEspecieView.swift */,
+				07A9E0743C2857F90312A793 /* CatalogoView.swift */,
+				B7DA4B0CACEC8235064D2340 /* Lamina.swift */,
+				BE45825ADB25C71D014DEBC0 /* PanelFiltrosView.swift */,
+				AAEC83E587B539F4F42AADA9 /* TarjetaEspecieView.swift */,
 			);
 			name = Catalogo;
 			path = Catalogo;
 			sourceTree = "<group>";
 		};
-		BCC423E886DC68CA9D04A5FB /* Resources */ = {
+		12B07521A2F8810B19A93109 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B00C1E7BFF5D9AD3087D3C4F /* Avistamiento.swift */,
+				6F9659842C51935B8FD9D006 /* Catalogo.swift */,
+				F2AB75EEF1499B524CAE38C8 /* Especie.swift */,
+				87553B1756497073C4B7C54B /* Zona.swift */,
+			);
+			name = Models;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1F525630EEB19F2889C793D9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				CCF7F79FD48B47FCBA7F6D69 /* MariposasDeCubaApp.swift */,
+				BD1FCC48A0DD21352DE51F6C /* Info.plist */,
+			);
+			name = App;
+			path = App;
+			sourceTree = "<group>";
+		};
+		209D633C5B67AEC5542C488C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0DC5EF8AF70B2076E9AE8469 /* MariposasDeCuba.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		231380FF4BE45C0DEF4C3991 /* Ficha */ = {
+			isa = PBXGroup;
+			children = (
+				5C6F2CEFF16B7A940A09FD67 /* CameraPicker.swift */,
+				D8E5271270FA965EDDB11C84 /* FichaView.swift */,
+				B3959167EE9ECAB54BD41247 /* GaleriaView.swift */,
+				95291EBB7F1A5332BAD0B623 /* HojaAvistamientoView.swift */,
+				4E0473821CDE93C816F51AE5 /* MapaCubaView.swift */,
+				EF329D852143FB3D0112AC59 /* NotasView.swift */,
+				86CE1FCC24936F004D2C5E86 /* RanuraFotoView.swift */,
+				64B94D265325BDC9BFD4292C /* SeccionViews.swift */,
+				96708B50F6F437806CA28701 /* VisorView.swift */,
+			);
+			name = Ficha;
+			path = Ficha;
+			sourceTree = "<group>";
+		};
+		2D10FB30BEBD6E5F696CE560 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -200,30 +147,83 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		C8B0FE2DE625BD0728E60033 /* Frameworks */ = {
+		3C8F2EE8062790A0438A7B9B /* MariposasDeCuba */ = {
 			isa = PBXGroup;
 			children = (
-				6399AB1C0DEE963073348809 /* iOS */,
+				1F525630EEB19F2889C793D9 /* App */,
+				8852776F661FDF2A791AE683 /* Design */,
+				12B07521A2F8810B19A93109 /* Models */,
+				2D10FB30BEBD6E5F696CE560 /* Resources */,
+				F6258C7DF23B1DACC3E509AC /* Store */,
+				E95700A49CD5E85DAF2B4DE2 /* Views */,
+				ED143C7D5D6496B20A234993 /* Resources */,
+				91CDD4D71AFB26AB69E60E6A /* Assets.xcassets */,
+			);
+			name = MariposasDeCuba;
+			path = MariposasDeCuba;
+			sourceTree = "<group>";
+		};
+		4ECECD0A709B4B190CB871A6 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				54660A9FF8CE1DF79E5FC438 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		8852776F661FDF2A791AE683 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				8FB07E4B75C00C9BC7EAB747 /* Paleta.swift */,
+				939CC9595BDD72ACA16CA861 /* ViewModifiers.swift */,
+			);
+			name = Design;
+			path = Design;
+			sourceTree = "<group>";
+		};
+		92DDE2BFB1773B476C9CA420 = {
+			isa = PBXGroup;
+			children = (
+				209D633C5B67AEC5542C488C /* Products */,
+				BEA759BCE77E7FF293D25603 /* Frameworks */,
+				3C8F2EE8062790A0438A7B9B /* MariposasDeCuba */,
+			);
+			sourceTree = "<group>";
+		};
+		BEA759BCE77E7FF293D25603 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4ECECD0A709B4B190CB871A6 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CBFAC7E6A7AD3BDC57006B6B /* App */ = {
+		E95700A49CD5E85DAF2B4DE2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F6B07440D8845F17C0646E1D /* MariposasDeCubaApp.swift */,
-				5031ABBDE4725CD0E721C6B9 /* Info.plist */,
+				0F2698ABA103EDD976CCA45C /* Catalogo */,
+				231380FF4BE45C0DEF4C3991 /* Ficha */,
 			);
-			name = App;
-			path = App;
+			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		FF0CF77AD55201D199208D04 /* Store */ = {
+		ED143C7D5D6496B20A234993 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0BFA391276E5739997DD9F3A /* Almacen.swift */,
-				FD019969CF184669D93526D1 /* EspeciesViewModel.swift */,
-				90281E850829E9E466E7945A /* Ubicacion.swift */,
+				9A515FFCF15E66362E9BCA86 /* especies.json */,
+				ABFA5E86CF8373A50EAFD201 /* zonas.json */,
+			);
+			name = Resources;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F6258C7DF23B1DACC3E509AC /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				208369578C2E8A89C3CE0928 /* Almacen.swift */,
+				7645DC7285EB91B9E0865BE0 /* EspeciesViewModel.swift */,
+				B042E9993F75FD5AB33D4289 /* Ubicacion.swift */,
 			);
 			name = Store;
 			path = Store;
@@ -232,13 +232,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0082AFE9DD932527D4322976 /* MariposasDeCuba */ = {
+		F8649C935B7C44E387646641 /* MariposasDeCuba */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C6C0908359DA179A159DCA71 /* Build configuration list for PBXNativeTarget "MariposasDeCuba" */;
+			buildConfigurationList = 40AADBF991CCF6BCB39134D1 /* Build configuration list for PBXNativeTarget "MariposasDeCuba" */;
 			buildPhases = (
-				FBF751EC6036DE5ADBE18FC0 /* Sources */,
-				8BFFF0E792AF8FF8B7127A51 /* Frameworks */,
-				0017E163B1945EDF2AE2DF6E /* Resources */,
+				27494045C63E2FC959F226C6 /* Sources */,
+				BD7582352F8FA98179649FCF /* Frameworks */,
+				A91C9E25EFEC6F51D1DBEBF3 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -246,19 +246,19 @@
 			);
 			name = MariposasDeCuba;
 			productName = MariposasDeCuba;
-			productReference = FCEEE291853962C30AFABBA9 /* MariposasDeCuba.app */;
+			productReference = 0DC5EF8AF70B2076E9AE8469 /* MariposasDeCuba.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CA52869B2BC49198EAACC05D /* Project object */ = {
+		71E43C53DD558B9F82D0A623 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 			};
-			buildConfigurationList = BF3729E78AEC9D58688C0BA5 /* Build configuration list for PBXProject "MariposasDeCuba" */;
+			buildConfigurationList = 7781818A05EAF7A23ABD4D76 /* Build configuration list for PBXProject "MariposasDeCuba" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -266,120 +266,66 @@
 				en,
 				Base,
 			);
-			mainGroup = 418A6D812F6C68B9BA3491B0;
+			mainGroup = 92DDE2BFB1773B476C9CA420;
 			minimizedProjectReferenceProxies = 0;
 			preferredProjectObjectVersion = 100;
-			productRefGroup = 6DBDF460FB15C3E6BEDAB895 /* Products */;
+			productRefGroup = 209D633C5B67AEC5542C488C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0082AFE9DD932527D4322976 /* MariposasDeCuba */,
+				F8649C935B7C44E387646641 /* MariposasDeCuba */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0017E163B1945EDF2AE2DF6E /* Resources */ = {
+		A91C9E25EFEC6F51D1DBEBF3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7264692EE2C460EE930FF63D /* especies.json in Resources */,
-				CBD58AB9B576EE310B0AD5E5 /* zonas.json in Resources */,
-				607E0EE0823006385BDB3376 /* Assets.xcassets in Resources */,
+				BAA6D40AFFD7C2D4698F889B /* especies.json in Resources */,
+				1D2E8608CED9253B6B6D5850 /* zonas.json in Resources */,
+				A7F03DCBDC0236B6E67CC157 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FBF751EC6036DE5ADBE18FC0 /* Sources */ = {
+		27494045C63E2FC959F226C6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0774E3DD17FE7403136DDD8 /* MariposasDeCubaApp.swift in Sources */,
-				1A1DA31B53AF3EE75A3791EB /* Paleta.swift in Sources */,
-				6C812939457F42248AD9554A /* ViewModifiers.swift in Sources */,
-				F1D257E62209899672888F6F /* Avistamiento.swift in Sources */,
-				64D17C9988230C0A65E5D7AE /* Catalogo.swift in Sources */,
-				503633723629C52F8A637AB5 /* Especie.swift in Sources */,
-				09D7279E54D24199448FFECC /* Zona.swift in Sources */,
-				68A1BC9E49A5660D18CCC91B /* Almacen.swift in Sources */,
-				DEA996CFF7CF1FD4DBB361CF /* EspeciesViewModel.swift in Sources */,
-				5C3427ADC516676AAAA3BE03 /* Ubicacion.swift in Sources */,
-				17C95CF223FB412A8D8AC22E /* CatalogoView.swift in Sources */,
-				AC9679511DD69065E945650A /* Lamina.swift in Sources */,
-				7D28A6E11670CA5176A7D112 /* PanelFiltrosView.swift in Sources */,
-				6177D13CEBC35AAF3B138697 /* TarjetaEspecieView.swift in Sources */,
-				77DE583AA2014BA999209B11 /* CameraPicker.swift in Sources */,
-				BD0188115DD4688B5ED86D4F /* FichaView.swift in Sources */,
-				7D034BBB53793BCA809EF037 /* GaleriaView.swift in Sources */,
-				76A6D993CA748728DC0B1265 /* HojaAvistamientoView.swift in Sources */,
-				1C11051301CC43E9BB40C6B1 /* MapaCubaView.swift in Sources */,
-				8193723BD14F8E0524ECC890 /* NotasView.swift in Sources */,
-				ECE5134BF9C4F8292C932D59 /* RanuraFotoView.swift in Sources */,
-				5E44CAE7EFC7D11E7441D51C /* SeccionViews.swift in Sources */,
-				445775B8A9032E549C055E31 /* VisorView.swift in Sources */,
+				9C6304ACB75E56AB8F761A52 /* MariposasDeCubaApp.swift in Sources */,
+				0E802A90FF5A468E3730B495 /* Paleta.swift in Sources */,
+				1C926DEF5B5A8B4697A395A5 /* ViewModifiers.swift in Sources */,
+				6F249832BDAEB31CB1544AB3 /* Avistamiento.swift in Sources */,
+				8D4CC4DE2BEBC299335CC21A /* Catalogo.swift in Sources */,
+				8A892D4EF2D0EEA6950B4FDB /* Especie.swift in Sources */,
+				64D20B48B7B6A4023581753C /* Zona.swift in Sources */,
+				9A4B60E2DBCC552F3E000ACC /* Almacen.swift in Sources */,
+				4FD7EE356F2CB5E572A183A5 /* EspeciesViewModel.swift in Sources */,
+				C459DFEFD10162592ACB04C0 /* Ubicacion.swift in Sources */,
+				B30949269C586F6A329964B8 /* CatalogoView.swift in Sources */,
+				18F365B2E5F1006674A1E640 /* Lamina.swift in Sources */,
+				FA61D900E830D42517CE4185 /* PanelFiltrosView.swift in Sources */,
+				06871DBAE8765533A8AF3F6C /* TarjetaEspecieView.swift in Sources */,
+				0FA6407C7A97ADF2224BDC8A /* CameraPicker.swift in Sources */,
+				C4BC2CA78E05F62827663506 /* FichaView.swift in Sources */,
+				AB268A2A20665188C391533E /* GaleriaView.swift in Sources */,
+				355BAD3A7334BC5147055F7C /* HojaAvistamientoView.swift in Sources */,
+				AC1696DF6CFA7F7B01989177 /* MapaCubaView.swift in Sources */,
+				FE8079987C1353C11387D8BC /* NotasView.swift in Sources */,
+				1F20C20E44A9C68966C061FA /* RanuraFotoView.swift in Sources */,
+				26DFC47D3AEE6CBA0E637384 /* SeccionViews.swift in Sources */,
+				E6D3CB2E22EAAF1AAEFE78AD /* VisorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		A3B6CE3571A0861BC6814203 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		BB032A35289D9787CD3743AC /* Debug */ = {
+		45D360AAE2788642C9BD3C3A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -395,32 +341,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcoh03.mariposasdecuba;
-				PRODUCT_NAME = "Mariposas de Cuba";
-				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		CB1E92F3649AB3C9BE5781FA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = MariposasDeCuba/App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.marcoh03.mariposasdecuba;
-				PRODUCT_NAME = "Mariposas de Cuba";
+				PRODUCT_NAME = MariposasDeCuba;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -430,7 +351,7 @@
 			};
 			name = Release;
 		};
-		F809A2E2C4BB7D3BCB6074C5 /* Debug */ = {
+		76CC553B67367BF550ACFB74 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -491,28 +412,107 @@
 			};
 			name = Debug;
 		};
+		7921E4CC099E1F8D16813952 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		BFB7925D821B3A4AD5FCF78D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MariposasDeCuba/App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marcoh03.mariposasdecuba;
+				PRODUCT_NAME = MariposasDeCuba;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BF3729E78AEC9D58688C0BA5 /* Build configuration list for PBXProject "MariposasDeCuba" */ = {
+		40AADBF991CCF6BCB39134D1 /* Build configuration list for PBXNativeTarget "MariposasDeCuba" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F809A2E2C4BB7D3BCB6074C5 /* Debug */,
-				A3B6CE3571A0861BC6814203 /* Release */,
+				45D360AAE2788642C9BD3C3A /* Release */,
+				BFB7925D821B3A4AD5FCF78D /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C6C0908359DA179A159DCA71 /* Build configuration list for PBXNativeTarget "MariposasDeCuba" */ = {
+		7781818A05EAF7A23ABD4D76 /* Build configuration list for PBXProject "MariposasDeCuba" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CB1E92F3649AB3C9BE5781FA /* Release */,
-				BB032A35289D9787CD3743AC /* Debug */,
+				76CC553B67367BF550ACFB74 /* Debug */,
+				7921E4CC099E1F8D16813952 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CA52869B2BC49198EAACC05D /* Project object */;
+	rootObject = 71E43C53DD558B9F82D0A623 /* Project object */;
 }
