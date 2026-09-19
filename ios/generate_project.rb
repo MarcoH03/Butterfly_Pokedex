@@ -33,9 +33,6 @@ end
 
 add_swift_files(project, target, root_group, APP_DIR)
 
-# ── Info.plist (referenciado, no compilado como recurso) ──
-info_plist_ref = root_group.find_subpath('App').new_file(File.join(APP_DIR, 'App', 'Info.plist')) rescue nil
-
 # ── Recursos: Assets.xcassets y los dos JSON del catálogo ──
 resources_group = root_group.new_group('Resources', File.join(APP_DIR, 'Resources'))
 %w[especies.json zonas.json].each do |name|
@@ -51,13 +48,11 @@ target.build_configurations.each do |config|
   settings = config.build_settings
   settings['PRODUCT_BUNDLE_IDENTIFIER'] = BUNDLE_ID
   settings['PRODUCT_NAME'] = 'MariposasDeCuba'
-  settings['INFOPLIST_FILE'] = 'MariposasDeCuba/App/Info.plist'
   settings['SWIFT_VERSION'] = '5.0'
   settings['IPHONEOS_DEPLOYMENT_TARGET'] = '17.0'
   settings['TARGETED_DEVICE_FAMILY'] = '1'
   settings['ASSETCATALOG_COMPILER_APPICON_NAME'] = 'AppIcon'
   settings['ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME'] = 'AccentColor'
-  settings['GENERATE_INFOPLIST_FILE'] = 'NO'
   settings['CODE_SIGN_STYLE'] = 'Automatic'
   settings['CURRENT_PROJECT_VERSION'] = '1'
   settings['MARKETING_VERSION'] = '1.0'
@@ -65,6 +60,24 @@ target.build_configurations.each do |config|
   settings['SUPPORTED_PLATFORMS'] = 'iphoneos iphonesimulator'
   settings['ENABLE_PREVIEWS'] = 'YES'
   settings['DEVELOPMENT_TEAM'] = ''
+
+  # Info.plist generado por Xcode a partir de build settings — más
+  # fiable que mantener un Info.plist a mano: así CFBundleIdentifier,
+  # CFBundleVersion y CFBundleExecutable siempre quedan bien puestos
+  # tanto para dispositivo como para simulador.
+  settings['GENERATE_INFOPLIST_FILE'] = 'YES'
+  settings['INFOPLIST_KEY_CFBundleDisplayName'] = 'Mariposas'
+  settings['INFOPLIST_KEY_NSCameraUsageDescription'] =
+    'Para fotografiar mariposas y estadios de su ciclo de vida en el campo.'
+  settings['INFOPLIST_KEY_NSPhotoLibraryUsageDescription'] =
+    'Para añadir fotos de tu galería a la ficha de una especie o a un avistamiento.'
+  settings['INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription'] =
+    'Para guardar en tu galería las fotos que tomes desde la app.'
+  settings['INFOPLIST_KEY_NSLocationWhenInUseUsageDescription'] =
+    'Para anotar dónde viste una mariposa al registrar un avistamiento.'
+  settings['INFOPLIST_KEY_UILaunchScreen_Generation'] = 'YES'
+  settings['INFOPLIST_KEY_UISupportedInterfaceOrientations'] = 'UIInterfaceOrientationPortrait'
+  settings['INFOPLIST_KEY_UIUserInterfaceStyle'] = 'Automatic'
 end
 
 # ── Esquema compartido, para que xcodebuild -scheme funcione en CI
