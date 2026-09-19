@@ -1,10 +1,17 @@
 name: Compilar app nativa de iOS
 
-# Se dispara a mano desde la pestaña Actions ("Run workflow"). No en
-# cada push, para no gastar minutos de macOS sin querer mientras se
-# sigue retocando el proyecto.
+# GitHub solo permite disparar "workflow_dispatch" a mano desde la
+# pestaña Actions una vez que el archivo del workflow ya existe en
+# la rama por defecto (main). Mientras esta rama no se una a main,
+# se dispara con cada push que toque ios/ o este mismo archivo; el
+# botón "Run workflow" queda disponible después del merge.
 on:
   workflow_dispatch:
+  push:
+    branches: [claude/ios-native-app-9n0hlj]
+    paths:
+      - 'ios/**'
+      - '.github/workflows/build-ios.yml'
 
 jobs:
   build:
