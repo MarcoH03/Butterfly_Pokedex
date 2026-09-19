@@ -4,7 +4,7 @@ import basicSsl from '@vitejs/plugin-basic-ssl'
 import { VitePWA } from 'vite-plugin-pwa'
 
 // Cambia REPO si el repositorio de GitHub tiene otro nombre.
-const REPO = 'mariposas-de-cuba'
+const REPO = 'Butterfly_Pokedex'
 
 export default defineConfig({
   // Imprescindible en GitHub Pages: si falta, la página sale en blanco.
