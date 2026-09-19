@@ -5,20 +5,15 @@ import App from './App'
 import './index.css'
 
 /*
-  ReactDOM.createRoot finds the <div id="root"> in index.html
-  and hands control of it entirely to React.
+  Punto de entrada. React toma el control del <div id="root">.
 
-  BrowserRouter gives the app URL-based navigation — so tapping a
-  butterfly goes to /butterfly/42, and the back button works naturally.
-
-  basename tells React Router that the app lives at /mariposas-cuba/
-  on GitHub Pages. In local dev, basename is '/' so nothing changes.
+  basename: en GitHub Pages la app no vive en la raíz del dominio,
+  así que el enrutador necesita saber el prefijo. Vite lo expone
+  en import.meta.env.BASE_URL, que sale de `base` en vite.config.js.
 */
-const basename = import.meta.env.PROD ? '/mariposas-cuba' : '/'
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename={basename}>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <App />
     </BrowserRouter>
   </React.StrictMode>

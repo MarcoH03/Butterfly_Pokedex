@@ -1,165 +1,147 @@
-/* ═══════════════════════════════════════════════════════════════
-   MARIPOSAS DE CUBA — DS Pokédex Design System
-   Reference: Pokémon Platinum / HeartGold Pokédex UI
-   ═══════════════════════════════════════════════════════════════ */
-
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* ══════════════════════════════════════════════════════════════
+   Mariposas de Cuba — sistema visual
+   Paleta tomada de Eumaeus atala (endémica del Caribe):
+   alas verde-azul iridiscente, abdomen rojo grana, sobre la
+   sombra del bosque semideciduo. El papel crema viene de las
+   etiquetas mecanografiadas de las cajas entomológicas.
+   ══════════════════════════════════════════════════════════════ */
 
 :root {
-  /* ── Palette from the DS Pokédex screenshots ── */
-  --navy:        #1a1c2c;   /* Left panel background */
-  --navy-mid:    #252840;   /* Card/surface background */
-  --navy-light:  #353860;   /* Borders, secondary surfaces */
-  --cream:       #e8dfa0;   /* Right list panel — the tan/parchment */
-  --cream-dark:  #c8b870;   /* Cream borders */
-  --white-panel: #f0f0f0;   /* Info card background (image 2) */
-  --grey-sprite: #707090;   /* Sprite box background (image 1) */
-  --green-tab:   #48b840;   /* Green tabs at top (image 2) */
-  --green-hi:    #78d858;   /* Highlighted/selected state */
-  --green-dark:  #287020;   /* Dark green for borders */
-  --red-btn:     #d03030;   /* Red buttons left side (image 1) */
-  --red-dark:    #901818;   /* Red button border */
-  --yellow:      #e8c020;   /* Accent yellow */
-  --text-dark:   #181828;   /* Dark text on light backgrounds */
-  --text-light:  #f0ecd8;   /* Light text on dark backgrounds */
-  --text-dim:    #9090b8;   /* Secondary text */
-  --blue-accent: #5878d0;   /* Blue type badges (image 2) */
-  --scrollbar:   #303858;
+  /* ── Base ── */
+  --sombra:     #121917;   /* fondo: sombra de bosque, verde-negro */
+  --sombra-alt: #1A2321;   /* superficie elevada */
+  --linea:      #2A3734;   /* bordes, divisiones */
 
-  --font: 'Press Start 2P', monospace;
+  /* ── Tinta ── */
+  --papel:      #ECE8DC;   /* texto principal / paneles claros (etiqueta) */
+  --papel-medio:#9AA5A0;   /* texto secundario */
+  --papel-tenue:#66716D;   /* texto terciario, deshabilitado */
 
-  /* Type scale */
-  --t-xxs:  7px;
-  --t-xs:   8px;
-  --t-sm:   9px;
-  --t-base: 10px;
-  --t-md:   12px;
-  --t-lg:   14px;
-  --t-xl:   18px;
+  /* ── Acentos ── */
+  --atala:      #3FA89B;   /* iridiscencia: acento principal */
+  --atala-hondo:#1F4F4A;   /* acento en fondos, estados activos */
+  --grana:      #C34733;   /* abdomen: capturada, alertas */
+  --polen:      #D9A227;   /* amarillo cálido: avistamientos, conteos */
+
+  /* ── Tipografía ── */
+  --serif: 'Spectral', Georgia, serif;
+  --sans:  'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Escala tipográfica */
+  --t-11: 0.6875rem;
+  --t-12: 0.75rem;
+  --t-13: 0.8125rem;
+  --t-15: 0.9375rem;
+  --t-17: 1.0625rem;
+  --t-21: 1.3125rem;
+  --t-27: 1.6875rem;
+
+  /* Espaciado */
+  --e-1: 4px;  --e-2: 8px;  --e-3: 12px; --e-4: 16px;
+  --e-5: 20px; --e-6: 24px; --e-8: 32px; --e-10: 40px;
+
+  /* Radios: poco redondeo en paneles, más en controles táctiles */
+  --r-panel: 4px;
+  --r-control: 999px;
+
+  /* Áreas seguras del iPhone */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bot: env(safe-area-inset-bottom, 0px);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html, body, #root {
-  height: 100%; width: 100%; overflow: hidden;
-  background: var(--navy);
-}
+html, body, #root { height: 100%; }
 
 body {
-  font-family: var(--font);
-  color: var(--text-light);
-  -webkit-font-smoothing: none;
-  image-rendering: pixelated;
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
+  background: var(--sombra);
+  color: var(--papel);
+  font-family: var(--sans);
+  font-size: var(--t-15);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;   /* evita el rebote de Safari al arrastrar */
 }
 
-/* ── App shell ── */
-.app-shell {
+/* Nombres científicos: siempre en cursiva serif, como en publicación */
+.binomio {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* La autoría de un taxón NO va en cursiva */
+.autoria {
+  font-family: var(--serif);
+  font-style: normal;
+  color: var(--papel-tenue);
+}
+
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+}
+button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+
+/* Foco visible para teclado, invisible al tocar con el dedo */
+:focus-visible {
+  outline: 2px solid var(--atala);
+  outline-offset: 2px;
+}
+
+img { display: block; max-width: 100%; }
+
+/* ── Armazón de la aplicación ──
+   Columna fija: barra superior + zona desplazable + barra inferior.
+   Solo la zona central hace scroll, como en una app nativa. */
+.armazon {
   display: flex;
   flex-direction: column;
   height: 100%;
-  max-width: 430px;
+  max-width: 480px;
   margin: 0 auto;
   overflow: hidden;
-}
-
-.app-content {
-  flex: 1;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-/* ── DS-style pixel border (inset frame like the game panels) ── */
-.ds-panel {
-  box-shadow:
-    inset 2px 2px 0 rgba(255,255,255,0.15),
-    inset -2px -2px 0 rgba(0,0,0,0.4),
-    0 0 0 2px #0a0c18;
-}
-
-.ds-panel-cream {
-  box-shadow:
-    inset 2px 2px 0 rgba(255,255,255,0.6),
-    inset -2px -2px 0 rgba(0,0,0,0.2),
-    0 0 0 2px var(--cream-dark);
-}
-
-/* ── Green DS tab buttons (top of image 2) ── */
-.ds-tab {
-  font-family: var(--font);
-  font-size: var(--t-xxs);
-  background: var(--green-tab);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  padding: 6px 4px 5px;
-  line-height: 1;
-  letter-spacing: 0;
-  box-shadow:
-    inset 1px 1px 0 rgba(255,255,255,0.4),
-    inset -1px -1px 0 var(--green-dark),
-    0 2px 0 var(--green-dark);
   position: relative;
-  top: 0;
-  transition: top 0.05s, box-shadow 0.05s;
 }
-.ds-tab:active { top: 2px; box-shadow: inset 1px 1px 0 rgba(0,0,0,0.2); }
-.ds-tab.active {
-  background: var(--green-hi);
-  box-shadow:
-    inset 1px 1px 0 rgba(255,255,255,0.5),
-    inset -1px -1px 0 var(--green-dark),
-    0 2px 0 var(--green-dark);
+.zona-scroll {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* ── Red button (left panel of image 1) ── */
-.ds-btn-red {
-  font-family: var(--font);
-  font-size: var(--t-xxs);
-  background: var(--red-btn);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  padding: 5px 8px;
-  box-shadow:
-    inset 1px 1px 0 rgba(255,255,255,0.3),
-    inset -1px -2px 0 var(--red-dark),
-    0 2px 0 var(--red-dark);
+/* ── Etiqueta de ejemplar ──
+   Recurso estructural recurrente: reproduce la etiqueta de alfiler
+   de una caja entomológica (localidad · fecha · colector).
+   Se usa para los avistamientos. */
+.etiqueta {
+  background: var(--papel);
+  color: #1A1A16;
+  font-size: var(--t-11);
+  line-height: 1.45;
+  padding: var(--e-2) var(--e-3);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.35);
 }
+.etiqueta-loc { font-weight: 600; }
+.etiqueta-meta { color: #5C5C52; }
 
-/* ── Cream list panel (right side image 1) ── */
-.cream-panel {
-  background: var(--cream);
-  color: var(--text-dark);
+/* Divisor fino */
+.divisor { height: 1px; background: var(--linea); border: 0; }
+
+/* Utilidades mínimas */
+.pila { display: flex; flex-direction: column; }
+.fila { display: flex; align-items: center; }
+.crece { flex: 1; min-width: 0; }
+.truncar { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+::-webkit-scrollbar { width: 0; height: 0; }
+
+/* Respeta la preferencia de movimiento reducido del sistema */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
 }
-
-/* ── Scanlines — LCD effect over sprite boxes ── */
-.scanlines { position: relative; overflow: hidden; }
-.scanlines::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0px, transparent 2px,
-    rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 3px
-  );
-  pointer-events: none;
-  z-index: 5;
-}
-
-/* ── White info panel (image 2 lower half) ── */
-.white-panel {
-  background: var(--white-panel);
-  color: var(--text-dark);
-  box-shadow:
-    inset 2px 2px 0 rgba(255,255,255,0.9),
-    inset -2px -2px 0 rgba(0,0,0,0.15);
-}
-
-/* Scrollbars */
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: var(--navy); }
-::-webkit-scrollbar-thumb { background: var(--scrollbar); }

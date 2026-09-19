@@ -1,37 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-
-    <!-- PWA meta tags — these control how the app behaves on iPhone home screen -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#121917" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Mariposas" />
-    <link rel="apple-touch-icon" href="/icon-192.png" />
-
+    <link rel="apple-touch-icon" href="icon-192.png" />
     <title>Mariposas de Cuba</title>
 
-    <!--
-      Press Start 2P — the canonical pixel/8-bit font used in GBA Pokémon games.
-      Loaded from Google Fonts. Once cached by the Service Worker, works offline.
-    -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-      rel="stylesheet"
-    />
+      href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet" />
   </head>
   <body>
-    <!--
-      React mounts into this single <div>.
-      Everything you see in the browser is rendered by React into here —
-      the HTML file itself is just a shell.
-    -->
     <div id="root"></div>
-
-    <!-- Vite injects your built JS bundle here automatically -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
