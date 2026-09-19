@@ -4,6 +4,10 @@
 <dict>
 	<key>CFBundleDisplayName</key>
 	<string>Mariposas</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Para fotografiar mariposas y estadios de su ciclo de vida en el campo.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
