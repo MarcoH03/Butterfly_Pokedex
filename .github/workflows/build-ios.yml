@@ -53,9 +53,19 @@ jobs:
             exit 1
           fi
           echo "Empaquetando $APP_DIR"
+          rm -rf Payload MariposasDeCuba-sin-firmar.ipa
           mkdir -p Payload
           cp -R "$APP_DIR" Payload/
-          zip -r -y MariposasDeCuba-sin-firmar.ipa Payload
+          # Quita atributos extendidos (cuarentena, procedencia…) que
+          # macOS añade al copiar — si quedan, "zip" los guarda como
+          # entradas AppleDouble (__MACOSX/, ._*) dentro del .ipa, y
+          # eso es justo lo que hace que Sideloadly/AltStore lo
+          # rechacen con un "Invalid file" al intentar reinstalarlo.
+          xattr -cr Payload
+          # ditto empaqueta sin ese metadato de más — es lo mismo que
+          # usa "xcodebuild -exportArchive" por debajo para generar
+          # un .ipa de verdad.
+          ditto -c -k --keepParent Payload MariposasDeCuba-sin-firmar.ipa
           mkdir -p "$GITHUB_WORKSPACE/artefactos"
           cp MariposasDeCuba-sin-firmar.ipa "$GITHUB_WORKSPACE/artefactos/"
 
