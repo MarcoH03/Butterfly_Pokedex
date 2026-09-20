@@ -136,6 +136,14 @@ jobs:
           xcodebuild -version
           fastlane --version
 
+      - name: Actualizar fastlane
+        # El runner trae 2.238.0, con un bug conocido en
+        # itc_service_key que confunde un error local de caché con
+        # un fallo del servidor de Apple ("Could not receive latest
+        # API key…", visto en fastlane/fastlane#30199). Corregido en
+        # versiones más recientes.
+        run: gem install fastlane --no-document && fastlane --version
+
       - name: Compilar .ipa firmado con el Apple ID gratis del usuario
         env:
           APPLE_ID: ${{ secrets.APPLE_ID }}
