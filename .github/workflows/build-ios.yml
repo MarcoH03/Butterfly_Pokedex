@@ -123,3 +123,35 @@ jobs:
           name: capturas-simulador
           path: capturas/*.png
           retention-days: 60
+
+  build-signed:
+    runs-on: macos-14
+    # No depende de "build": si algo se rompe aquí, el .ipa sin firmar
+    # sigue publicándose igual.
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Versión de Xcode y fastlane
+        run: |
+          xcodebuild -version
+          fastlane --version
+
+      - name: Compilar .ipa firmado con el Apple ID gratis del usuario
+        env:
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}
+          # UDID del iPhone donde se va a instalar — no es un dato
+          # sensible (no sirve para nada sin el propio teléfono), así
+          # que va fijo aquí en vez de como secreto.
+          DEVICE_UDID: "00008120-0006108C0C00C01E"
+        run: |
+          set -euo pipefail
+          cd ios
+          fastlane build_signed
+
+      - name: Subir el .ipa firmado
+        uses: actions/upload-artifact@v4
+        with:
+          name: MariposasDeCuba-firmado-ipa
+          path: ios/build-signed/MariposasDeCuba-firmado.ipa
+          retention-days: 60

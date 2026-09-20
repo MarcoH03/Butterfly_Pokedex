@@ -1,0 +1,63 @@
+default_platform(:ios)
+
+APP_ID = "com.marcoh03.mariposasdecuba"
+
+# Compila un .ipa firmado de verdad con un Apple ID gratis (sin cuenta
+# de pago de Apple Developer Program), para instalarlo directamente
+# en un iPhone concreto sin pasar por el resign-al-vuelo de
+# Sideloadly/AltStore. Necesita, como variables de entorno:
+#   APPLE_ID                     tu correo de Apple ID
+#   APPLE_APP_SPECIFIC_PASSWORD  contraseña específica de app
+#   DEVICE_UDID                  UDID del iPhone donde se va a instalar
+platform :ios do
+  desc "Compila MariposasDeCuba firmada para un dispositivo concreto"
+  lane :build_signed do
+    ENV["FASTLANE_USER"] = ENV["APPLE_ID"]
+    ENV["FASTLANE_PASSWORD"] = ENV["APPLE_APP_SPECIFIC_PASSWORD"]
+    ENV["SPACESHIP_SKIP_2FA_UPGRADE"] = "1"
+
+    udid = ENV["DEVICE_UDID"]
+    UI.user_error!("Falta DEVICE_UDID") if udid.nil? || udid.empty?
+
+    # 1. Registra el iPhone en la cuenta (si ya estaba, no hace nada).
+    register_device(
+      name: "iPhone (Mariposas de Cuba)",
+      udid: udid
+    )
+
+    # 2. Da de alta el bundle id si hace falta — sin tocar App Store
+    #    Connect (skip_itc), que las cuentas gratis no tienen.
+    produce(
+      app_identifier: APP_ID,
+      app_name: "Mariposas de Cuba",
+      skip_itc: true,
+      skip_devcenter: false
+    )
+
+    # 3. Certificado de desarrollo — lo crea si no existe uno ya.
+    cert(development: true)
+
+    # 4. Perfil de aprovisionamiento de desarrollo, con el dispositivo
+    #    ya incluido por el paso 1.
+    sigh(
+      development: true,
+      app_identifier: APP_ID,
+      force: true
+    )
+
+    # 5. Compila y exporta el .ipa firmado con ese certificado y perfil.
+    build_app(
+      project: "MariposasDeCuba.xcodeproj",
+      scheme: "MariposasDeCuba",
+      export_method: "development",
+      output_directory: "./build-signed",
+      output_name: "MariposasDeCuba-firmado.ipa",
+      export_options: {
+        provisioningProfiles: {
+          APP_ID => ENV["SIGH_PROFILE_NAME"]
+        }
+      },
+      xcargs: "DEVELOPMENT_TEAM=#{ENV['SIGH_TEAM_ID']} CODE_SIGN_IDENTITY='Apple Development' CODE_SIGN_STYLE=Manual PROVISIONING_PROFILE_SPECIFIER='#{ENV['SIGH_PROFILE_NAME']}'"
+    )
+  end
+end
