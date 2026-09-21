@@ -48,6 +48,7 @@ src/
 ├── data/zonas.json         semilla de zonas, contorno y provincias
 ├── lib/
 │   ├── buscar.js           búsqueda con orden por relevancia
+│   ├── imagenes.js         rutas de imagen que existen de verdad
 │   ├── geometria.js        polígonos, discos, trazo del dedo, proyección
 │   ├── zonas.js            catálogo de zonas vivo: crece con el campo
 │   └── almacen.js          avistamientos, notas, galería, estadios, respaldo
@@ -59,6 +60,7 @@ src/
 │   ├── MapaZonas.jsx       mapa: trazo a mano alzada y toque por provincia
 │   ├── MapaAvistamientos.jsx  provincias sombreadas y puntos GPS
 │   ├── Visor.jsx           imagen a pantalla completa con zoom
+│   ├── Salvavidas.jsx      frontera de error
 │   ├── RanuraFoto.jsx      hueco de foto: cámara o galería
 │   └── HojaAvistamiento.jsx  anotar en el campo (GPS)
 └── pages/
@@ -103,6 +105,7 @@ Campos que mueven la interfaz:
 | `colores` | filtro de color (usa los valores de `meta.colores`) |
 | `tamano_mm` | de aquí sale la clase pequeña/mediana/grande si no la escribes a mano |
 | `tamano_clase` | fuerza la clase, por encima de `tamano_mm` |
+| `imagenes_listas` | qué archivos de imagen existen ya; solo esos se piden a la red |
 | `distribucion.zonas` | ids del catálogo `zonas.json`; pintan el mapa de la ficha y alimentan el filtro geográfico |
 | `distribucion.poligonos` | zonas propias de esa especie, si ninguna del catálogo le sirve |
 | `endemica` | insignia roja |

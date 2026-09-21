@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import Lamina from './Lamina'
 import { comprimirImagen } from '../lib/almacen'
 
@@ -10,6 +10,13 @@ import { comprimirImagen } from '../lib/almacen'
    y un botón; cuando la consigues en el campo, la añades desde el
    teléfono y se guarda ahí mismo.
 
+   El menú es una hoja que sube desde abajo, no un globo junto al
+   botón. Antes crecía hacia arriba desde la miniatura y, si la
+   ranura estaba en la parte alta de la pantalla, el contenedor con
+   scroll de la ficha lo recortaba: la primera opción quedaba
+   fuera. Una hoja fija al borde inferior no se puede recortar, y
+   además da un área de toque mayor.
+
    Dos entradas de archivo distintas, porque en iOS es lo que
    separa la cámara del carrete:
      - capture="environment" abre la cámara trasera
@@ -17,19 +24,27 @@ import { comprimirImagen } from '../lib/almacen'
    ══════════════════════════════════════════════════════════════ */
 
 export default function RanuraFoto({
-  src,                 // foto actual (data URL o ruta del catálogo)
+  src,
   alt,
   tamano = 76,
   editable = true,
-  onFoto,              // (dataUrl) => void
-  onBorrar,            // () => void
-  esPropia = false,    // true si la foto la añadiste tú
-  onAbrir              // () => void  — para el visor a pantalla completa
+  onFoto,
+  onBorrar,
+  esPropia = false,
+  onAbrir
 }) {
   const entradaCamara = useRef(null)
   const entradaGaleria = useRef(null)
   const [menu, setMenu] = useState(false)
   const [error, setError] = useState('')
+
+  // Cerrar con Escape, como las demás hojas
+  useEffect(() => {
+    if (!menu) return
+    const alPulsar = ev => { if (ev.key === 'Escape') setMenu(false) }
+    window.addEventListener('keydown', alPulsar)
+    return () => window.removeEventListener('keydown', alPulsar)
+  }, [menu])
 
   const recibir = async ev => {
     const archivo = ev.target.files?.[0]
@@ -56,7 +71,6 @@ export default function RanuraFoto({
         onChange={recibir} style={{ display: 'none' }}
       />
 
-      {/* La imagen: tocarla abre el visor si hay foto, o el menú si no */}
       <button
         onClick={() => (src ? onAbrir?.() : editable && setMenu(true))}
         aria-label={src ? `Ver ${alt} a pantalla completa` : `Añadir foto de ${alt}`}
@@ -65,7 +79,6 @@ export default function RanuraFoto({
         <Lamina src={src} alt={alt} relacion="1" radio={4} />
       </button>
 
-      {/* Marca de foto propia */}
       {src && esPropia && (
         <span
           title="Foto tuya"
@@ -77,16 +90,15 @@ export default function RanuraFoto({
         />
       )}
 
-      {/* Botón de acción */}
       {editable && (
         <button
-          onClick={() => setMenu(m => !m)}
+          onClick={() => setMenu(true)}
           aria-label={src ? 'Cambiar foto' : 'Añadir foto'}
           style={{
             position: 'absolute', bottom: 4, right: 4,
-            width: 24, height: 24, borderRadius: '50%',
+            width: 26, height: 26, borderRadius: '50%',
             display: 'grid', placeItems: 'center',
-            fontSize: 14, lineHeight: 1,
+            fontSize: 15, lineHeight: 1,
             color: 'var(--sombra)', background: 'var(--atala)',
             boxShadow: '0 1px 4px rgba(0,0,0,.4)'
           }}
@@ -95,58 +107,79 @@ export default function RanuraFoto({
         </button>
       )}
 
-      {/* Menú: cámara o galería */}
-      {menu && (
-        <>
-          <div
-            onClick={() => setMenu(false)}
-            style={{ position: 'fixed', inset: 0, zIndex: 40 }}
-          />
-          <div
-            style={{
-              position: 'absolute', bottom: 32, right: 0, zIndex: 41,
-              minWidth: 150,
-              display: 'flex', flexDirection: 'column',
-              background: 'var(--sombra-alt)',
-              borderRadius: 'var(--r-panel)',
-              boxShadow: '0 4px 16px rgba(0,0,0,.5), inset 0 0 0 1px var(--linea)',
-              overflow: 'hidden'
-            }}
-          >
-            <OpcionMenu onClick={() => entradaCamara.current?.click()}>
-              Tomar foto
-            </OpcionMenu>
-            <OpcionMenu onClick={() => entradaGaleria.current?.click()}>
-              Elegir de la galería
-            </OpcionMenu>
-            {src && esPropia && onBorrar && (
-              <OpcionMenu
-                onClick={() => { onBorrar(); setMenu(false) }}
-                color="var(--grana)"
-              >
-                Quitar foto
-              </OpcionMenu>
-            )}
-          </div>
-        </>
-      )}
-
       {error && (
         <p style={{ fontSize: 'var(--t-11)', color: 'var(--grana)', marginTop: 4 }}>
           {error}
         </p>
       )}
+
+      {/* ── Hoja de opciones ── */}
+      {menu && (
+        <>
+          <div
+            onClick={() => setMenu(false)}
+            style={{ position: 'fixed', inset: 0, background: 'rgba(6,10,9,.72)', zIndex: 80 }}
+          />
+          <div
+            role="dialog"
+            aria-label={`Foto de ${alt}`}
+            style={{
+              position: 'fixed', bottom: 0, left: '50%',
+              transform: 'translateX(-50%)',
+              width: '100%', maxWidth: 480,
+              background: 'var(--sombra)',
+              borderTop: '1px solid var(--linea)',
+              borderRadius: '14px 14px 0 0',
+              paddingBottom: 'calc(var(--safe-bot) + var(--e-2))',
+              zIndex: 81
+            }}
+          >
+            <div
+              style={{
+                padding: 'var(--e-4)',
+                borderBottom: '1px solid var(--linea)'
+              }}
+            >
+              <div style={{ fontSize: 'var(--t-15)', fontWeight: 600 }}>
+                Foto de {alt.toLowerCase()}
+              </div>
+              <div style={{ fontSize: 'var(--t-11)', color: 'var(--papel-tenue)' }}>
+                Se guarda en el teléfono
+              </div>
+            </div>
+
+            <Opcion onClick={() => entradaCamara.current?.click()}>
+              Tomar foto
+            </Opcion>
+            <Opcion onClick={() => entradaGaleria.current?.click()}>
+              Elegir de la galería
+            </Opcion>
+            {src && esPropia && onBorrar && (
+              <Opcion
+                onClick={() => { onBorrar(); setMenu(false) }}
+                color="var(--grana)"
+              >
+                Quitar foto
+              </Opcion>
+            )}
+            <Opcion onClick={() => setMenu(false)} color="var(--papel-medio)">
+              Cancelar
+            </Opcion>
+          </div>
+        </>
+      )}
     </div>
   )
 }
 
-function OpcionMenu({ onClick, children, color = 'var(--papel)' }) {
+function Opcion({ onClick, children, color = 'var(--papel)' }) {
   return (
     <button
       onClick={onClick}
       style={{
-        padding: '11px 14px',
-        fontSize: 'var(--t-13)',
+        display: 'block', width: '100%',
+        padding: 'var(--e-4)',
+        fontSize: 'var(--t-15)',
         textAlign: 'left',
         color,
         borderBottom: '1px solid var(--linea)'

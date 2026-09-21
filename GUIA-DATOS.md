@@ -319,6 +319,21 @@ El nombre sale de `id` + el nombre científico en minúsculas con guiones.
 Míralo en el campo `imagenes` de cada especie: ahí está la ruta exacta
 que la app va a buscar.
 
+**Al subir un archivo hay que declararlo.** Cada especie lleva una lista
+con las imágenes que existen de verdad:
+
+```json
+"imagenes_listas": ["lamina", "montado"]
+```
+
+Claves posibles: `lamina`, `montado`, `huevo`, `larva`, `pupa`,
+`hospedera`. Solo las que estén en la lista se piden a la red; las demás
+muestran la silueta sin gastar una petición.
+
+Esto no es burocracia: sin la lista, la cuadrícula pedía las 207 imágenes
+inexistentes y se comía 207 respuestas 404. En GitHub Pages cada una es un
+viaje de ida y vuelta, y eso era toda la lentitud de la pantalla inicial.
+
 **Reduce antes de subir.** 1200 px de ancho y calidad 80 basta de sobra
 para la pantalla del teléfono. Con 207 especies × 5 imágenes, la
 diferencia entre fotos crudas y reducidas son cientos de megas frente a

@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
+import Salvavidas from './components/Salvavidas'
 import './index.css'
 
 /*
@@ -14,7 +15,11 @@ import './index.css'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <App />
+      {/* Contiene los fallos de renderizado: sin esto, un error deja
+          la pantalla en blanco y hay que cerrar la app. */}
+      <Salvavidas>
+        <App />
+      </Salvavidas>
     </BrowserRouter>
   </React.StrictMode>
 )

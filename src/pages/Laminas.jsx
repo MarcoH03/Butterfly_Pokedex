@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect, useRef } from 'react'
 import TarjetaEspecie from '../components/TarjetaEspecie'
 import PanelFiltros from '../components/PanelFiltros'
 import { useEspecies } from '../hooks/useEspecies'
@@ -12,9 +12,37 @@ import { leer } from '../lib/almacen'
    de selección manual.
    ══════════════════════════════════════════════════════════════ */
 
+// Cuántas tarjetas se pintan de golpe, y cuántas se añaden al llegar
+// al final. Pintar 207 a la vez bloquea el hilo en un teléfono.
+const LOTE = 30
+
 export default function Laminas() {
   const e = useEspecies()
   const [filtrosAbiertos, setFiltrosAbiertos] = useState(false)
+  const [visibles, setVisibles] = useState(LOTE)
+  const centinela = useRef(null)
+
+  /* Al cambiar la búsqueda o los filtros se vuelve al primer lote:
+     si no, tras haber bajado mucho se pintarían 200 tarjetas nuevas
+     de una vez. */
+  useEffect(() => { setVisibles(LOTE) }, [e.consulta, e.filtros, e.soloSeleccion, e.vista])
+
+  /* Más tarjetas cuando el final entra en pantalla. IntersectionObserver
+     en vez de escuchar el scroll: no dispara en cada píxel. */
+  useEffect(() => {
+    const nodo = centinela.current
+    if (!nodo) return
+    const observador = new IntersectionObserver(
+      entradas => {
+        if (entradas[0].isIntersecting) {
+          setVisibles(v => Math.min(v + LOTE, e.especies.length))
+        }
+      },
+      { rootMargin: '400px' }   // se adelanta, para que no se note el corte
+    )
+    observador.observe(nodo)
+    return () => observador.disconnect()
+  }, [e.especies.length])
 
   // Cuántos avistamientos tengo de cada especie, para el contador
   // de las tarjetas. Se calcula una vez por render de la pantalla.
@@ -200,7 +228,7 @@ export default function Laminas() {
               paddingBottom: e.modoSeleccion ? 96 : 'var(--e-6)'
             }}
           >
-            {e.especies.map(esp => (
+            {e.especies.slice(0, visibles).map(esp => (
               <TarjetaEspecie
                 key={esp.id}
                 especie={esp}
@@ -211,6 +239,21 @@ export default function Laminas() {
                 avistamientos={conteos[esp.id] || 0}
               />
             ))}
+          </div>
+        )}
+
+        {/* Final de la lista: al asomar, se pinta el lote siguiente */}
+        {visibles < e.especies.length && (
+          <div
+            ref={centinela}
+            style={{
+              padding: 'var(--e-4)',
+              textAlign: 'center',
+              fontSize: 'var(--t-12)',
+              color: 'var(--papel-tenue)'
+            }}
+          >
+            {e.especies.length - visibles} más
           </div>
         )}
       </div>
@@ -266,6 +309,8 @@ export default function Laminas() {
         filtros={e.filtros}
         alternarFiltro={e.alternarFiltro}
         limpiar={e.limpiarFiltros}
+        fijarZonas={e.fijarZonas}
+        fijarProvincias={e.fijarProvincias}
         opciones={e.opciones}
         nActivos={e.activos.length}
         nResultados={e.especies.length}

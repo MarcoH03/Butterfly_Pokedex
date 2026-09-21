@@ -8,6 +8,7 @@ import MapaZonas, { ZONA_POR_ID } from '../components/MapaZonas'
 import MapaAvistamientos from '../components/MapaAvistamientos'
 import { COLOR_FAMILIA } from '../components/TarjetaEspecie'
 import { especiePorId, provinciasDe } from '../hooks/useEspecies'
+import { rutaImagen } from '../lib/imagenes'
 import {
   avistamientosDe, conteoPorLugar, conteoPorProvincia, borrarAvistamiento,
   leerNota, guardarNota,
@@ -82,11 +83,13 @@ export default function Ficha() {
      las demás sin salir de pantalla completa. */
   const imagenes = useMemo(() => {
     const lista = []
-    if (especie.imagenes.lamina) lista.push({ src: especie.imagenes.lamina, pie: 'Ejemplar vivo', clave: 'lamina' })
-    if (especie.imagenes.montado) lista.push({ src: especie.imagenes.montado, pie: 'Ejemplar montado', clave: 'montado' })
+    const lamina = rutaImagen(especie, 'lamina')
+    const montado = rutaImagen(especie, 'montado')
+    if (lamina) lista.push({ src: lamina, pie: 'Ejemplar vivo', clave: 'lamina' })
+    if (montado) lista.push({ src: montado, pie: 'Ejemplar montado', clave: 'montado' })
     for (const e of ESTADIOS) {
       const propia = fotoEstadio(especie.id, e.clave)
-      const src = propia || especie.imagenes[e.clave]
+      const src = propia || rutaImagen(especie, e.clave)
       if (src) lista.push({ src, pie: e.titulo, clave: e.clave, propia: !!propia })
     }
     for (const f of galeriaDe(especie.id)) {
@@ -104,7 +107,7 @@ export default function Ficha() {
     if (i >= 0) setVisor({ imagenes, indice: i })
   }
 
-  const srcPrincipal = vista === 'montado' ? especie.imagenes.montado : especie.imagenes.lamina
+  const srcPrincipal = rutaImagen(especie, vista === 'montado' ? 'montado' : 'lamina')
 
   return (
     <div className="armazon">
@@ -278,7 +281,7 @@ export default function Ficha() {
               titulo={e.titulo}
               texto={e.campo ? especie.ciclo[e.campo] : especie.ciclo.nota_hospederas}
               propia={fotoEstadio(especie.id, e.clave)}
-              catalogo={especie.imagenes[e.clave]}
+              catalogo={rutaImagen(especie, e.clave)}
               onFoto={dataUrl => { guardarFotoEstadio(especie.id, e.clave, dataUrl); setVersion(v => v + 1) }}
               onBorrar={() => { borrarFotoEstadio(especie.id, e.clave); setVersion(v => v + 1) }}
               onAbrir={() => abrirVisor(e.clave)}

@@ -73,7 +73,8 @@
   },
   "convencion_imagenes": "img/<carpeta>/<id>_<slug>.jpg",
   "catalogo_zonas": "src/data/zonas.json",
-  "nota_distribucion": "La distribución son polígonos, no provincias. Una zona puede cruzar límites provinciales o cubrir solo una parte de una provincia. Las provincias se derivan de las zonas, nunca al contrario."
+  "nota_distribucion": "La distribución son polígonos, no provincias. Una zona puede cruzar límites provinciales o cubrir solo una parte de una provincia. Las provincias se derivan de las zonas, nunca al contrario.",
+  "nota_imagenes": "Cada especie declara en \"imagenes_listas\" qué archivos existen de verdad (lamina, montado, huevo, larva, pupa, hospedera). Solo esos se piden a la red; los demás muestran la silueta. Añade la clave cuando subas el archivo a public/img/."
  },
  "especies": [
   {
@@ -120,7 +121,8 @@
     "hospedera": "img/ciclo/001_battus-polydamas-cubensis-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 2,
@@ -166,7 +168,8 @@
     "hospedera": "img/ciclo/002_heraclides-andraemon-andraemon-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 3,
@@ -212,7 +215,8 @@
     "hospedera": "img/ciclo/003_heraclides-androgeus-epidaurus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 4,
@@ -258,7 +262,8 @@
     "hospedera": "img/ciclo/004_heraclides-aristodemus-temenes-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 5,
@@ -304,7 +309,8 @@
     "hospedera": "img/ciclo/005_heraclides-caiguanabus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 6,
@@ -350,7 +356,8 @@
     "hospedera": "img/ciclo/006_heraclides-oviedo-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 7,
@@ -396,7 +403,8 @@
     "hospedera": "img/ciclo/007_heraclides-oxynius-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 8,
@@ -442,7 +450,8 @@
     "hospedera": "img/ciclo/008_heraclides-pelaus-atkinsi-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 9,
@@ -488,7 +497,8 @@
     "hospedera": "img/ciclo/009_neographium-celadon-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 10,
@@ -534,7 +544,8 @@
     "hospedera": "img/ciclo/010_papilio-demoleus-malayanus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 11,
@@ -580,7 +591,8 @@
     "hospedera": "img/ciclo/011_papilio-polyxenes-polyxenes-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 12,
@@ -626,7 +638,8 @@
     "hospedera": "img/ciclo/012_papilio-polyxenes-asterius-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 13,
@@ -672,7 +685,8 @@
     "hospedera": "img/ciclo/013_parides-gundlachianus-gundlachianus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 14,
@@ -718,7 +732,8 @@
     "hospedera": "img/ciclo/014_parides-gundlachianus-alayoi-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 15,
@@ -764,7 +779,8 @@
     "hospedera": "img/ciclo/015_pterourus-palamedes-palamedes-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 16,
@@ -810,7 +826,8 @@
     "hospedera": "img/ciclo/016_pterourus-troilus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 17,
@@ -856,7 +873,8 @@
     "hospedera": "img/ciclo/017_aguna-asander-haitiensis-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 18,
@@ -902,7 +920,8 @@
     "hospedera": "img/ciclo/018_aguna-claxon-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 19,
@@ -948,7 +967,8 @@
     "hospedera": "img/ciclo/019_autochton-potrillo-potrillo-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 20,
@@ -994,7 +1014,8 @@
     "hospedera": "img/ciclo/020_cecropterus-dorantes-santiago-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 21,
@@ -1040,7 +1061,8 @@
     "hospedera": "img/ciclo/021_chioides-marmorosa-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 22,
@@ -1086,7 +1108,8 @@
     "hospedera": "img/ciclo/022_epargyreus-zestos-zestos-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 23,
@@ -1132,7 +1155,8 @@
     "hospedera": "img/ciclo/023_phocides-pigmalion-batabano-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 24,
@@ -1178,7 +1202,8 @@
     "hospedera": "img/ciclo/024_polygonus-leo-histrio-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 25,
@@ -1224,7 +1249,8 @@
     "hospedera": "img/ciclo/025_proteides-maysi-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 26,
@@ -1270,7 +1296,8 @@
     "hospedera": "img/ciclo/026_proteides-mercurius-sanantonio-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 27,
@@ -1316,7 +1343,8 @@
     "hospedera": "img/ciclo/027_telegonus-anaphus-anausis-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 28,
@@ -1362,7 +1390,8 @@
     "hospedera": "img/ciclo/028_telegonus-cassander-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 29,
@@ -1408,7 +1437,8 @@
     "hospedera": "img/ciclo/029_telegonus-cellus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 30,
@@ -1454,7 +1484,8 @@
     "hospedera": "img/ciclo/030_telegonus-habana-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 31,
@@ -1500,7 +1531,8 @@
     "hospedera": "img/ciclo/031_telegonus-talus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 32,
@@ -1546,7 +1578,8 @@
     "hospedera": "img/ciclo/032_telegonus-xagua-xagua-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 33,
@@ -1592,7 +1625,8 @@
     "hospedera": "img/ciclo/033_urbanus-proteus-domingo-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 34,
@@ -1638,7 +1672,8 @@
     "hospedera": "img/ciclo/034_asbolis-capucinus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 35,
@@ -1684,7 +1719,8 @@
     "hospedera": "img/ciclo/035_atalopedes-mesogramma-mesogramma-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 36,
@@ -1730,7 +1766,8 @@
     "hospedera": "img/ciclo/036_calpodes-ethlius-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 37,
@@ -1776,7 +1813,8 @@
     "hospedera": "img/ciclo/037_carystoides-mexicana-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 38,
@@ -1822,7 +1860,8 @@
     "hospedera": "img/ciclo/038_choranthus-radians-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 39,
@@ -1868,7 +1907,8 @@
     "hospedera": "img/ciclo/039_cymaenes-tripunctus-tripunctus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 40,
@@ -1914,7 +1954,8 @@
     "hospedera": "img/ciclo/040_euphyes-cornelius-cornelius-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 41,
@@ -1960,7 +2001,8 @@
     "hospedera": "img/ciclo/041_euphyes-singularis-singularis-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 42,
@@ -2006,7 +2048,8 @@
     "hospedera": "img/ciclo/042_hylephila-phyleus-phyleus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 43,
@@ -2052,7 +2095,8 @@
     "hospedera": "img/ciclo/043_lerodea-eufala-eufala-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 44,
@@ -2098,7 +2142,8 @@
     "hospedera": "img/ciclo/044_nyctelius-nyctelius-nyctelius-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 45,
@@ -2144,7 +2189,8 @@
     "hospedera": "img/ciclo/045_oarisma-bruneri-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 46,
@@ -2190,7 +2236,8 @@
     "hospedera": "img/ciclo/046_oarisma-nanus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 47,
@@ -2236,7 +2283,8 @@
     "hospedera": "img/ciclo/047_panoquina-corrupta-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 48,
@@ -2282,7 +2330,8 @@
     "hospedera": "img/ciclo/048_panoquina-lucas-lucas-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 49,
@@ -2328,7 +2377,8 @@
     "hospedera": "img/ciclo/049_panoquina-ocola-ocola-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 50,
@@ -2374,7 +2424,8 @@
     "hospedera": "img/ciclo/050_panoquina-panoquinoides-panoquinoides-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 51,
@@ -2420,7 +2471,8 @@
     "hospedera": "img/ciclo/051_parachoranthus-magdalia-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 52,
@@ -2466,7 +2518,8 @@
     "hospedera": "img/ciclo/052_perichares-philetes-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 53,
@@ -2512,7 +2565,8 @@
     "hospedera": "img/ciclo/053_polites-baracoa-baracoa-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 54,
@@ -2558,7 +2612,8 @@
     "hospedera": "img/ciclo/054_pyrrhocalles-antiqua-orientis-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 55,
@@ -2604,7 +2659,8 @@
     "hospedera": "img/ciclo/055_rhinthon-cubana-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 56,
@@ -2650,7 +2706,8 @@
     "hospedera": "img/ciclo/056_saliana-esperi-soroa-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 57,
@@ -2696,7 +2753,8 @@
     "hospedera": "img/ciclo/057_synapte-malitiosa-malitiosa-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 58,
@@ -2742,7 +2800,8 @@
     "hospedera": "img/ciclo/058_wallengrenia-misera-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 59,
@@ -2788,7 +2847,8 @@
     "hospedera": "img/ciclo/059_anastrus-sempiternus-dilloni-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 60,
@@ -2834,7 +2894,8 @@
     "hospedera": "img/ciclo/060_burca-braco-braco-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 61,
@@ -2880,7 +2941,8 @@
     "hospedera": "img/ciclo/061_burca-concolor-concolor-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 62,
@@ -2926,7 +2988,8 @@
     "hospedera": "img/ciclo/062_burca-cubensis-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 63,
@@ -2972,7 +3035,8 @@
     "hospedera": "img/ciclo/063_burnsius-crisia-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 64,
@@ -3018,7 +3082,8 @@
     "hospedera": "img/ciclo/064_burnsius-oileus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 65,
@@ -3064,7 +3129,8 @@
     "hospedera": "img/ciclo/065_chiomara-gundlachi-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 66,
@@ -3110,7 +3176,8 @@
     "hospedera": "img/ciclo/066_eantis-munroei-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 67,
@@ -3156,7 +3223,8 @@
     "hospedera": "img/ciclo/067_eantis-papinianus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 68,
@@ -3202,7 +3270,8 @@
     "hospedera": "img/ciclo/068_ephyriades-brunnea-brunnea-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 69,
@@ -3248,7 +3317,8 @@
     "hospedera": "img/ciclo/069_ephyriades-zephodes-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 70,
@@ -3294,7 +3364,8 @@
     "hospedera": "img/ciclo/070_erynnis-zarucco-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 71,
@@ -3340,7 +3411,8 @@
     "hospedera": "img/ciclo/071_gesta-gesta-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 72,
@@ -3386,7 +3458,8 @@
     "hospedera": "img/ciclo/072_holguinia-holguin-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 73,
@@ -3432,7 +3505,8 @@
     "hospedera": "img/ciclo/073_ouleus-fridericus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 74,
@@ -3478,7 +3552,8 @@
     "hospedera": "img/ciclo/074_abaeis-nicippe-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 75,
@@ -3524,7 +3599,8 @@
     "hospedera": "img/ciclo/075_anteos-clorinde-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 76,
@@ -3570,7 +3646,8 @@
     "hospedera": "img/ciclo/076_anteos-maerula-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 77,
@@ -3616,7 +3693,8 @@
     "hospedera": "img/ciclo/077_colias-eurytheme-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 78,
@@ -3662,7 +3740,8 @@
     "hospedera": "img/ciclo/078_eurema-amelia-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 79,
@@ -3708,7 +3787,8 @@
     "hospedera": "img/ciclo/079_eurema-boisduvaliana-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 80,
@@ -3754,7 +3834,8 @@
     "hospedera": "img/ciclo/080_eurema-daira-palmira-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 81,
@@ -3800,7 +3881,8 @@
     "hospedera": "img/ciclo/081_eurema-elathea-elathea-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 82,
@@ -3846,7 +3928,8 @@
     "hospedera": "img/ciclo/082_eurema-lucina-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 83,
@@ -3892,7 +3975,8 @@
     "hospedera": "img/ciclo/083_kricogonia-cabrerai-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 84,
@@ -3938,7 +4022,8 @@
     "hospedera": "img/ciclo/084_kricogonia-lyside-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 85,
@@ -3984,7 +4069,8 @@
     "hospedera": "img/ciclo/085_nathalis-iole-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 86,
@@ -4030,7 +4116,8 @@
     "hospedera": "img/ciclo/086_phoebis-agarithe-antillia-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 87,
@@ -4076,7 +4163,8 @@
     "hospedera": "img/ciclo/087_phoebis-argante-minuscula-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 88,
@@ -4122,7 +4210,8 @@
     "hospedera": "img/ciclo/088_phoebis-avellaneda-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 89,
@@ -4168,7 +4257,8 @@
     "hospedera": "img/ciclo/089_phoebis-neleis-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 90,
@@ -4214,7 +4304,8 @@
     "hospedera": "img/ciclo/090_phoebis-orbis-orbis-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 91,
@@ -4260,7 +4351,8 @@
     "hospedera": "img/ciclo/091_phoebis-philea-philea-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 92,
@@ -4306,7 +4398,8 @@
     "hospedera": "img/ciclo/092_phoebis-philea-huebneri-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 93,
@@ -4352,7 +4445,8 @@
     "hospedera": "img/ciclo/093_phoebis-sennae-sennae-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 94,
@@ -4398,7 +4492,8 @@
     "hospedera": "img/ciclo/094_phoebis-statira-cubana-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 95,
@@ -4444,7 +4539,8 @@
     "hospedera": "img/ciclo/095_pyrisitia-chamberlaini-mariguanae-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 96,
@@ -4490,7 +4586,8 @@
     "hospedera": "img/ciclo/096_pyrisitia-dina-dina-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 97,
@@ -4536,7 +4633,8 @@
     "hospedera": "img/ciclo/097_pyrisitia-larae-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 98,
@@ -4582,7 +4680,8 @@
     "hospedera": "img/ciclo/098_pyrisitia-lisa-euterpe-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 99,
@@ -4628,7 +4727,8 @@
     "hospedera": "img/ciclo/099_pyrisitia-messalina-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 100,
@@ -4674,7 +4774,8 @@
     "hospedera": "img/ciclo/100_pyrisitia-nise-nise-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 101,
@@ -4720,7 +4821,8 @@
     "hospedera": "img/ciclo/101_pyrisitia-proterpia-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 102,
@@ -4766,7 +4868,8 @@
     "hospedera": "img/ciclo/102_pyrisitia-venusta-emanoma-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 103,
@@ -4812,7 +4915,8 @@
     "hospedera": "img/ciclo/103_zerene-cesonia-cesonia-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 104,
@@ -4858,7 +4962,8 @@
     "hospedera": "img/ciclo/104_zerene-cesonia-cynops-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 105,
@@ -4904,7 +5009,8 @@
     "hospedera": "img/ciclo/105_dismorphia-cubana-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 106,
@@ -4950,7 +5056,8 @@
     "hospedera": "img/ciclo/106_ascia-monuste-eubotea-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 107,
@@ -4996,7 +5103,8 @@
     "hospedera": "img/ciclo/107_ascia-monuste-phileta-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 108,
@@ -5042,7 +5150,8 @@
     "hospedera": "img/ciclo/108_ganyra-menciae-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 109,
@@ -5088,7 +5197,8 @@
     "hospedera": "img/ciclo/109_glutophrissa-drusilla-poeyi-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 110,
@@ -5134,7 +5244,8 @@
     "hospedera": "img/ciclo/110_melete-salacia-cubana-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 111,
@@ -5180,7 +5291,8 @@
     "hospedera": "img/ciclo/111_pontia-protodice-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 112,
@@ -5226,7 +5338,8 @@
     "hospedera": "img/ciclo/112_dianesia-carteri-carteri-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 113,
@@ -5272,7 +5385,8 @@
     "hospedera": "img/ciclo/113_dianesia-carteri-ramsdeni-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 114,
@@ -5318,7 +5432,8 @@
     "hospedera": "img/ciclo/114_brephidium-exilis-isophthalma-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 115,
@@ -5364,7 +5479,8 @@
     "hospedera": "img/ciclo/115_cupido-comyntas-texana-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 116,
@@ -5410,7 +5526,8 @@
     "hospedera": "img/ciclo/116_cyclargus-ammon-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 117,
@@ -5456,7 +5573,8 @@
     "hospedera": "img/ciclo/117_cyclargus-thomasi-noeli-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 118,
@@ -5502,7 +5620,8 @@
     "hospedera": "img/ciclo/118_hemiargus-ceraunus-filenus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 119,
@@ -5548,7 +5667,8 @@
     "hospedera": "img/ciclo/119_leptotes-cassius-theonus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 120,
@@ -5594,7 +5714,8 @@
     "hospedera": "img/ciclo/120_pseudochrysops-bornoi-yateritas-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 121,
@@ -5640,7 +5761,8 @@
     "hospedera": "img/ciclo/121_allosmaitia-coelebs-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 122,
@@ -5686,7 +5808,8 @@
     "hospedera": "img/ciclo/122_chlorostrymon-maesites-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 123,
@@ -5732,7 +5855,8 @@
     "hospedera": "img/ciclo/123_chlorostrymon-simaethis-simaethis-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 124,
@@ -5778,7 +5902,8 @@
     "hospedera": "img/ciclo/124_electrostrymon-angelia-angelia-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 125,
@@ -5824,7 +5949,8 @@
     "hospedera": "img/ciclo/125_eumaeus-atala-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 126,
@@ -5870,7 +5996,8 @@
     "hospedera": "img/ciclo/126_ministrymon-azia-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 127,
@@ -5916,7 +6043,8 @@
     "hospedera": "img/ciclo/127_nesiostrymon-celida-celida-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 128,
@@ -5962,7 +6090,8 @@
     "hospedera": "img/ciclo/128_strymon-acis-casasi-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 129,
@@ -6008,7 +6137,8 @@
     "hospedera": "img/ciclo/129_strymon-bazochii-gundlachianus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 130,
@@ -6054,7 +6184,8 @@
     "hospedera": "img/ciclo/130_strymon-istapa-cybira-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 131,
@@ -6100,7 +6231,8 @@
     "hospedera": "img/ciclo/131_strymon-limenia-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 132,
@@ -6146,7 +6278,8 @@
     "hospedera": "img/ciclo/132_strymon-martialis-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 133,
@@ -6192,7 +6325,8 @@
     "hospedera": "img/ciclo/133_strymon-toussainti-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 134,
@@ -6238,7 +6372,8 @@
     "hospedera": "img/ciclo/134_dynamine-postverta-mexicana-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 135,
@@ -6284,7 +6419,8 @@
     "hospedera": "img/ciclo/135_dynamine-serina-calais-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 136,
@@ -6330,7 +6466,8 @@
     "hospedera": "img/ciclo/136_eunica-heraclitus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 137,
@@ -6376,7 +6513,8 @@
     "hospedera": "img/ciclo/137_eunica-monima-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 138,
@@ -6422,7 +6560,8 @@
     "hospedera": "img/ciclo/138_eunica-tatila-tatilista-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 139,
@@ -6468,7 +6607,8 @@
     "hospedera": "img/ciclo/139_hamadryas-amphinome-mexicana-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 140,
@@ -6514,7 +6654,8 @@
     "hospedera": "img/ciclo/140_hamadryas-februa-diasia-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 141,
@@ -6560,7 +6701,8 @@
     "hospedera": "img/ciclo/141_hamadryas-feronia-feronia-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 142,
@@ -6606,7 +6748,8 @@
     "hospedera": "img/ciclo/142_lucinia-sida-sida-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 143,
@@ -6652,7 +6795,8 @@
     "hospedera": "img/ciclo/143_anaea-cubana-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 144,
@@ -6698,7 +6842,8 @@
     "hospedera": "img/ciclo/144_archaeoprepona-demophoon-crassina-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 145,
@@ -6744,7 +6889,8 @@
     "hospedera": "img/ciclo/145_hypna-clytemnestra-iphigenia-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 146,
@@ -6790,7 +6936,8 @@
     "hospedera": "img/ciclo/146_cymatogramma-verticordia-echemus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 147,
@@ -6836,7 +6983,8 @@
     "hospedera": "img/ciclo/147_siderone-galanthis-nemesis-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 148,
@@ -6882,7 +7030,8 @@
     "hospedera": "img/ciclo/148_marpesia-chiron-chironides-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 149,
@@ -6928,7 +7077,8 @@
     "hospedera": "img/ciclo/149_marpesia-eleuchea-eleuchea-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 150,
@@ -6974,7 +7124,8 @@
     "hospedera": "img/ciclo/150_anetia-briarea-numidia-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 151,
@@ -7020,7 +7171,8 @@
     "hospedera": "img/ciclo/151_anetia-cubana-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 152,
@@ -7066,7 +7218,8 @@
     "hospedera": "img/ciclo/152_anetia-pantherata-clarescens-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 153,
@@ -7112,7 +7265,8 @@
     "hospedera": "img/ciclo/153_danaus-eresimus-tethys-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 154,
@@ -7158,7 +7312,8 @@
     "hospedera": "img/ciclo/154_danaus-gilippus-berenice-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 155,
@@ -7204,7 +7359,8 @@
     "hospedera": "img/ciclo/155_danaus-plexippus-plexippus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 156,
@@ -7250,7 +7406,8 @@
     "hospedera": "img/ciclo/156_danaus-plexippus-megalippe-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 157,
@@ -7296,7 +7453,8 @@
     "hospedera": "img/ciclo/157_greta-cubana-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 158,
@@ -7342,7 +7500,8 @@
     "hospedera": "img/ciclo/158_lycorea-halia-demeter-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 159,
@@ -7388,7 +7547,8 @@
     "hospedera": "img/ciclo/159_agraulis-vanillae-insularis-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 160,
@@ -7434,7 +7594,8 @@
     "hospedera": "img/ciclo/160_dryas-iulia-nudeola-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 161,
@@ -7480,7 +7641,8 @@
     "hospedera": "img/ciclo/161_eueides-isabella-cleobaea-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 162,
@@ -7526,7 +7688,8 @@
     "hospedera": "img/ciclo/162_euptoieta-claudia-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 163,
@@ -7572,7 +7735,8 @@
     "hospedera": "img/ciclo/163_euptoieta-hegesia-hegesia-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 164,
@@ -7618,7 +7782,8 @@
     "hospedera": "img/ciclo/164_heliconius-charithonia-ramsdeni-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 165,
@@ -7664,7 +7829,8 @@
     "hospedera": "img/ciclo/165_libytheana-carinenta-bachmanii-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 166,
@@ -7710,7 +7876,8 @@
     "hospedera": "img/ciclo/166_libytheana-motya-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 167,
@@ -7756,7 +7923,8 @@
     "hospedera": "img/ciclo/167_libytheana-terena-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 168,
@@ -7802,7 +7970,8 @@
     "hospedera": "img/ciclo/168_adelpha-iphicleola-iphimedia-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 169,
@@ -7848,7 +8017,8 @@
     "hospedera": "img/ciclo/169_asterocampa-idyja-idyja-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 170,
@@ -7894,7 +8064,8 @@
     "hospedera": "img/ciclo/170_doxocopa-laure-druryi-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 171,
@@ -7940,7 +8111,8 @@
     "hospedera": "img/ciclo/171_limenitis-archippus-floridensis-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 172,
@@ -7986,7 +8158,8 @@
     "hospedera": "img/ciclo/172_anartia-chrysopelea-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 173,
@@ -8032,7 +8205,8 @@
     "hospedera": "img/ciclo/173_anartia-jatrophae-guantanamo-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 174,
@@ -8078,7 +8252,8 @@
     "hospedera": "img/ciclo/174_anthanassa-frisia-frisia-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 175,
@@ -8124,7 +8299,8 @@
     "hospedera": "img/ciclo/175_antillea-pelops-anacaona-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 176,
@@ -8170,7 +8346,8 @@
     "hospedera": "img/ciclo/176_atlantea-perezi-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 177,
@@ -8216,7 +8393,8 @@
     "hospedera": "img/ciclo/177_colobura-dirce-wolcotti-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 178,
@@ -8262,7 +8440,8 @@
     "hospedera": "img/ciclo/178_historis-acheronta-semele-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 179,
@@ -8308,7 +8487,8 @@
     "hospedera": "img/ciclo/179_historis-odius-odius-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 180,
@@ -8354,7 +8534,8 @@
     "hospedera": "img/ciclo/180_hypanartia-paullus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 181,
@@ -8400,7 +8581,8 @@
     "hospedera": "img/ciclo/181_hypolimnas-misippus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 182,
@@ -8446,7 +8628,8 @@
     "hospedera": "img/ciclo/182_junonia-coenia-coenia-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 183,
@@ -8492,7 +8675,8 @@
     "hospedera": "img/ciclo/183_junonia-neildi-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 184,
@@ -8538,7 +8722,8 @@
     "hospedera": "img/ciclo/184_junonia-zonalis-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 185,
@@ -8584,7 +8769,8 @@
     "hospedera": "img/ciclo/185_phyciodes-phaon-phaon-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 186,
@@ -8630,7 +8816,8 @@
     "hospedera": "img/ciclo/186_polygonia-interrogationis-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 187,
@@ -8676,7 +8863,8 @@
     "hospedera": "img/ciclo/187_siproeta-stelenes-biplagiata-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 188,
@@ -8722,7 +8910,8 @@
     "hospedera": "img/ciclo/188_vanessa-atalanta-rubria-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 189,
@@ -8768,7 +8957,8 @@
     "hospedera": "img/ciclo/189_vanessa-cardui-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 190,
@@ -8814,7 +9004,8 @@
     "hospedera": "img/ciclo/190_vanessa-virginiensis-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 191,
@@ -8860,7 +9051,8 @@
     "hospedera": "img/ciclo/191_calisto-aquilum-aquilum-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 192,
@@ -8906,7 +9098,8 @@
     "hospedera": "img/ciclo/192_calisto-aquilum-occidentalis-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 193,
@@ -8952,7 +9145,8 @@
     "hospedera": "img/ciclo/193_calisto-bradleyi-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 194,
@@ -8998,7 +9192,8 @@
     "hospedera": "img/ciclo/194_calisto-brochei-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 195,
@@ -9044,7 +9239,8 @@
     "hospedera": "img/ciclo/195_calisto-bruneri-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 196,
@@ -9090,7 +9286,8 @@
     "hospedera": "img/ciclo/196_calisto-disjunctus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 197,
@@ -9136,7 +9333,8 @@
     "hospedera": "img/ciclo/197_calisto-dissimulatum-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 198,
@@ -9182,7 +9380,8 @@
     "hospedera": "img/ciclo/198_calisto-gundlachi-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 199,
@@ -9228,7 +9427,8 @@
     "hospedera": "img/ciclo/199_calisto-herophile-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 200,
@@ -9274,7 +9474,8 @@
     "hospedera": "img/ciclo/200_calisto-israeli-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 201,
@@ -9320,7 +9521,8 @@
     "hospedera": "img/ciclo/201_calisto-lastrai-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 202,
@@ -9366,7 +9568,8 @@
     "hospedera": "img/ciclo/202_calisto-muripetens-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 203,
@@ -9412,7 +9615,8 @@
     "hospedera": "img/ciclo/203_calisto-occulta-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 204,
@@ -9458,7 +9662,8 @@
     "hospedera": "img/ciclo/204_calisto-sharkeyae-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 205,
@@ -9504,7 +9709,8 @@
     "hospedera": "img/ciclo/205_calisto-siguanensis-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 206,
@@ -9550,7 +9756,8 @@
     "hospedera": "img/ciclo/206_calisto-smintheus-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   },
   {
    "id": 207,
@@ -9596,7 +9803,8 @@
     "hospedera": "img/ciclo/207_calisto-torrei-hospedera.jpg"
    },
    "estado_datos": "pendiente",
-   "fuentes": []
+   "fuentes": [],
+   "imagenes_listas": []
   }
  ]
 }

@@ -1,13 +1,19 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import MapaZonas, { ZONA_POR_ID } from './MapaZonas'
 
 /* ══════════════════════════════════════════════════════════════
    PanelFiltros — hoja que sube desde abajo.
 
    Cinco grupos: familia, subfamilia, zona geográfica, color y
-   tamaño. Todos funcionan igual: tocar añade o quita.
+   tamaño. Todos menos la zona funcionan igual: tocar añade o
+   quita.
+
+   La zona geográfica no es una lista de nombres, porque las zonas
+   son polígonos que no respetan los límites provinciales: se
+   elige sobre el mapa, con el trazo del dedo o tocando
+   provincias.
    ══════════════════════════════════════════════════════════════ */
 
-// Muestras de color para el filtro cromático
 const MUESTRAS = {
   negro: '#1C1C1C',
   blanco: '#EFEFEA',
@@ -28,9 +34,14 @@ const AYUDA_TAMANO = {
 }
 
 export default function PanelFiltros({
-  abierto, onCerrar, filtros, alternarFiltro, limpiar, opciones, nActivos, nResultados
+  abierto, onCerrar,
+  filtros, alternarFiltro, limpiar,
+  fijarZonas, fijarProvincias,
+  opciones, nActivos, nResultados
 }) {
-  // Cerrar con Escape
+  const [mapaVisible, setMapaVisible] = useState(false)
+  const [modoZona, setModoZona] = useState('trazo')
+
   useEffect(() => {
     if (!abierto) return
     const alPulsar = e => { if (e.key === 'Escape') onCerrar() }
@@ -39,6 +50,10 @@ export default function PanelFiltros({
   }, [abierto, onCerrar])
 
   if (!abierto) return null
+
+  const zonasElegidas = filtros.zonas ?? []
+  const provinciasElegidas = filtros.provincias ?? []
+  const nGeograficos = zonasElegidas.length + provinciasElegidas.length
 
   return (
     <>
@@ -53,7 +68,7 @@ export default function PanelFiltros({
         style={{
           position: 'fixed', bottom: 0, left: '50%',
           transform: 'translateX(-50%)',
-          width: '100%', maxWidth: 480, maxHeight: '82vh',
+          width: '100%', maxWidth: 480, maxHeight: '86vh',
           display: 'flex', flexDirection: 'column',
           background: 'var(--sombra)',
           borderTop: '1px solid var(--linea)',
@@ -68,7 +83,8 @@ export default function PanelFiltros({
           style={{
             gap: 'var(--e-3)',
             padding: 'var(--e-4)',
-            borderBottom: '1px solid var(--linea)'
+            borderBottom: '1px solid var(--linea)',
+            flexShrink: 0
           }}
         >
           <span className="crece" style={{ fontSize: 'var(--t-17)', fontWeight: 600 }}>
@@ -98,7 +114,7 @@ export default function PanelFiltros({
         <div style={{ overflowY: 'auto', padding: 'var(--e-4)' }}>
           <Grupo titulo="Familia">
             <Fichas
-              opciones={opciones.familias}
+              opciones={opciones?.familias}
               activas={filtros.familias}
               onTocar={v => alternarFiltro('familias', v)}
               cursiva
@@ -107,25 +123,88 @@ export default function PanelFiltros({
 
           <Grupo titulo="Subfamilia">
             <Fichas
-              opciones={opciones.subfamilias}
+              opciones={opciones?.subfamilias}
               activas={filtros.subfamilias}
               onTocar={v => alternarFiltro('subfamilias', v)}
               cursiva
             />
           </Grupo>
 
+          {/* ── Zona geográfica: sobre el mapa ── */}
           <Grupo titulo="Zona geográfica">
-            <Fichas
-              opciones={opciones.zonas}
-              activas={filtros.zonas}
-              onTocar={v => alternarFiltro('zonas', v)}
-            />
+            {!mapaVisible ? (
+              <>
+                <button
+                  onClick={() => setMapaVisible(true)}
+                  className="fila"
+                  style={{
+                    gap: 'var(--e-3)', width: '100%',
+                    padding: '12px 14px', textAlign: 'left',
+                    fontSize: 'var(--t-13)',
+                    background: 'var(--sombra-alt)',
+                    borderRadius: 'var(--r-panel)',
+                    boxShadow: 'inset 0 0 0 1px var(--linea)'
+                  }}
+                >
+                  <span className="crece">
+                    {nGeograficos > 0
+                      ? `${nGeograficos} seleccionada${nGeograficos === 1 ? '' : 's'}`
+                      : 'Abrir el mapa'}
+                  </span>
+                  <span style={{ fontSize: 'var(--t-11)', color: 'var(--papel-tenue)' }}>
+                    trazo o provincias
+                  </span>
+                  <span aria-hidden="true" style={{ color: 'var(--papel-tenue)' }}>›</span>
+                </button>
+
+                {/* Lo ya elegido, para no tener que abrir el mapa para verlo */}
+                {nGeograficos > 0 && (
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 'var(--e-2)' }}>
+                    {zonasElegidas.map(id => (
+                      <span key={id} style={etiquetaGeo}>
+                        {ZONA_POR_ID[id]?.nombre ?? id}
+                      </span>
+                    ))}
+                    {provinciasElegidas.map(p => (
+                      <span key={p} style={etiquetaGeo}>{p}</span>
+                    ))}
+                  </div>
+                )}
+              </>
+            ) : (
+              <>
+                <MapaZonas
+                  modo={modoZona}
+                  onCambiarModo={m => {
+                    setModoZona(m)
+                    // Cada modo tiene su propia selección: al cambiar,
+                    // se limpia la del otro para que el resultado no mienta.
+                    if (m === 'trazo') fijarProvincias?.([])
+                    else fijarZonas?.([])
+                  }}
+                  zonasElegidas={zonasElegidas}
+                  onZonasElegidas={fijarZonas}
+                  provinciasElegidas={provinciasElegidas}
+                  onProvinciasElegidas={fijarProvincias}
+                />
+
+                <button
+                  onClick={() => setMapaVisible(false)}
+                  style={{
+                    marginTop: 'var(--e-3)',
+                    fontSize: 'var(--t-13)', color: 'var(--papel-medio)'
+                  }}
+                >
+                  Ocultar el mapa
+                </button>
+              </>
+            )}
           </Grupo>
 
           <Grupo titulo="Color">
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--e-2)' }}>
-              {opciones.colores.map(color => {
-                const activa = filtros.colores.includes(color)
+              {(opciones?.colores ?? []).map(color => {
+                const activa = (filtros.colores ?? []).includes(color)
                 return (
                   <button
                     key={color}
@@ -160,8 +239,8 @@ export default function PanelFiltros({
 
           <Grupo titulo="Tamaño">
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--e-2)' }}>
-              {opciones.tamanos.map(t => {
-                const activa = filtros.tamanos.includes(t)
+              {(opciones?.tamanos ?? []).map(t => {
+                const activa = (filtros.tamanos ?? []).includes(t)
                 return (
                   <button
                     key={t}
@@ -198,6 +277,15 @@ export default function PanelFiltros({
   )
 }
 
+/* ── Piezas ─────────────────────────────────────────────────── */
+
+const etiquetaGeo = {
+  padding: '4px 10px',
+  fontSize: 'var(--t-12)',
+  background: 'var(--atala-hondo)',
+  borderRadius: 'var(--r-control)'
+}
+
 function Grupo({ titulo, children }) {
   return (
     <section style={{ marginBottom: 'var(--e-6)' }}>
@@ -216,11 +304,24 @@ function Grupo({ titulo, children }) {
   )
 }
 
+/* `opciones` y `activas` se normalizan a lista: si algún día falta una
+   clave, el grupo sale vacío en vez de tumbar la aplicación. */
 function Fichas({ opciones, activas, onTocar, cursiva }) {
+  const lista = opciones ?? []
+  const puestas = activas ?? []
+
+  if (lista.length === 0) {
+    return (
+      <p style={{ fontSize: 'var(--t-12)', color: 'var(--papel-tenue)' }}>
+        Sin opciones disponibles.
+      </p>
+    )
+  }
+
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--e-2)' }}>
-      {opciones.map(o => {
-        const activa = activas.includes(o)
+      {lista.map(o => {
+        const activa = puestas.includes(o)
         return (
           <button
             key={o}

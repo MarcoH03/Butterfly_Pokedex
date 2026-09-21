@@ -1,5 +1,7 @@
+import { memo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Lamina from './Lamina'
+import { rutaImagen } from '../lib/imagenes'
 
 /* ══════════════════════════════════════════════════════════════
    TarjetaEspecie — una celda de la cuadrícula principal.
@@ -19,12 +21,14 @@ export const COLOR_FAMILIA = {
   Nymphalidae:  '#C34733'
 }
 
-export default function TarjetaEspecie({
+function TarjetaEspecie({
   especie, vista, modoSeleccion, marcada, onMarcar, avistamientos = 0
 }) {
   const navegar = useNavigate()
 
-  const src = vista === 'montados' ? especie.imagenes.montado : especie.imagenes.lamina
+  // rutaImagen devuelve null si el archivo no está subido todavía: así
+  // la cuadrícula no dispara cientos de peticiones que acaban en 404.
+  const src = rutaImagen(especie, vista === 'montados' ? 'montado' : 'lamina')
   const colorFam = COLOR_FAMILIA[especie.familia] || 'var(--atala)'
 
   const abrir = () => {
@@ -127,3 +131,7 @@ export default function TarjetaEspecie({
     </button>
   )
 }
+
+/* memo: al escribir en el buscador React repinta la lista entera. Sin
+   esto, las 207 tarjetas se reconstruyen en cada tecla. */
+export default memo(TarjetaEspecie)
