@@ -3,6 +3,8 @@ import datos from '../data/especies.json'
 import { buscarEspecies } from '../lib/buscar'
 import { leerSeleccion, guardarSeleccion } from '../lib/almacen'
 import { todasLasZonas } from '../lib/zonas'
+import catalogoZonas from '../data/zonas.json'
+import { puntoDentro, trazoAlcanzaZona, distanciaASegmento } from '../lib/geometria'
 
 /* ══════════════════════════════════════════════════════════════
    useEspecies — toda la lógica de la pantalla principal.
@@ -19,7 +21,8 @@ const FILTROS_VACIOS = {
   tamanos: [],
   // Filtro geográfico. Se llena desde MapaZonas y admite las dos vías:
   zonas: [],        // ids de zona alcanzadas por el trazo
-  provincias: []    // provincias tocadas una por una
+  provincias: [],   // provincias tocadas una por una
+  trazo: null       // { puntos, radio }: el trazo crudo, para los polígonos del libro
 }
 
 /* Las zonas se leen en el momento: el catálogo crece con el trabajo
@@ -28,11 +31,33 @@ function zonaPorId(id) {
   return todasLasZonas().find(z => z.id === id) || null
 }
 
-/** Provincias que toca una especie, derivadas de sus zonas. */
+/* Provincia en la que cae un punto. Las provincias del catálogo son
+   bandas de longitud (ver GUIA-DATOS.md); con contornos reales esto
+   se simplifica, pero el resultado que da aquí ya es utilizable. */
+function provinciaDePunto([lon, lat]) {
+  for (const p of catalogoZonas.provincias) {
+    if (p.contorno) {
+      if (puntoDentro([lon, lat], catalogoZonas.contorno[p.contorno])) return p.nombre
+      continue
+    }
+    const [a, b] = [Math.min(p.lon0, p.lon1), Math.max(p.lon0, p.lon1)]
+    if (lon < a || lon > b) continue
+    if (p.mitad === 'norte' && lat < catalogoZonas.latitud_division) continue
+    if (p.mitad === 'sur' && lat > catalogoZonas.latitud_division) continue
+    return p.nombre
+  }
+  return null
+}
+
+/** Provincias que toca una especie: por sus zonas y por las localidades del libro. */
 export function provinciasDe(especie) {
   const set = new Set()
   for (const id of especie.distribucion.zonas || []) {
     for (const p of zonaPorId(id)?.provincias || []) set.add(p)
+  }
+  for (const punto of especie.distribucion.localidades || []) {
+    const p = provinciaDePunto(punto)
+    if (p) set.add(p)
   }
   return [...set]
 }
@@ -93,10 +118,22 @@ export function useEspecies() {
     if (filtros.subfamilias.length)
       lista = lista.filter(e => filtros.subfamilias.includes(e.subfamilia))
 
-    // Zonas alcanzadas por el trazo: basta con compartir una.
-    if (filtros.zonas.length)
-      lista = lista.filter(e =>
-        filtros.zonas.some(id => e.distribucion.zonas.includes(id)))
+    /* Geografía por trazo. Una especie entra si el dedo roza una de
+       sus zonas del catálogo, una de las manchas que el libro pinta en
+       su mapa, o una de sus localidades. */
+    if (filtros.zonas.length || filtros.trazo) {
+      const tr = filtros.trazo
+      lista = lista.filter(e => {
+        if (filtros.zonas.some(id => e.distribucion.zonas.includes(id))) return true
+        if (!tr) return false
+        if ((e.distribucion.poligonos || []).some(p => trazoAlcanzaZona(tr.puntos, p, tr.radio))) return true
+        return (e.distribucion.localidades || []).some(q =>
+          tr.puntos.some((p, i) =>
+            i === 0
+              ? Math.hypot(q[0] - p[0], q[1] - p[1]) <= tr.radio
+              : distanciaASegmento(q, tr.puntos[i - 1], p) <= tr.radio))
+      })
+    }
 
     // Provincias tocadas: entra la especie con alguna zona en esa provincia.
     if (filtros.provincias.length)
@@ -135,7 +172,9 @@ export function useEspecies() {
   }
 
   const quitarFiltro = (clave, valor) => {
-    setFiltros(prev => ({ ...prev, [clave]: prev[clave].filter(v => v !== valor) }))
+    setFiltros(prev => Array.isArray(prev[clave])
+      ? { ...prev, [clave]: prev[clave].filter(v => v !== valor) }
+      : { ...prev, [clave]: null })
   }
 
   const limpiarFiltros = () => { setFiltros(FILTROS_VACIOS); setConsulta('') }
@@ -143,6 +182,7 @@ export function useEspecies() {
   /* Los dos modos del mapa se fijan enteros, no uno a uno. */
   const fijarZonas = (ids) => setFiltros(prev => ({ ...prev, zonas: ids }))
   const fijarProvincias = (nombres) => setFiltros(prev => ({ ...prev, provincias: nombres }))
+  const fijarTrazo = (trazo) => setFiltros(prev => ({ ...prev, trazo }))
 
   const alternarSeleccion = (id) => {
     setSeleccion(prev =>
@@ -155,6 +195,11 @@ export function useEspecies() {
   const activos = useMemo(() => {
     const salida = []
     for (const [clave, valores] of Object.entries(filtros)) {
+      if (!Array.isArray(valores)) {
+        // El trazo no es una lista: es un chip único.
+        if (clave === 'trazo' && valores) salida.push({ clave, valor: 'trazo', etiqueta: 'área dibujada' })
+        continue
+      }
       for (const valor of valores) {
         // Las zonas se guardan por id; el chip debe mostrar el nombre.
         const etiqueta = clave === 'zonas' ? (zonaPorId(valor)?.nombre ?? valor) : valor
@@ -168,7 +213,7 @@ export function useEspecies() {
     especies, meta, total: todas.length,
     consulta, setConsulta,
     filtros, alternarFiltro, quitarFiltro, limpiarFiltros, activos, opciones,
-    fijarZonas, fijarProvincias,
+    fijarZonas, fijarProvincias, fijarTrazo,
     vista, setVista,
     modoSeleccion, setModoSeleccion,
     seleccion, alternarSeleccion, limpiarSeleccion,

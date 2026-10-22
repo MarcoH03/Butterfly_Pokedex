@@ -35,7 +35,7 @@ const AYUDA_TAMANO = {
 
 export default function PanelFiltros({
   abierto, onCerrar,
-  filtros, alternarFiltro, limpiar,
+  filtros, alternarFiltro, limpiar, fijarTrazo,
   fijarZonas, fijarProvincias,
   opciones, nActivos, nResultados
 }) {
@@ -53,7 +53,7 @@ export default function PanelFiltros({
 
   const zonasElegidas = filtros.zonas ?? []
   const provinciasElegidas = filtros.provincias ?? []
-  const nGeograficos = zonasElegidas.length + provinciasElegidas.length
+  const nGeograficos = zonasElegidas.length + provinciasElegidas.length + (filtros.trazo ? 1 : 0)
 
   return (
     <>
@@ -184,6 +184,7 @@ export default function PanelFiltros({
                   }}
                   zonasElegidas={zonasElegidas}
                   onZonasElegidas={fijarZonas}
+                  onTrazo={fijarTrazo}
                   provinciasElegidas={provinciasElegidas}
                   onProvinciasElegidas={fijarProvincias}
                 />

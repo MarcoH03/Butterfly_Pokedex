@@ -308,6 +308,7 @@ export default function Laminas() {
         onCerrar={() => setFiltrosAbiertos(false)}
         filtros={e.filtros}
         alternarFiltro={e.alternarFiltro}
+        fijarTrazo={e.fijarTrazo}
         limpiar={e.limpiarFiltros}
         fijarZonas={e.fijarZonas}
         fijarProvincias={e.fijarProvincias}
