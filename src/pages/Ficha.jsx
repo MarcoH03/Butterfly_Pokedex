@@ -38,7 +38,15 @@ export default function Ficha() {
   const navegar = useNavigate()
   const especie = especiePorId(id)
 
-  const [vista, setVista] = useState('lamina')
+  /* Arranca en la vista que esa especie tenga: hay 180 láminas y 154
+     montados, así que no todas tienen las dos. */
+  const [vista, setVista] = useState(
+    () => (rutaImagen(especie, 'lamina') ? 'lamina' : 'montado')
+  )
+  useEffect(() => {
+    setVista(rutaImagen(especie, 'lamina') ? 'lamina' : 'montado')
+  }, [especie?.id])
+
   const [hojaAbierta, setHojaAbierta] = useState(false)
   const [version, setVersion] = useState(0)
   const [visor, setVisor] = useState(null)     // { imagenes, indice }
@@ -82,6 +90,9 @@ export default function Ficha() {
   /* ── Todas las imágenes de la especie, para el visor ──
      Un solo conjunto: así al abrir cualquiera se puede pasar a
      las demás sin salir de pantalla completa. */
+  const hayLamina = !!rutaImagen(especie, 'lamina')
+  const hayMontado = !!rutaImagen(especie, 'montado')
+
   const imagenes = useMemo(() => {
     const lista = []
     const lamina = rutaImagen(especie, 'lamina')
@@ -159,20 +170,22 @@ export default function Ficha() {
           )}
         </button>
 
-        <div className="fila" style={{ gap: 'var(--e-2)', padding: 'var(--e-3) var(--e-4) 0' }}>
-          <div style={{
-            display: 'flex', padding: 2,
-            background: 'var(--sombra-alt)', borderRadius: 'var(--r-control)',
-            boxShadow: 'inset 0 0 0 1px var(--linea)'
-          }}>
-            <MiniPestana activa={vista === 'lamina'} onTocar={() => setVista('lamina')}>
-              Ejemplar vivo
-            </MiniPestana>
-            <MiniPestana activa={vista === 'montado'} onTocar={() => setVista('montado')}>
-              Montado
-            </MiniPestana>
+        {hayLamina && hayMontado && (
+          <div className="fila" style={{ gap: 'var(--e-2)', padding: 'var(--e-3) var(--e-4) 0' }}>
+            <div style={{
+              display: 'flex', padding: 2,
+              background: 'var(--sombra-alt)', borderRadius: 'var(--r-control)',
+              boxShadow: 'inset 0 0 0 1px var(--linea)'
+            }}>
+              <MiniPestana activa={vista === 'lamina'} onTocar={() => setVista('lamina')}>
+                Ejemplar vivo
+              </MiniPestana>
+              <MiniPestana activa={vista === 'montado'} onTocar={() => setVista('montado')}>
+                Montado
+              </MiniPestana>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* ── Encabezado ── */}
         <div style={{ padding: 'var(--e-4)' }}>

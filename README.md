@@ -95,8 +95,11 @@ Mientras un archivo no exista, la app dibuja una silueta en su lugar.
 Qué hay ahora, sacado del libro:
 
 - **180 láminas** — el ejemplar vivo, de las láminas fotográficas del final.
-- **154 montados** — las vistas superior e inferior de la ficha, unidas en una
+- **158 montados** — las vistas superior e inferior de la ficha, unidas en una
   sola imagen (cuando el libro trae macho y hembra, van las cuatro).
+- **191 de 208 especies** acaban enseñando foto: cuando falta la vista pedida,
+  la cuadrícula usa la otra y lo avisa con una etiqueta. Las 17 restantes no
+  están ilustradas en el libro.
 - **Nada de huevo, larva, pupa ni planta hospedera**: el libro casi no las
   trae. Esas se van consiguiendo en el campo desde la propia app.
 

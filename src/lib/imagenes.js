@@ -36,3 +36,22 @@ export function rutaImagen(especie, clave) {
 export function tieneImagenes(especie) {
   return (especie?.imagenes_listas ?? []).length > 0
 }
+
+/**
+ * La imagen para la vista pedida y, si no está, la otra.
+ *
+ * Del libro salieron 180 láminas pero solo 154 montados, así que
+ * muchas especies tienen una vista y no la otra. Antes de dibujar una
+ * silueta, se prueba con la que sí existe: es mejor ver la mariposa en
+ * la otra vista que no verla.
+ *
+ * Devuelve `{ src, clave }`, donde `clave` dice cuál se está usando.
+ */
+export function rutaImagenOAlterna(especie, vista) {
+  const pedida = vista === 'montados' ? 'montado' : 'lamina'
+  const otra = pedida === 'montado' ? 'lamina' : 'montado'
+  const src = rutaImagen(especie, pedida)
+  if (src) return { src, clave: pedida }
+  const alterna = rutaImagen(especie, otra)
+  return alterna ? { src: alterna, clave: otra } : { src: null, clave: null }
+}

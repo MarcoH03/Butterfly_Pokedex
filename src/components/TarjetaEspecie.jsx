@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Lamina from './Lamina'
-import { rutaImagen } from '../lib/imagenes'
+import { rutaImagenOAlterna } from '../lib/imagenes'
 
 /* ══════════════════════════════════════════════════════════════
    TarjetaEspecie — una celda de la cuadrícula principal.
@@ -26,9 +26,12 @@ function TarjetaEspecie({
 }) {
   const navegar = useNavigate()
 
-  // rutaImagen devuelve null si el archivo no está subido todavía: así
-  // la cuadrícula no dispara cientos de peticiones que acaban en 404.
-  const src = rutaImagen(especie, vista === 'montados' ? 'montado' : 'lamina')
+  /* rutaImagenOAlterna devuelve null si no hay ningún archivo subido
+     (así la cuadrícula no dispara cientos de peticiones que acaban en
+     404) y, si falta la vista pedida, usa la otra: hay 180 láminas y
+     154 montados, así que muchas especies solo tienen una. */
+  const { src, clave } = rutaImagenOAlterna(especie, vista)
+  const esAlterna = clave !== null && clave !== (vista === 'montados' ? 'montado' : 'lamina')
   const colorFam = COLOR_FAMILIA[especie.familia] || 'var(--atala)'
 
   const abrir = () => {
@@ -60,8 +63,22 @@ function TarjetaEspecie({
       <Lamina
         src={src}
         alt={especie.nombre}
-        relacion={vista === 'montados' ? '4 / 3' : '1'}
+        relacion={clave === 'montado' ? '4 / 3' : '1'}
       />
+
+      {/* Si se está enseñando la otra vista, hay que decirlo */}
+      {esAlterna && (
+        <span
+          style={{
+            position: 'absolute', top: 6, right: 6,
+            padding: '1px 6px', fontSize: 'var(--t-11)',
+            color: 'var(--papel-medio)', background: 'rgba(7,16,14,.72)',
+            borderRadius: 'var(--r-control)'
+          }}
+        >
+          {clave === 'montado' ? 'montado' : 'vivo'}
+        </span>
+      )}
 
       {/* Franja de la familia: dato, no adorno */}
       <span

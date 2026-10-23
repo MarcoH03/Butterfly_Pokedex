@@ -892,7 +892,8 @@
    "estado_datos": "parcial",
    "fuentes": [
     "Mancina, C. A., R. Núñez Águila y B. Neyra Raola (eds.). 2020. Mariposas de Cuba: guía de campo. Instituto de Ecología y Sistemática, La Habana. p. 31"],
-   "imagenes_listas": [],
+   "imagenes_listas": [
+    "montado"],
    "libro": {
     "pagina": 31,
     "lamina": null
@@ -1009,7 +1010,8 @@
    "fuentes": [
     "Mancina, C. A., R. Núñez Águila y B. Neyra Raola (eds.). 2020. Mariposas de Cuba: guía de campo. Instituto de Ecología y Sistemática, La Habana. p. 31, lámina 3"],
    "imagenes_listas": [
-    "lamina"],
+    "lamina",
+    "montado"],
    "libro": {
     "pagina": 31,
     "lamina": 3
@@ -1079,7 +1081,8 @@
    "estado_datos": "parcial",
    "fuentes": [
     "Mancina, C. A., R. Núñez Águila y B. Neyra Raola (eds.). 2020. Mariposas de Cuba: guía de campo. Instituto de Ecología y Sistemática, La Habana. p. 31"],
-   "imagenes_listas": [],
+   "imagenes_listas": [
+    "montado"],
    "libro": {
     "pagina": 31,
     "lamina": null
@@ -9984,7 +9987,8 @@
    "estado_datos": "parcial",
    "fuentes": [
     "Mancina, C. A., R. Núñez Águila y B. Neyra Raola (eds.). 2020. Mariposas de Cuba: guía de campo. Instituto de Ecología y Sistemática, La Habana. p. 125"],
-   "imagenes_listas": [],
+   "imagenes_listas": [
+    "montado"],
    "libro": {
     "pagina": 125,
     "lamina": null
