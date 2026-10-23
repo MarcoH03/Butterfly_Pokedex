@@ -74,6 +74,7 @@ export default function Ficha() {
   }
 
   const colorFam = COLOR_FAMILIA[especie.familia] || 'var(--atala)'
+  const provincias = provinciasDe(especie)
   const avistamientos = avistamientosDe(especie.id)
   const lugares = conteoPorLugar(especie.id)
   const porProvincia = conteoPorProvincia(especie.id)
@@ -215,27 +216,44 @@ export default function Ficha() {
 
         {/* ── Distribución ── */}
         <Seccion titulo="Distribución">
-          <MapaZonas modo="trazo" soloLectura zonasElegidas={especie.distribucion.zonas} />
+          <MapaZonas
+            modo="trazo"
+            soloLectura
+            zonasElegidas={especie.distribucion.zonas}
+            poligonosEspecie={especie.distribucion.poligonos || []}
+            localidades={especie.distribucion.localidades || []}
+          />
 
-          {especie.distribucion.zonas.length > 0 ? (
-            <>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 'var(--e-3)' }}>
-                {especie.distribucion.zonas.map(id => (
-                  <span key={id} style={{
-                    padding: '4px 10px', fontSize: 'var(--t-12)',
-                    background: 'var(--atala-hondo)', borderRadius: 'var(--r-control)'
-                  }}>
-                    {ZONA_POR_ID[id]?.nombre ?? id}
-                  </span>
-                ))}
-              </div>
-              <p style={{ fontSize: 'var(--t-11)', color: 'var(--papel-tenue)', marginTop: 'var(--e-2)' }}>
-                Provincias alcanzadas: {provinciasDe(especie).join(', ') || '—'}.
-              </p>
-            </>
-          ) : (
+          {especie.distribucion.poligonos?.length > 0 && (
+            <p style={{ fontSize: 'var(--t-11)', color: 'var(--papel-tenue)', marginTop: 'var(--e-2)' }}>
+              En amarillo, los municipios con registro; los puntos son las localidades
+              concretas. Tomado del mapa de la guía de campo
+              {especie.distribucion.localidades?.length > 0
+                && ` (${especie.distribucion.localidades.length} localidades)`}.
+            </p>
+          )}
+
+          {especie.distribucion.zonas.length > 0 && (
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 'var(--e-3)' }}>
+              {especie.distribucion.zonas.map(id => (
+                <span key={id} style={{
+                  padding: '4px 10px', fontSize: 'var(--t-12)',
+                  background: 'var(--atala-hondo)', borderRadius: 'var(--r-control)'
+                }}>
+                  {ZONA_POR_ID[id]?.nombre ?? id}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {provincias.length > 0 ? (
+            <p style={{ fontSize: 'var(--t-11)', color: 'var(--papel-tenue)', marginTop: 'var(--e-2)' }}>
+              Provincias alcanzadas (aproximado, mientras las provincias sean
+              bandas de longitud): {provincias.join(', ')}.
+            </p>
+          ) : especie.distribucion.poligonos?.length ? null : (
             <p style={{ fontSize: 'var(--t-13)', color: 'var(--papel-medio)', marginTop: 'var(--e-3)' }}>
-              Sin zonas asignadas todavía.
+              Sin distribución asignada todavía.
             </p>
           )}
 
@@ -245,6 +263,47 @@ export default function Ficha() {
         </Seccion>
 
         <hr className="divisor" />
+
+        {/* ── Ecología: lo que dice la guía de campo ── */}
+        {(especie.comportamiento || especie.habitat?.length > 0 || especie.abundancia
+          || especie.conservacion || especie.vuelo?.nota) && (
+          <>
+            <Seccion titulo="Ecología">
+              {(especie.abundancia || especie.conservacion) && (
+                <div className="fila" style={{ gap: 'var(--e-2)', flexWrap: 'wrap', marginBottom: 'var(--e-3)' }}>
+                  {especie.abundancia && <Insignia>{especie.abundancia}</Insignia>}
+                  {especie.conservacion && (
+                    <Insignia color="var(--grana)">{especie.conservacion}</Insignia>
+                  )}
+                </div>
+              )}
+
+              {especie.habitat?.length > 0 && (
+                <div style={{ marginBottom: 'var(--e-3)' }}>
+                  <Etiqueta>Hábitats</Etiqueta>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 'var(--e-2)' }}>
+                    {especie.habitat.map(h => (
+                      <span key={h} style={{
+                        padding: '4px 10px', fontSize: 'var(--t-12)',
+                        background: 'var(--sombra-alt)', borderRadius: 'var(--r-control)',
+                        boxShadow: 'inset 0 0 0 1px var(--linea)'
+                      }}>
+                        {h}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {especie.comportamiento && <Parrafo>{especie.comportamiento}</Parrafo>}
+              {especie.vuelo?.nota && especie.vuelo.nota !== especie.comportamiento && (
+                <SubDato etiqueta="Vuelo y comportamiento">{especie.vuelo.nota}</SubDato>
+              )}
+            </Seccion>
+
+            <hr className="divisor" />
+          </>
+        )}
 
         {/* ── Ciclo de vida: cuatro estadios con foto ── */}
         <Seccion titulo="Ciclo de vida">
@@ -380,6 +439,31 @@ export default function Ficha() {
         <hr className="divisor" />
 
         <Notas especieId={especie.id} />
+
+        {especie.fuentes?.length > 0 && (
+          <>
+            <hr className="divisor" />
+            <div style={{ padding: 'var(--e-4)' }}>
+              <Etiqueta>Fuente</Etiqueta>
+              {especie.fuentes.map(f => (
+                <p key={f} style={{
+                  fontSize: 'var(--t-11)', color: 'var(--papel-tenue)',
+                  marginTop: 'var(--e-2)', lineHeight: 1.5
+                }}>
+                  {f}
+                </p>
+              ))}
+              {especie.nota_fuente && (
+                <p style={{
+                  fontSize: 'var(--t-11)', color: 'var(--papel-tenue)',
+                  marginTop: 'var(--e-2)', lineHeight: 1.5, fontStyle: 'italic'
+                }}>
+                  {especie.nota_fuente}
+                </p>
+              )}
+            </div>
+          </>
+        )}
       </div>
 
       {/* Aviso pasajero */}

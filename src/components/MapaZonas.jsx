@@ -41,10 +41,16 @@ export default function MapaZonas({
   onCambiarModo,
   zonasElegidas = [],
   onZonasElegidas,
+  // El trazo en bruto: con él se filtra también por los polígonos del libro
+  onTrazo,
   provinciasElegidas = [],
   onProvinciasElegidas,
   // Para la ficha: muestra las zonas resaltadas y no deja tocar nada
-  soloLectura = false
+  soloLectura = false,
+  // Distribución tomada del libro: manchas (municipios con registro) y
+  // localidades concretas. Se pintan encima de todo, sin ser tocables.
+  poligonosEspecie = [],
+  localidades = []
 }) {
   const svgRef = useRef(null)
   const dibujando = useRef(false)
@@ -72,7 +78,8 @@ export default function MapaZonas({
         (z.poligono?.length && trazoAlcanzaZona(puntos, z.poligono, radio)))
       .map(z => z.id)
     onZonasElegidas?.(alcanzadas)
-  }, [onZonasElegidas, radio])
+    onTrazo?.(puntos.length ? { puntos, radio } : null)
+  }, [onZonasElegidas, onTrazo, radio])
 
   const alBajar = ev => {
     if (!dibujable) return
@@ -103,6 +110,7 @@ export default function MapaZonas({
   const limpiarTrazo = () => {
     setTrazo([])
     onZonasElegidas?.([])
+    onTrazo?.(null)
   }
 
   const alternarProvincia = nombre => {
@@ -245,6 +253,22 @@ export default function MapaZonas({
                 </g>
               )
             })
+          )}
+
+          {/* Distribución del libro: manchas y localidades */}
+          {poligonosEspecie.length > 0 && (
+            <g style={{ pointerEvents: 'none' }}>
+              {poligonosEspecie.map((pol, i) => (
+                <path key={i} d={aRuta(pol)} fill="rgba(217,162,39,.62)" stroke="rgba(217,162,39,.9)" strokeWidth="0.6" />
+              ))}
+            </g>
+          )}
+          {localidades.length > 0 && (
+            <g style={{ pointerEvents: 'none' }}>
+              {localidades.map(([lo, la], i) => (
+                <circle key={i} cx={aX(lo)} cy={aY(la)} r="1.6" fill="#121917" fillOpacity=".85" />
+              ))}
+            </g>
           )}
 
           {/* Trazo del dedo */}

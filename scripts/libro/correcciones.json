@@ -1,0 +1,17 @@
+{
+ "Calisto brochei": {
+  "desc": "Esta especie es similar a C. smintheus, aunque más pequeña y no presenta la difusión rojiza en el lóbulo anal de la cara superior de las alas posteriores ni el tono rojizo de la cara inferior de las alas. El macho tiene la cara dorsal de las alas de color pardo oscuro uniforme; las hembras tienen la cara dorsal pardo-oscura en los dos tercios basales y pardo-clara en el tercio distal. El parche de androconias tiene el margen externo sinuoso formando tres lóbulos redondeados. En la cara inferior de las alas posteriores el parche rojo ocupa las tres quintas partes de la celda discal. El margen externo de la línea postdiscal del ala posterior presenta abundantes escamas amarillo pálidas y cuatro puntos blancos, los tres primeros de tamaño mediano y el último pequeño.",
+  "dist": "Especie endémica de Cuba; restringida a la región central del macizo montañoso Nipe-Sagua-Baracoa en el este de Cuba.",
+  "eco": "Rara y categorizada como En Peligro de extinción; habita en los bosques pluviales montanos sobre suelos serpentínicos, siempreverdes mesófilos y en charrascales de las montañas de Nipe-Sagua-Baracoa, en las altitudes entre 200 y 800 m. Los individuos pueden ser encontrados principalmente en los caminos sombreados del bosque. Se desconocen sus plantas hospederas."
+ },
+ "Calisto bruneri": {
+  "desc": "Esta especie se diferencia de sus congenéricos por presentar el ocelo de las alas posteriores con forma de pera, mientras que las demás especies lo tienen de forma ovoide. La cara dorsal de color pardo oscuro uniforme en ambos sexos. La cara inferior de las alas presenta una notable mezcla de escamas grises y pardas, carácter que sólo comparte con C. gundlachi. La mancha de color rojo de la celda discal es pequeña y triangular. En lado externo de la línea postdiscal de las posteriores se aprecian dos puntos blancos pequeños y ocasionalmente un tercer punto más pequeño.",
+  "dist": "Especie endémica de Cuba; restringida a la mitad occidental del macizo montañoso Nipe-Sagua-Baracoa.",
+  "eco": "Rara y categorizada como Vulnerable a la extinción; habita en charrascales y bosques pluviales montanos y de pinos que crecen sobre suelos serpentiníticos. En los charrascales se le puede observar cerca del suelo y a la sombra de los arbustos. Es remplazada por C. herophile en áreas donde el hábitat está destruido, generalmente en las cercanías de los pueblos y carreteras. Se desconocen sus plantas hospederas."
+ },
+ "Calisto disjunctus": {
+  "dist": "Especie endémica de Cuba; conocida de la porción más oriental de la cordillera de Guaniguanico, el norte de las alturas Habana-Matanzas y sur de la Isla de la Juventud.",
+  "eco": "Rara, aunque localmente común en el verano; habita en los bosques semideciduos. Se desconocen sus plantas hospederas."
+ },
+ "Telegonus cassander": {"mm": [60, 70], "nota": "El libro imprime «60 y 70 cm»: errata evidente, se interpreta como mm."}
+}

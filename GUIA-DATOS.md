@@ -11,8 +11,19 @@ Qué hay inventado ahora mismo, para que lo tengas todo a la vista:
 | Contorno de Cuba | 47 puntos dibujados a mano | `src/data/zonas.json` → `contorno` |
 | Provincias | bandas de longitud, no formas | `src/data/zonas.json` → `provincias` |
 | 9 zonas del catálogo | polígonos inventados | `src/data/zonas.json` → `zonas` |
-| 207 especies | taxonomía real, todo lo demás vacío | `src/data/especies.json` |
-| Imágenes | no existen; sale una silueta | `public/img/` |
+| 208 especies | **texto, tamaño, ecología y hospederas del libro** (194 de 208) | `src/data/especies.json` |
+| Distribución por especie | **polígonos y localidades del mapa del libro** (179 de 208) | `especies.json` → `distribucion` |
+| Imágenes | **180 láminas y 154 montados, del libro** | `public/img/` |
+
+Lo que queda inventado son las tres primeras filas: el contorno, las
+provincias y las nueve zonas. Y ahora se nota más que antes, porque las
+manchas de distribución que vienen del libro sí son exactas.
+
+Una consecuencia concreta: `provinciasDe()` deduce las provincias de una
+especie a partir de las localidades del libro, pero las provincias son bandas
+de longitud, así que al oriente se equivoca (Holguín y Santiago de Cuba se
+reparten por latitud, y el macizo de Nipe cae del lado de Santiago). Con los
+contornos reales eso se arregla solo.
 
 Los avistamientos, notas y fotos que metas desde la app **son datos
 reales desde el primer día**: viven en el teléfono y nada de esto los

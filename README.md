@@ -8,9 +8,17 @@ especies, imágenes): ver [GUIA-DATOS.md](GUIA-DATOS.md).**
 
 Dos capas de datos:
 
-- **Catálogo** — las 207 especies, en `src/data/especies.json`. Igual siempre.
+- **Catálogo** — las 208 especies, en `src/data/especies.json`. Igual siempre.
+  Textos, tamaños, distribución e imágenes salen de *Mariposas de Cuba: guía
+  de campo* (Mancina, Núñez Águila y Neyra Raola, eds., 2020); cada ficha trae
+  su cita con página y lámina. Cómo se extrajo: `scripts/libro/LEEME.md`.
 - **Lo tuyo** — avistamientos, notas y fotos. Vive en el teléfono
   (`localStorage`), no sale del dispositivo.
+
+> **Las fotos del libro no son libres.** El libro autoriza reutilizar sus
+> textos citando la fuente, pero no sus fotografías. Lee
+> `public/img/CREDITOS.md` antes de publicar el repositorio o desplegarlo en
+> GitHub Pages.
 
 ---
 
@@ -84,18 +92,42 @@ public/img/ciclo/001_battus-polydamas-cubensis-hospedera.jpg
 
 Mientras un archivo no exista, la app dibuja una silueta en su lugar.
 
-Antes de subirlas, redúcelas a unos 1200 px de ancho y calidad ~80. Con
-207 especies, la diferencia entre fotos crudas del iPhone y fotos
-reducidas es de cientos de megas frente a unas decenas — y todo esto se
-descarga al teléfono para el uso sin conexión.
+Qué hay ahora, sacado del libro:
+
+- **180 láminas** — el ejemplar vivo, de las láminas fotográficas del final.
+- **154 montados** — las vistas superior e inferior de la ficha, unidas en una
+  sola imagen (cuando el libro trae macho y hembra, van las cuatro).
+- **Nada de huevo, larva, pupa ni planta hospedera**: el libro casi no las
+  trae. Esas se van consiguiendo en el campo desde la propia app.
+
+Las del libro vienen a 150 ppi, así que miden entre 350 y 470 px de ancho: es
+toda la resolución que hay. Si más adelante añades fotos tuyas, redúcelas a
+unos 1200 px y calidad ~80 antes de subirlas; con 208 especies, la diferencia
+entre fotos crudas del iPhone y fotos reducidas son cientos de megas frente a
+unas decenas, y todo esto se descarga al teléfono para el uso sin conexión.
+
+Autoría y condiciones de uso: `public/img/CREDITOS.md`.
 
 ---
 
 ## Rellenar el catálogo
 
-Cada especie empieza con `"estado_datos": "pendiente"` y los campos de
-texto vacíos. La ficha muestra «Por documentar» donde falta algo, así que
-puedes ir avanzando sin que nada se vea roto.
+**194 de las 208 especies ya vienen llenas desde el libro**: descripción,
+envergadura, distribución, ecología, plantas hospederas, nombres comunes en
+español e inglés, abundancia y categoría de conservación. Las 14 que faltan
+son las que el libro marca como ocasionales o accidentales, o subespecies que
+no trata por separado: siguen con `"estado_datos": "pendiente"` y la ficha
+muestra «Por documentar» donde falta algo.
+
+Campos que se añadieron con los datos del libro:
+
+| Campo | Qué es |
+|---|---|
+| `libro` | `{pagina, lamina}` de la guía de campo, para ir a la fuente |
+| `abundancia` | «Muy común», «Poco común», «Rara»… tal como la clasifica el libro |
+| `conservacion` | categoría de amenaza, cuando el libro la da |
+| `distribucion.localidades` | los puntos negros del mapa del libro, en `[lon, lat]` |
+| `nota_fuente` | avisos de procedencia: qué conviene comprobar en cada ficha |
 
 Campos que mueven la interfaz:
 
@@ -143,12 +175,27 @@ El filtro tiene dos vías, las dos en `MapaZonas.jsx`:
 - **Provincias** — un toque por provincia. Entra la especie con alguna
   zona en ella.
 
+## Distribución: lo que trae cada ficha
+
+179 especies llevan la distribución que publica el libro, vectorizada de su
+mapa: las manchas naranjas (municipios con registro) van en
+`distribucion.poligonos` y los puntos negros (localidades concretas) en
+`distribucion.localidades`. La ficha las pinta sobre el mapa, y el filtro de
+trazo las usa: pasar el dedo por una zona ya selecciona especies de verdad,
+no solo las que tienen zona del catálogo asignada.
+
+Precisión: unos 5–10 km. Comprobado contra localidades conocidas
+(*Pseudochrysops bornoi yateritas*, que solo se conoce de Yateritas, cae a
+10 km de Yateritas). Sirve para ver y filtrar, no para medir.
+
 ## Siguiente
 
-- [ ] Contornos reales: el de `zonas.json` es aproximado. Con el GeoJSON
-      de gadm.org quedan las formas exactas de isla y provincias. En SVG
-      y no con Leaflet, porque Leaflet descarga teselas y esta app tiene
-      que funcionar sin conexión.
+- [ ] Contornos reales: el de `zonas.json` sigue siendo aproximado, y ahora se
+      nota más, porque las manchas del libro son exactas y el contorno no.
+      Con el GeoJSON de gadm.org quedan las formas exactas de isla y
+      provincias. En SVG y no con Leaflet, porque Leaflet descarga teselas y
+      esta app tiene que funcionar sin conexión. (El mapa del libro **no**
+      sirve para esto: dibuja los municipios con su extensión marina.)
 - [ ] Editor de zonas: dibujar un polígono con el dedo y guardarlo en
       `distribucion.poligonos` de una especie. Es el mismo código de
       trazo, cambiando el destino.
