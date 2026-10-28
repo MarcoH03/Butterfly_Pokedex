@@ -18,6 +18,19 @@
    Claves: lamina · montado · huevo · larva · pupa · hospedera
    ══════════════════════════════════════════════════════════════ */
 
+/* El catálogo guarda las rutas relativas ("img/laminas/001_….jpg").
+   Una ruta relativa se resuelve contra la URL de la página, así que en
+   la ficha (/especie/5) el navegador pedía /especie/img/laminas/… y
+   solo salía la silueta. Hay que anclarlas a la base de la app, que en
+   GitHub Pages no es la raíz del dominio. */
+const BASE = (typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL) || '/'
+
+function conBase(ruta) {
+  if (!ruta) return null
+  if (/^([a-z]+:|\/\/|\/)/i.test(ruta)) return ruta   // absoluta, data:, blob:…
+  return BASE.replace(/\/+$/, '') + '/' + ruta.replace(/^\/+/, '')
+}
+
 /**
  * Ruta de una imagen del catálogo, o null si el archivo no está.
  * @param {object} especie
@@ -29,7 +42,7 @@ export function rutaImagen(especie, clave) {
 
   const ruta = especie.imagenes[clave]
   // `adult` es una lista en versiones antiguas del catálogo
-  return Array.isArray(ruta) ? (ruta[0] ?? null) : (ruta ?? null)
+  return conBase(Array.isArray(ruta) ? (ruta[0] ?? null) : (ruta ?? null))
 }
 
 /** ¿Esta especie tiene alguna imagen subida? */
